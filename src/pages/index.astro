@@ -5,6 +5,8 @@ import EmergencyBanner from "../components/EmergencyBanner.astro";
 import TrustBadges from "../components/TrustBadges.astro";
 import RatingBadges from "../components/RatingBadges.astro";
 import FeaturedServices from "../components/FeaturedServices.astro";
+import SpecialOffers from "../components/SpecialOffers.astro";
+import HorizonDivider from "../components/HorizonDivider.astro";
 ---
 
 <BaseLayout title="Home" transparentHeader={true}>
@@ -55,7 +57,15 @@ import FeaturedServices from "../components/FeaturedServices.astro";
 
   <FeaturedServices />
 
+  <HorizonDivider toColorClass="text-white" side="left" />
+
   <ThreeStepProcess />
+
+  <HorizonDivider toColorClass="text-brand-gold/10" side="right" />
+
+  <SpecialOffers />
+
+  <HorizonDivider toColorClass="text-brand-green/5" side="left" />
 
   <section class="bg-brand-green/5 py-16">
     <div class="mx-auto max-w-6xl px-4 text-center">
@@ -72,6 +82,8 @@ import FeaturedServices from "../components/FeaturedServices.astro";
       </div>
     </div>
   </section>
+
+  <HorizonDivider toColorClass="text-white" side="right" />
 
   <section class="mx-auto max-w-4xl px-4 py-16 text-center">
     <h2 class="text-3xl font-extrabold text-brand-ink">Ready for a Comfortable Home?</h2>

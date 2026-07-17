@@ -1,0 +1,27 @@
+---
+// Reusable "sunrise over the horizon" section divider.
+// The wave fill uses currentColor, so pass the NEXT section's background as a text-* class.
+// `side` positions the sun/rays near one edge (like a mark emerging from that corner),
+// alternate "left"/"right" between consecutive dividers down the page.
+interface Props {
+  toColorClass?: string;
+  side?: "left" | "right";
+}
+const { toColorClass = "text-white", side = "left" } = Astro.props;
+const cx = side === "left" ? 190 : 1250;
+const dir = side === "left" ? 1 : -1;
+---
+
+<div class="relative w-full overflow-hidden leading-[0]">
+  <svg class:list={["w-full h-16 sm:h-24", toColorClass]} viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none">
+    <circle cx={cx} cy="68" r="40" fill="#d8b165" />
+    <g stroke="#d8b165" stroke-width="4" stroke-linecap="round">
+      <line x1={cx} y1="22" x2={cx} y2="6" />
+      <line x1={cx - dir * 22} y1="28" x2={cx - dir * 30} y2="14" />
+      <line x1={cx + dir * 22} y1="28" x2={cx + dir * 30} y2="14" />
+      <line x1={cx - dir * 39} y1="45" x2={cx - dir * 53} y2="37" />
+      <line x1={cx + dir * 39} y1="45" x2={cx + dir * 53} y2="37" />
+    </g>
+    <path d="M0,74 C240,108 480,44 720,60 C960,76 1200,104 1440,66 L1440,120 L0,120 Z" fill="currentColor" />
+  </svg>
+</div>
