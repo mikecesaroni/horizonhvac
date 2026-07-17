@@ -5,28 +5,24 @@ import PageHero from "../components/PageHero.astro";
 
 <BaseLayout title="Contact">
   <PageHero eyebrow="Get In Touch" title="Contact Us" description="Same-day service, 7 days a week." />
-  <section class="mx-auto max-w-2xl px-4 py-16">
-    <!-- TODO: wire this form to a GoHighLevel form/webhook once account details are available -->
-    <form class="space-y-4 rounded-2xl border border-brand-green/10 p-8 shadow-sm">
-      <div>
-        <label class="block text-sm font-semibold text-brand-ink" for="name">Full Name</label>
-        <input id="name" name="name" type="text" required class="mt-1 w-full rounded-md border border-brand-ink/20 px-3 py-2" />
-      </div>
-      <div>
-        <label class="block text-sm font-semibold text-brand-ink" for="phone">Phone Number</label>
-        <input id="phone" name="phone" type="tel" required class="mt-1 w-full rounded-md border border-brand-ink/20 px-3 py-2" />
-      </div>
-      <div>
-        <label class="block text-sm font-semibold text-brand-ink" for="email">Email</label>
-        <input id="email" name="email" type="email" class="mt-1 w-full rounded-md border border-brand-ink/20 px-3 py-2" />
-      </div>
-      <div>
-        <label class="block text-sm font-semibold text-brand-ink" for="message">How can we help?</label>
-        <textarea id="message" name="message" rows="4" class="mt-1 w-full rounded-md border border-brand-ink/20 px-3 py-2"></textarea>
-      </div>
-      <button type="submit" class="w-full rounded-md bg-brand-green px-6 py-3 font-semibold text-white hover:opacity-90">
-        Send Message
+  <section class="mx-auto max-w-2xl px-4 py-16 text-center">
+    <p class="text-lg text-brand-ink/70">
+      Ready to get started? Request your free estimate and we'll get back to you shortly.
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-4">
+      <button
+        type="button"
+        data-open-quote-form
+        class="rounded-full bg-brand-green px-8 py-4 font-bold text-white shadow-lg hover:opacity-90 transition-opacity"
+      >
+        Request Your Free Estimate
       </button>
-    </form>
+      <a
+        href="tel:14014259879"
+        class="rounded-full bg-brand-gold px-8 py-4 font-bold text-brand-ink shadow-lg hover:opacity-90 transition-opacity"
+      >
+        Call 401-425-9879
+      </a>
+    </div>
   </section>
 </BaseLayout>
