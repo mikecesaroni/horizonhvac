@@ -3,26 +3,29 @@
 // The wave fill uses currentColor, so pass the NEXT section's background as a text-* class.
 // `side` positions the sun near one edge (like a mark emerging from that corner) with a
 // wide glow/beam spread, alternate "left"/"right" between consecutive dividers down the page.
+// The viewBox has generous headroom above the sun so the glow/beams fade out on their own
+// gradient before ever reaching an edge — nothing here should look hard-clipped.
 interface Props {
   toColorClass?: string;
   side?: "left" | "right";
 }
 const { toColorClass = "text-white", side = "left" } = Astro.props;
 const cx = side === "left" ? 200 : 1240;
+const cy = 118;
 const uid = Math.random().toString(36).slice(2, 9);
 
 const beamAngles = [-72, -54, -36, -18, 0, 18, 36, 54, 72];
-const beamLengths = [95, 130, 155, 172, 180, 172, 155, 130, 95];
+const beamLengths = [34, 46, 54, 60, 64, 60, 54, 46, 34];
 
 function beamPoints(angleDeg: number, len: number) {
   const rad = (angleDeg * Math.PI) / 180;
   const dx = Math.sin(rad);
   const dy = -Math.cos(rad);
-  const baseHalfWidth = 5;
-  const baseX = cx + dx * 50;
-  const baseY = 66 + dy * 50;
-  const tipX = cx + dx * (50 + len);
-  const tipY = 66 + dy * (50 + len);
+  const baseHalfWidth = 4.5;
+  const baseX = cx + dx * 44;
+  const baseY = cy + dy * 44;
+  const tipX = cx + dx * (44 + len);
+  const tipY = cy + dy * (44 + len);
   const px = -dy;
   const py = dx;
   const x1 = baseX + px * baseHalfWidth;
@@ -34,11 +37,11 @@ function beamPoints(angleDeg: number, len: number) {
 ---
 
 <div class="relative w-full overflow-hidden leading-[0]">
-  <svg class:list={["w-full h-24 sm:h-32", toColorClass]} viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none">
+  <svg class:list={["w-full h-32 sm:h-48", toColorClass]} viewBox="0 0 1440 200" fill="none" preserveAspectRatio="none">
     <defs>
       <radialGradient id={`glow-${uid}`} cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stop-color="#f4d78f" stop-opacity="0.55" />
-        <stop offset="45%" stop-color="#d8b165" stop-opacity="0.22" />
+        <stop offset="0%" stop-color="#f4d78f" stop-opacity="0.5" />
+        <stop offset="45%" stop-color="#d8b165" stop-opacity="0.2" />
         <stop offset="100%" stop-color="#d8b165" stop-opacity="0" />
       </radialGradient>
       <radialGradient id={`sun-${uid}`} cx="38%" cy="35%" r="70%">
@@ -47,33 +50,27 @@ function beamPoints(angleDeg: number, len: number) {
         <stop offset="100%" stop-color="#c99a4d" />
       </radialGradient>
       <linearGradient id={`beam-${uid}`} x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stop-color="#e9c988" stop-opacity="0.85" />
+        <stop offset="0%" stop-color="#e9c988" stop-opacity="0.8" />
         <stop offset="100%" stop-color="#e9c988" stop-opacity="0" />
       </linearGradient>
       <filter id={`shadow-${uid}`} x="-50%" y="-50%" width="200%" height="200%">
-        <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#143f22" flood-opacity="0.35" />
+        <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#143f22" flood-opacity="0.3" />
       </filter>
     </defs>
 
-    <ellipse cx={cx} cy="66" rx="480" ry="100" fill={`url(#glow-${uid})`} />
+    <ellipse cx={cx} cy={cy} rx="440" ry="85" fill={`url(#glow-${uid})`} />
 
     <g filter={`url(#shadow-${uid})`}>
       {beamAngles.map((angle, i) => (
         <polygon points={beamPoints(angle, beamLengths[i])} fill={`url(#beam-${uid})`} />
       ))}
-      <circle cx={cx} cy="66" r="44" fill={`url(#sun-${uid})`} />
-      <circle cx={cx} cy="66" r="44" fill="none" stroke="#b8863f" stroke-opacity="0.4" stroke-width="1.5" />
+      <circle cx={cx} cy={cy} r="38" fill={`url(#sun-${uid})`} />
+      <circle cx={cx} cy={cy} r="38" fill="none" stroke="#b8863f" stroke-opacity="0.35" stroke-width="1.5" />
     </g>
 
     <path
-      d="M0,78 C220,112 380,34 620,54 C860,74 980,30 1160,50 C1300,64 1380,96 1440,70 L1440,120 L0,120 Z"
+      d="M0,148 C220,196 380,88 620,112 C860,136 980,82 1160,108 C1300,127 1380,170 1440,140 L1440,200 L0,200 Z"
       fill="currentColor"
-    />
-    <path
-      d="M0,78 C220,112 380,34 620,54 C860,74 980,30 1160,50 C1300,64 1380,96 1440,70"
-      stroke={`url(#beam-${uid})`}
-      stroke-width="2"
-      opacity="0.5"
     />
   </svg>
 </div>
