@@ -13,6 +13,17 @@ body {
   font-family: var(--font-sans);
 }
 
+/*
+  iOS Safari can "lose" a position:fixed/sticky element and let it scroll away
+  when JS toggles classes on it during scroll (exactly what the header does to
+  shrink/solidify). Forcing it onto its own GPU compositing layer keeps it pinned.
+*/
+#site-header {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform;
+}
+
 #site-header.is-transparent {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), transparent);
   transition: background-color 300ms ease, box-shadow 300ms ease;

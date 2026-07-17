@@ -125,10 +125,18 @@ const { transparent = false } = Astro.props;
 
   const header = document.getElementById("site-header");
   if (header?.classList.contains("is-transparent")) {
-    const onScroll = () => {
+    let ticking = false;
+    const applyScrollState = () => {
       header.classList.toggle("is-scrolled", window.scrollY > 60);
+      ticking = false;
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(applyScrollState);
+        ticking = true;
+      }
     };
     window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
+    applyScrollState();
   }
 </script>
