@@ -15,5 +15,5 @@ const { eyebrow, title, description } = Astro.props;
     <h1 class="mt-2 text-4xl sm:text-5xl font-extrabold">{title}</h1>
     {description && <p class="mt-4 max-w-2xl mx-auto text-white/80">{description}</p>}
   </div>
-  <HorizonDivider toColorClass="text-white" side="right" />
 </section>
+<HorizonDivider fromClass="bg-gradient-to-b from-brand-green via-brand-green/80 to-brand-green/45" toColorClass="text-white" side="right" />

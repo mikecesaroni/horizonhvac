@@ -57,15 +57,19 @@ import HorizonDivider from "../components/HorizonDivider.astro";
 
   <FeaturedServices />
 
-  <HorizonDivider toColorClass="text-brand-green" side="left" />
+  <HorizonDivider fromClass="bg-white" toColorClass="text-brand-green" side="left" />
 
   <ThreeStepProcess dark={true} />
 
-  <HorizonDivider toColorClass="text-white" side="right" />
+  <HorizonDivider
+    fromClass="bg-gradient-to-b from-brand-green via-brand-green/80 to-brand-green/45"
+    toColorClass="text-white"
+    side="right"
+  />
 
   <SpecialOffers />
 
-  <HorizonDivider toColorClass="text-brand-green" side="left" />
+  <HorizonDivider fromClass="bg-white" toColorClass="text-brand-green" side="left" />
 
   <section class="bg-brand-green py-16">
     <div class="mx-auto max-w-6xl px-4 text-center">
@@ -83,7 +87,11 @@ import HorizonDivider from "../components/HorizonDivider.astro";
     </div>
   </section>
 
-  <HorizonDivider toColorClass="text-white" side="right" />
+  <HorizonDivider
+    fromClass="bg-gradient-to-b from-brand-green via-brand-green/80 to-brand-green/45"
+    toColorClass="text-white"
+    side="right"
+  />
 
   <section class="mx-auto max-w-4xl px-4 py-16 text-center">
     <h2 class="text-3xl font-extrabold text-brand-ink">Ready for a Comfortable Home?</h2>

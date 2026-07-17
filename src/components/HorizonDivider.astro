@@ -1,15 +1,15 @@
 ---
 // Reusable "sunrise over the horizon" section divider.
-// The wave fill uses currentColor, so pass the NEXT section's background as a text-* class.
-// `side` positions the sun near one edge (like a mark emerging from that corner) with a
-// wide glow/beam spread, alternate "left"/"right" between consecutive dividers down the page.
-// The viewBox has generous headroom above the sun so the glow/beams fade out on their own
-// gradient before ever reaching an edge — nothing here should look hard-clipped.
+// `fromClass` is a bg-* (or gradient) class matching/fading from the PREVIOUS section's color —
+// this is a real background on the wrapper, not a transparency trick, so there's never a gap.
+// `toColorClass` is a text-* class controlling the wave's currentColor fill (the NEXT section's color).
+// `side` positions the sun near one edge, alternate "left"/"right" between consecutive dividers.
 interface Props {
+  fromClass?: string;
   toColorClass?: string;
   side?: "left" | "right";
 }
-const { toColorClass = "text-white", side = "left" } = Astro.props;
+const { fromClass = "bg-white", toColorClass = "text-white", side = "left" } = Astro.props;
 const cx = side === "left" ? 200 : 1240;
 const cy = 118;
 const uid = Math.random().toString(36).slice(2, 9);
@@ -36,7 +36,7 @@ function beamPoints(angleDeg: number, len: number) {
 }
 ---
 
-<div class="relative w-full overflow-hidden leading-[0] -mt-12 sm:-mt-20">
+<div class:list={["relative w-full overflow-hidden leading-[0]", fromClass]}>
   <svg class:list={["w-full h-32 sm:h-48", toColorClass]} viewBox="0 0 1440 200" fill="none" preserveAspectRatio="none">
     <defs>
       <radialGradient id={`glow-${uid}`} cx="50%" cy="50%" r="50%">
