@@ -1,0 +1,43 @@
+---
+import { serviceAreas } from "../data/serviceAreas";
+---
+
+<section class="bg-white py-16">
+  <div class="mx-auto max-w-5xl px-4 text-center">
+    <p class="text-sm font-semibold uppercase tracking-wide text-brand-gold">Where We Work</p>
+    <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-ink">Areas We Serve</h2>
+    <p class="mt-2 text-2xl sm:text-3xl font-extrabold text-brand-green">All of Rhode Island</p>
+
+    <div class="mt-10 overflow-hidden rounded-3xl border-4 border-brand-green/15 shadow-lg">
+      <iframe
+        title="Map of Rhode Island — Horizon HVAC service area"
+        src="https://maps.google.com/maps?q=Rhode+Island&z=9&output=embed"
+        class="h-80 w-full sm:h-96"
+        style="border:0;"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      {serviceAreas.map((area) => (
+        <a
+          href={`/service-areas/${area.slug}`}
+          class="flex items-center gap-1.5 rounded-full border-2 border-brand-green/20 bg-white px-4 py-2 text-sm font-semibold text-brand-ink hover:border-brand-green hover:text-brand-green transition-colors"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-brand-gold" fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.847 2.02 6.837 3.963 8.827a19.58 19.58 0 002.683 2.282 16.975 16.975 0 001.144.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+          </svg>
+          {area.name}
+        </a>
+      ))}
+    </div>
+
+    <a
+      href="/service-areas"
+      class="mt-8 inline-block rounded-full bg-brand-green px-8 py-3 font-bold text-white shadow-lg hover:opacity-90 transition-opacity"
+    >
+      View All Service Areas
+    </a>
+  </div>
+</section>
