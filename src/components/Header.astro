@@ -75,17 +75,29 @@ const { transparent = false } = Astro.props;
       CALL 401-425-9879
     </a>
 
-    <button
-      id="mobile-nav-toggle"
-      class="lg:hidden text-white"
-      aria-label="Toggle menu"
-      aria-expanded="false"
-      aria-controls="mobile-nav"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
+    <div class="flex items-center gap-3 lg:hidden">
+      <a
+        href="tel:14014259879"
+        aria-label="Call Horizon HVAC"
+        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-gold text-brand-ink"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.25 6.75c0 8.284 6.716 15 15 15h1.5a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106a2.25 2.25 0 00-2.328.638l-.727.727a11.25 11.25 0 01-6.06-6.06l.727-.727a2.25 2.25 0 00.638-2.328L6.913 4.352a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 5.75v1z" />
+        </svg>
+      </a>
+
+      <button
+        id="mobile-nav-toggle"
+        class="text-white"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
   </div>
 
   <nav id="mobile-nav" class="hidden lg:hidden bg-brand-green-dark px-4 pb-4" aria-label="Mobile">
