@@ -11,11 +11,48 @@ interface Props {
 }
 const { fromClass = "bg-white", toColorClass = "text-white", side = "left" } = Astro.props;
 const cx = side === "left" ? 200 : 1240;
-const cy = 118;
 // "slice" scales X/Y uniformly (no squish) and crops overflow; anchor the crop to whichever
 // edge the sun sits near so it never gets cropped out on narrow screens.
 const preserveAspectRatio = side === "left" ? "xMinYMid slice" : "xMaxYMid slice";
 const uid = Math.random().toString(36).slice(2, 9);
+
+// The wave is made of cubic Bezier segments; find the one containing cx and solve for the
+// curve's actual y there (via bisection on x, since x(t) isn't evenly spaced), so the sun's
+// center always sits exactly ON the curve — precisely half hidden by it — instead of guessing.
+type Pt = [number, number];
+const segments: [Pt, Pt, Pt, Pt][] = [
+  [[0, 148], [220, 196], [380, 88], [620, 112]],
+  [[620, 112], [860, 136], [980, 82], [1160, 108]],
+  [[1160, 108], [1300, 127], [1380, 170], [1440, 140]],
+];
+
+function bezierAt(seg: [Pt, Pt, Pt, Pt], t: number): Pt {
+  const [p0, p1, p2, p3] = seg;
+  const mt = 1 - t;
+  const a = mt * mt * mt;
+  const b = 3 * mt * mt * t;
+  const c = 3 * mt * t * t;
+  const d = t * t * t;
+  return [
+    a * p0[0] + b * p1[0] + c * p2[0] + d * p3[0],
+    a * p0[1] + b * p1[1] + c * p2[1] + d * p3[1],
+  ];
+}
+
+function curveYAtX(targetX: number): number {
+  const seg = segments.find(([p0, , , p3]) => targetX >= p0[0] && targetX <= p3[0]) ?? segments[0];
+  let lo = 0;
+  let hi = 1;
+  for (let i = 0; i < 40; i++) {
+    const mid = (lo + hi) / 2;
+    const [x] = bezierAt(seg, mid);
+    if (x < targetX) lo = mid;
+    else hi = mid;
+  }
+  return bezierAt(seg, (lo + hi) / 2)[1];
+}
+
+const cy = curveYAtX(cx);
 
 const beamAngles = [-72, -54, -36, -18, 0, 18, 36, 54, 72];
 const beamLengths = [34, 46, 54, 60, 64, 60, 54, 46, 34];
