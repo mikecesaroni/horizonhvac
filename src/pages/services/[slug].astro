@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+import { services } from "../../data/services";
+
+export function getStaticPaths() {
+  return services.map((service) => ({
+    params: { slug: service.slug },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+---
+
+<BaseLayout title={service.name}>
+  <PageHero eyebrow="Services" title={service.name} description={service.summary} />
+  <section class="mx-auto max-w-4xl px-4 py-16 text-brand-ink/80 space-y-4">
+    <!-- TODO: replace with real service page copy -->
+    <p>Detailed content for {service.name} coming soon.</p>
+    <a href="/contact" class="inline-block mt-4 rounded-md bg-brand-green px-6 py-3 font-semibold text-white hover:opacity-90">
+      Book This Service
+    </a>
+  </section>
+</BaseLayout>

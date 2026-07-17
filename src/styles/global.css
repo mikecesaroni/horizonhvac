@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+  /* TODO: confirm exact green hex from Elementor Global Colors > Accent before launch */
+  --color-brand-green: #1f3d2b;
+  --color-brand-green-dark: #14291d;
+  --color-brand-gold: #d8b165;
+  --color-brand-ink: #000000;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+}

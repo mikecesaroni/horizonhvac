@@ -1,0 +1,64 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import RebateBanner from "../components/RebateBanner.astro";
+import ThreeStepProcess from "../components/ThreeStepProcess.astro";
+---
+
+<BaseLayout title="Home">
+  <section class="mx-auto max-w-7xl px-4 pt-8">
+    <RebateBanner />
+  </section>
+
+  <section class="mx-auto max-w-7xl px-4 py-16 grid gap-10 lg:grid-cols-2 lg:items-center">
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-wide text-brand-gold">
+        Same-Day Service · 7 Days a Week
+      </p>
+      <h1 class="mt-3 text-4xl sm:text-5xl font-extrabold leading-tight text-brand-ink">
+        Rhode Island's <span class="text-brand-green">Most Trusted</span> Heating &amp; Cooling Experts
+      </h1>
+      <p class="mt-4 text-lg text-brand-ink/70">
+        <!-- TODO: replace with real hero copy -->
+        Fast, honest HVAC repair, installation, and maintenance — backed by a 100% satisfaction guarantee.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-4">
+        <a href="/contact" class="rounded-md bg-brand-green px-6 py-3 font-semibold text-white hover:opacity-90">
+          Book Now
+        </a>
+        <a href="tel:14014259879" class="rounded-md border-2 border-brand-green px-6 py-3 font-semibold text-brand-green hover:bg-brand-green/5">
+          Call 401-425-9879
+        </a>
+      </div>
+    </div>
+    <div class="rounded-2xl bg-brand-green/10 aspect-video flex items-center justify-center text-brand-green/50">
+      <!-- TODO: replace with real hero image -->
+      <span>Hero image placeholder</span>
+    </div>
+  </section>
+
+  <ThreeStepProcess />
+
+  <section class="bg-brand-green/5 py-16">
+    <div class="mx-auto max-w-6xl px-4 text-center">
+      <h2 class="text-3xl font-extrabold text-brand-ink">What Your Neighbors Are Saying</h2>
+      <p class="mt-2 text-brand-ink/70">4.9 Stars · 165 Reviews</p>
+      <!-- TODO: wire up real Google Reviews content -->
+      <div class="mt-10 grid gap-6 sm:grid-cols-3">
+        {[1, 2, 3].map(() => (
+          <div class="rounded-xl bg-white p-6 shadow-sm text-left">
+            <p class="text-brand-ink/80">"Placeholder review text — replace with real customer testimonials."</p>
+            <p class="mt-4 font-semibold text-brand-ink">— Customer Name</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-4xl px-4 py-16 text-center">
+    <h2 class="text-3xl font-extrabold text-brand-ink">Ready for a Comfortable Home?</h2>
+    <p class="mt-3 text-brand-ink/70">Same-day service, upfront pricing, and a 100% satisfaction guarantee.</p>
+    <a href="/contact" class="mt-6 inline-block rounded-md bg-brand-gold px-8 py-3 font-semibold text-brand-ink hover:opacity-90">
+      Book Your Appointment
+    </a>
+  </section>
+</BaseLayout>

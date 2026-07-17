@@ -1,0 +1,32 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+---
+
+<BaseLayout title="Contact">
+  <PageHero eyebrow="Get In Touch" title="Contact Us" description="Same-day service, 7 days a week." />
+  <section class="mx-auto max-w-2xl px-4 py-16">
+    <!-- TODO: wire this form to a GoHighLevel form/webhook once account details are available -->
+    <form class="space-y-4 rounded-2xl border border-brand-green/10 p-8 shadow-sm">
+      <div>
+        <label class="block text-sm font-semibold text-brand-ink" for="name">Full Name</label>
+        <input id="name" name="name" type="text" required class="mt-1 w-full rounded-md border border-brand-ink/20 px-3 py-2" />
+      </div>
+      <div>
+        <label class="block text-sm font-semibold text-brand-ink" for="phone">Phone Number</label>
+        <input id="phone" name="phone" type="tel" required class="mt-1 w-full rounded-md border border-brand-ink/20 px-3 py-2" />
+      </div>
+      <div>
+        <label class="block text-sm font-semibold text-brand-ink" for="email">Email</label>
+        <input id="email" name="email" type="email" class="mt-1 w-full rounded-md border border-brand-ink/20 px-3 py-2" />
+      </div>
+      <div>
+        <label class="block text-sm font-semibold text-brand-ink" for="message">How can we help?</label>
+        <textarea id="message" name="message" rows="4" class="mt-1 w-full rounded-md border border-brand-ink/20 px-3 py-2"></textarea>
+      </div>
+      <button type="submit" class="w-full rounded-md bg-brand-green px-6 py-3 font-semibold text-white hover:opacity-90">
+        Send Message
+      </button>
+    </form>
+  </section>
+</BaseLayout>
