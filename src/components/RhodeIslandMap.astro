@@ -10,17 +10,6 @@ const TY = -171.24;
 const PAD = 60;
 const W = 12.0498 * SCALE + PAD * 2;
 const H = 16.64 * SCALE + PAD * 2;
-
-// TODO: these pin positions are illustrative approximations of each city's real location
-// within the state outline, not precisely geocoded — good enough for a decorative map,
-// but worth refining if pixel-perfect placement matters later.
-const cities = [
-  { name: "Providence", x: 385, y: 178 },
-  { name: "Woonsocket", x: 150, y: 108 },
-  { name: "Warwick", x: 315, y: 355 },
-  { name: "Newport", x: 460, y: 320 },
-  { name: "Westerly", x: 205, y: 660 },
-];
 ---
 
 <div class="relative overflow-hidden rounded-3xl border-4 border-white shadow-[0_16px_32px_rgba(0,0,0,0.25)]">
@@ -38,9 +27,6 @@ const cities = [
       <filter id="ri-land-shadow" x="-40%" y="-40%" width="180%" height="180%">
         <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#143f22" flood-opacity="0.4" />
       </filter>
-      <filter id="ri-pin-shadow" x="-60%" y="-60%" width="220%" height="220%">
-        <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.35" />
-      </filter>
     </defs>
 
     <rect width={W} height={H} fill="url(#ri-water)" />
@@ -53,27 +39,5 @@ const cities = [
     <g transform={`translate(${PAD},${PAD}) scale(${SCALE}) translate(${TX},${TY})`} filter="url(#ri-land-shadow)">
       <path d={RI_PATH} fill="url(#ri-land)" stroke="white" stroke-width="0.15" />
     </g>
-
-    {cities.map((c) => (
-      <g transform={`translate(${c.x},${c.y})`} filter="url(#ri-pin-shadow)">
-        <path
-          d="M0,-24 C6.5,-24 11,-19.2 11,-12.8 C11,-5 0,11 0,11 C0,11 -11,-5 -11,-12.8 C-11,-19.2 -6.5,-24 0,-24 Z"
-          fill="#1d5c32"
-        />
-        <circle cx="0" cy="-13.5" r="4.5" fill="white" />
-      </g>
-    ))}
-    {cities.map((c) => (
-      <text
-        x={c.x + 15}
-        y={c.y - 9}
-        font-size="16"
-        font-weight="700"
-        fill="#143f22"
-        style="paint-order: stroke; stroke: white; stroke-width: 3px;"
-      >
-        {c.name}
-      </text>
-    ))}
   </svg>
 </div>
