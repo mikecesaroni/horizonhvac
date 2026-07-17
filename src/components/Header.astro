@@ -15,6 +15,14 @@ const { transparent = false } = Astro.props;
     transparent ? "fixed top-0 inset-x-0 is-transparent" : "sticky top-0 bg-brand-green shadow-md",
   ]}
 >
+  <button
+    type="button"
+    data-open-quote-form
+    class="block w-full bg-brand-green-dark py-2 text-center text-xs font-bold uppercase tracking-widest text-white lg:hidden"
+  >
+    Free Estimate
+  </button>
+
   {!transparent && <TopBar />}
 
   {transparent && (
