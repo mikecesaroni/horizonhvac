@@ -1,27 +1,79 @@
 ---
 // Reusable "sunrise over the horizon" section divider.
 // The wave fill uses currentColor, so pass the NEXT section's background as a text-* class.
-// `side` positions the sun/rays near one edge (like a mark emerging from that corner),
-// alternate "left"/"right" between consecutive dividers down the page.
+// `side` positions the sun near one edge (like a mark emerging from that corner) with a
+// wide glow/beam spread, alternate "left"/"right" between consecutive dividers down the page.
 interface Props {
   toColorClass?: string;
   side?: "left" | "right";
 }
 const { toColorClass = "text-white", side = "left" } = Astro.props;
-const cx = side === "left" ? 190 : 1250;
-const dir = side === "left" ? 1 : -1;
+const cx = side === "left" ? 200 : 1240;
+const uid = Math.random().toString(36).slice(2, 9);
+
+const beamAngles = [-72, -54, -36, -18, 0, 18, 36, 54, 72];
+const beamLengths = [95, 130, 155, 172, 180, 172, 155, 130, 95];
+
+function beamPoints(angleDeg: number, len: number) {
+  const rad = (angleDeg * Math.PI) / 180;
+  const dx = Math.sin(rad);
+  const dy = -Math.cos(rad);
+  const baseHalfWidth = 5;
+  const baseX = cx + dx * 50;
+  const baseY = 66 + dy * 50;
+  const tipX = cx + dx * (50 + len);
+  const tipY = 66 + dy * (50 + len);
+  const px = -dy;
+  const py = dx;
+  const x1 = baseX + px * baseHalfWidth;
+  const y1 = baseY + py * baseHalfWidth;
+  const x2 = baseX - px * baseHalfWidth;
+  const y2 = baseY - py * baseHalfWidth;
+  return `${x1},${y1} ${x2},${y2} ${tipX},${tipY}`;
+}
 ---
 
 <div class="relative w-full overflow-hidden leading-[0]">
-  <svg class:list={["w-full h-16 sm:h-24", toColorClass]} viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none">
-    <circle cx={cx} cy="68" r="40" fill="#d8b165" />
-    <g stroke="#d8b165" stroke-width="4" stroke-linecap="round">
-      <line x1={cx} y1="22" x2={cx} y2="6" />
-      <line x1={cx - dir * 22} y1="28" x2={cx - dir * 30} y2="14" />
-      <line x1={cx + dir * 22} y1="28" x2={cx + dir * 30} y2="14" />
-      <line x1={cx - dir * 39} y1="45" x2={cx - dir * 53} y2="37" />
-      <line x1={cx + dir * 39} y1="45" x2={cx + dir * 53} y2="37" />
+  <svg class:list={["w-full h-24 sm:h-32", toColorClass]} viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none">
+    <defs>
+      <radialGradient id={`glow-${uid}`} cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#f4d78f" stop-opacity="0.55" />
+        <stop offset="45%" stop-color="#d8b165" stop-opacity="0.22" />
+        <stop offset="100%" stop-color="#d8b165" stop-opacity="0" />
+      </radialGradient>
+      <radialGradient id={`sun-${uid}`} cx="38%" cy="35%" r="70%">
+        <stop offset="0%" stop-color="#fbeecb" />
+        <stop offset="55%" stop-color="#e6c07d" />
+        <stop offset="100%" stop-color="#c99a4d" />
+      </radialGradient>
+      <linearGradient id={`beam-${uid}`} x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#e9c988" stop-opacity="0.85" />
+        <stop offset="100%" stop-color="#e9c988" stop-opacity="0" />
+      </linearGradient>
+      <filter id={`shadow-${uid}`} x="-50%" y="-50%" width="200%" height="200%">
+        <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#143f22" flood-opacity="0.35" />
+      </filter>
+    </defs>
+
+    <ellipse cx={cx} cy="66" rx="480" ry="100" fill={`url(#glow-${uid})`} />
+
+    <g filter={`url(#shadow-${uid})`}>
+      {beamAngles.map((angle, i) => (
+        <polygon points={beamPoints(angle, beamLengths[i])} fill={`url(#beam-${uid})`} />
+      ))}
+      <circle cx={cx} cy="66" r="44" fill={`url(#sun-${uid})`} />
+      <circle cx={cx} cy="66" r="44" fill="none" stroke="#b8863f" stroke-opacity="0.4" stroke-width="1.5" />
     </g>
-    <path d="M0,74 C240,108 480,44 720,60 C960,76 1200,104 1440,66 L1440,120 L0,120 Z" fill="currentColor" />
+
+    <path
+      d="M0,78 C220,112 380,34 620,54 C860,74 980,30 1160,50 C1300,64 1380,96 1440,70 L1440,120 L0,120 Z"
+      fill="currentColor"
+    />
+    <path
+      d="M0,78 C220,112 380,34 620,54 C860,74 980,30 1160,50 C1300,64 1380,96 1440,70"
+      stroke={`url(#beam-${uid})`}
+      stroke-width="2"
+      opacity="0.5"
+    />
   </svg>
 </div>
