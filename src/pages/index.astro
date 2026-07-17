@@ -57,20 +57,20 @@ import HorizonDivider from "../components/HorizonDivider.astro";
 
   <FeaturedServices />
 
-  <HorizonDivider toColorClass="text-white" side="left" />
+  <HorizonDivider toColorClass="text-brand-green" side="left" />
 
-  <ThreeStepProcess />
+  <ThreeStepProcess dark={true} />
 
-  <HorizonDivider toColorClass="text-brand-gold/10" side="right" />
+  <HorizonDivider toColorClass="text-white" side="right" />
 
   <SpecialOffers />
 
-  <HorizonDivider toColorClass="text-brand-green/5" side="left" />
+  <HorizonDivider toColorClass="text-brand-green" side="left" />
 
-  <section class="bg-brand-green/5 py-16">
+  <section class="bg-brand-green py-16">
     <div class="mx-auto max-w-6xl px-4 text-center">
-      <h2 class="text-3xl font-extrabold text-brand-ink">What Your Neighbors Are Saying</h2>
-      <p class="mt-2 text-brand-ink/70">4.9 Stars · 165 Reviews</p>
+      <h2 class="text-3xl font-extrabold text-white">What Your Neighbors Are Saying</h2>
+      <p class="mt-2 text-white/80">4.9 Stars · 165 Reviews</p>
       <!-- TODO: wire up real Google Reviews content -->
       <div class="mt-10 grid gap-6 sm:grid-cols-3">
         {[1, 2, 3].map(() => (
