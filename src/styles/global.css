@@ -1,9 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  /* TODO: confirm exact green hex from Elementor Global Colors > Accent before launch */
-  --color-brand-green: #1f3d2b;
-  --color-brand-green-dark: #14291d;
+  --color-brand-green: #1d5c32;
+  --color-brand-green-dark: #143f22;
   --color-brand-gold: #d8b165;
   --color-brand-ink: #000000;
 
