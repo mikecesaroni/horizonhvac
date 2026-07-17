@@ -1,0 +1,79 @@
+---
+// Real Rhode Island boundary (mainland + Narragansett Bay islands), sourced from the
+// @svg-maps/usa cartographic dataset — not hand-drawn, so the shape is geographically accurate.
+const RI_PATH =
+  "M1173.67,177.22l-0.45,0.71l-0.87,-0.65l-0.57,-0.82l-0.6,-0.39l-0.55,-0.06l0.98,1.87l-0.6,1.77l0.79,3.93l-0.83,1.96l-3.7,2.12l-1.21,0.22l-0.13,-1.28l0.27,-0.63l-0.28,-1.36l-0.18,-0.89l-0.42,-1.48l-0.47,-1.69l-0.51,-1.83l-0.45,-1.62l-0.33,-1.17l-0.45,-1.61l-0.32,-1.15l1.2,-0.35l1.64,-0.48l1.58,-0.46l0.98,-0.29l1.2,-0.35l0.32,0.95l0.49,1.47l0.73,0.05l0.31,1.22l0.2,0.81l0.72,0.34l0.73,0.35L1173.67,177.22zM1174.84,181.85l-0.63,0.81l-0.92,0.15l0.23,-0.92l-0.15,-1.21l0.08,-1.4l0.14,-0.46l0.42,-0.49L1174.84,181.85zM1172.88,182.55l-0.34,0.52l-0.45,-0.99l-0.02,-1.28l0.31,-0.11l0.33,0.59L1172.88,182.55z";
+
+const SCALE = 40;
+const TX = -1162.79;
+const TY = -171.24;
+const PAD = 60;
+const W = 12.0498 * SCALE + PAD * 2;
+const H = 16.64 * SCALE + PAD * 2;
+
+// TODO: these pin positions are illustrative approximations of each city's real location
+// within the state outline, not precisely geocoded — good enough for a decorative map,
+// but worth refining if pixel-perfect placement matters later.
+const cities = [
+  { name: "Providence", x: 385, y: 178 },
+  { name: "Woonsocket", x: 150, y: 108 },
+  { name: "Warwick", x: 315, y: 355 },
+  { name: "Newport", x: 460, y: 320 },
+  { name: "Westerly", x: 205, y: 660 },
+];
+---
+
+<div class="relative overflow-hidden rounded-3xl border-4 border-white shadow-[0_16px_32px_rgba(0,0,0,0.25)]">
+  <svg viewBox={`0 0 ${W} ${H}`} class="w-full h-auto block">
+    <defs>
+      <radialGradient id="ri-water" cx="30%" cy="15%" r="95%">
+        <stop offset="0%" stop-color="#c9e6f5" />
+        <stop offset="55%" stop-color="#9bcbe3" />
+        <stop offset="100%" stop-color="#66a3c9" />
+      </radialGradient>
+      <linearGradient id="ri-land" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#f0d199" />
+        <stop offset="100%" stop-color="#c99a4d" />
+      </linearGradient>
+      <filter id="ri-land-shadow" x="-40%" y="-40%" width="180%" height="180%">
+        <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#143f22" flood-opacity="0.4" />
+      </filter>
+      <filter id="ri-pin-shadow" x="-60%" y="-60%" width="220%" height="220%">
+        <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.35" />
+      </filter>
+    </defs>
+
+    <rect width={W} height={H} fill="url(#ri-water)" />
+
+    <g stroke="white" stroke-opacity="0.3" stroke-width="2" fill="none">
+      <path d={`M0,${H * 0.08} C${W * 0.25},${H * 0.04} ${W * 0.5},${H * 0.1} ${W},${H * 0.05}`} />
+      <path d={`M0,${H * 0.95} C${W * 0.3},${H * 0.9} ${W * 0.6},${H * 0.98} ${W},${H * 0.92}`} />
+    </g>
+
+    <g transform={`translate(${PAD},${PAD}) scale(${SCALE}) translate(${TX},${TY})`} filter="url(#ri-land-shadow)">
+      <path d={RI_PATH} fill="url(#ri-land)" stroke="white" stroke-width="0.15" />
+    </g>
+
+    {cities.map((c) => (
+      <g transform={`translate(${c.x},${c.y})`} filter="url(#ri-pin-shadow)">
+        <path
+          d="M0,-24 C6.5,-24 11,-19.2 11,-12.8 C11,-5 0,11 0,11 C0,11 -11,-5 -11,-12.8 C-11,-19.2 -6.5,-24 0,-24 Z"
+          fill="#1d5c32"
+        />
+        <circle cx="0" cy="-13.5" r="4.5" fill="white" />
+      </g>
+    ))}
+    {cities.map((c) => (
+      <text
+        x={c.x + 15}
+        y={c.y - 9}
+        font-size="16"
+        font-weight="700"
+        fill="#143f22"
+        style="paint-order: stroke; stroke: white; stroke-width: 3px;"
+      >
+        {c.name}
+      </text>
+    ))}
+  </svg>
+</div>
