@@ -12,7 +12,6 @@ export const navItems: NavItem[] = [
     href: "/services",
     children: [{ label: "All Services", href: "/services" }],
   },
-  { label: "Rebate Calculator", href: "/rebate-calculator" },
   { label: "Financing", href: "/financing" },
   {
     label: "Service Areas",
