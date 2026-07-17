@@ -6,9 +6,14 @@ import "../styles/global.css";
 interface Props {
   title: string;
   description?: string;
+  transparentHeader?: boolean;
 }
 
-const { title, description = "Rhode Island's trusted heating & cooling experts." } = Astro.props;
+const {
+  title,
+  description = "Rhode Island's trusted heating & cooling experts.",
+  transparentHeader = false,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -21,7 +26,7 @@ const { title, description = "Rhode Island's trusted heating & cooling experts."
     <title>{title} | Horizon HVAC</title>
   </head>
   <body class="bg-white text-brand-ink">
-    <Header />
+    <Header transparent={transparentHeader} />
     <main>
       <slot />
     </main>

@@ -12,3 +12,34 @@
 body {
   font-family: var(--font-sans);
 }
+
+#site-header.is-transparent {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), transparent);
+  transition: background-color 300ms ease, box-shadow 300ms ease;
+}
+#site-header.is-transparent.is-scrolled {
+  background: var(--color-brand-green);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+#site-header.is-transparent .header-inner {
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
+  transition: padding 300ms ease;
+}
+#site-header.is-transparent.is-scrolled .header-inner {
+  padding-top: 0.65rem;
+  padding-bottom: 0.65rem;
+}
+#site-header.is-transparent .logo-text {
+  font-size: 1.75rem;
+  transition: font-size 300ms ease;
+}
+#site-header.is-transparent.is-scrolled .logo-text {
+  font-size: 1.35rem;
+}
+#site-header.is-transparent #free-estimate-pill {
+  transition: transform 300ms ease, opacity 300ms ease;
+}
+#site-header.is-transparent.is-scrolled #free-estimate-pill {
+  transform: translateY(-6px) scale(0.92);
+}
