@@ -4,6 +4,7 @@ import ThreeStepProcess from "../components/ThreeStepProcess.astro";
 import EmergencyBanner from "../components/EmergencyBanner.astro";
 import TrustBadges from "../components/TrustBadges.astro";
 import RatingBadges from "../components/RatingBadges.astro";
+import FeaturedServices from "../components/FeaturedServices.astro";
 ---
 
 <BaseLayout title="Home" transparentHeader={true}>
@@ -51,6 +52,8 @@ import RatingBadges from "../components/RatingBadges.astro";
       <path d="M0,64 C240,120 480,0 720,32 C960,64 1200,120 1440,48 L1440,100 L0,100 Z" />
     </svg>
   </section>
+
+  <FeaturedServices />
 
   <ThreeStepProcess />
 
