@@ -10,6 +10,7 @@ import SpecialOffers from "../components/SpecialOffers.astro";
 import AreasWeServe from "../components/AreasWeServe.astro";
 import EmbeddedQuoteForm from "../components/EmbeddedQuoteForm.astro";
 import HorizonDivider from "../components/HorizonDivider.astro";
+import { googleMapsUrl } from "../data/business";
 ---
 
 <BaseLayout
@@ -96,6 +97,14 @@ import HorizonDivider from "../components/HorizonDivider.astro";
           </div>
         ))}
       </div>
+      <a
+        href={googleMapsUrl}
+        target="_blank"
+        rel="noopener"
+        class="mt-10 inline-block rounded-full bg-white px-8 py-3 font-bold text-brand-green shadow-lg hover:opacity-90 transition-opacity"
+      >
+        Read Our Reviews on Google
+      </a>
     </div>
   </section>
 

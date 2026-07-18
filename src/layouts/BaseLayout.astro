@@ -3,6 +3,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import HorizonDivider from "../components/HorizonDivider.astro";
 import QuoteFormModal from "../components/QuoteFormModal.astro";
+import { googleMapsUrl } from "../data/business";
 import "../styles/global.css";
 
 interface Props {
@@ -60,7 +61,7 @@ const businessSchema = {
     opens: "00:00",
     closes: "23:59",
   },
-  sameAs: [],
+  sameAs: [googleMapsUrl],
 };
 ---
 
