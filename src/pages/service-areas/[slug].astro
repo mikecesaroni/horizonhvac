@@ -1,7 +1,10 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageHero from "../../components/PageHero.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import FaqSection from "../../components/FaqSection.astro";
 import { serviceAreas } from "../../data/serviceAreas";
+import { services } from "../../data/services";
 
 export function getStaticPaths() {
   return serviceAreas.map((area) => ({
@@ -11,15 +14,116 @@ export function getStaticPaths() {
 }
 
 const { area } = Astro.props;
+
+const townName = area.name.replace(", RI", "");
+const nearbyAreas = serviceAreas
+  .filter((a) => a.county === area.county && a.slug !== area.slug)
+  .slice(0, 5);
+
+const metaTitle = `HVAC Repair & Installation in ${area.name} | Horizon HVAC`;
+const metaDescription = `Heating and cooling repair, installation & maintenance in ${area.name}. Same-day service, 24/7 emergency calls answered. Licensed & insured RI HVAC contractor.`;
+
+const faqs = [
+  {
+    q: `Does Horizon HVAC offer 24/7 emergency service in ${townName}?`,
+    a: `Yes. Horizon HVAC answers emergency heating and cooling calls in ${townName} around the clock, every day of the year — not just an after-hours voicemail.`,
+  },
+  {
+    q: `How quickly can a technician reach my home in ${townName}?`,
+    a: `Same-day service is standard for ${townName} and the rest of ${area.county}. We'll give you a real arrival window when you call, not a vague "sometime today."`,
+  },
+  {
+    q: `What towns near ${townName} do you also service?`,
+    a: nearbyAreas.length
+      ? `We serve every ${area.county} town, including ${nearbyAreas.map((a) => a.name.replace(", RI", "")).join(", ")} — plus the rest of Rhode Island.`
+      : `We serve all of Rhode Island, town to town, with no extra "trip charge" for being outside a small service radius.`,
+  },
+];
 ---
 
-<BaseLayout title={area.name}>
-  <PageHero eyebrow="Service Area" title={`HVAC Service in ${area.name}`} />
-  <section class="mx-auto max-w-4xl px-4 py-16 text-brand-ink/80 space-y-4">
-    <!-- TODO: replace with real local service-area copy -->
-    <p>Content for {area.name} coming soon.</p>
-    <a href="/contact" class="inline-block mt-4 rounded-md bg-brand-green px-6 py-3 font-semibold text-white hover:opacity-90">
-      Book Service
-    </a>
+<BaseLayout title={area.name} fullTitle={metaTitle} description={metaDescription}>
+  <Breadcrumbs
+    items={[
+      { label: "Home", href: "/" },
+      { label: "Service Areas", href: "/service-areas" },
+      { label: area.name, href: `/service-areas/${area.slug}` },
+    ]}
+  />
+  <PageHero
+    eyebrow={area.county}
+    title={`HVAC Service in ${area.name}`}
+    description="Same-day heating & cooling repair, installation, and maintenance from a local, licensed team."
+  />
+
+  <section class="mx-auto max-w-4xl px-4 py-16">
+    <p class="text-brand-ink/80 leading-relaxed">
+      Rhode Island winters push heating systems hard and its humid summers do the same to air conditioning — and{" "}
+      {townName}'s mix of older New England housing stock and newer construction means every system is a little
+      different. Horizon HVAC's technicians work on furnaces, heat pumps, central air, and ductless systems of every
+      age and brand across {townName} and the rest of {area.county}, so whether it's a 30-year-old furnace or a
+      brand-new heat pump, we've seen it before.
+    </p>
+    <p class="mt-4 text-brand-ink/80 leading-relaxed">
+      We show up with the parts and knowledge to fix most issues in a single visit, explain what's actually wrong
+      before any work starts, and back every job with our licensed &amp; insured RI credentials.
+    </p>
+
+    <h2 class="mt-12 text-2xl font-extrabold text-brand-ink">Services Available in {townName}</h2>
+    <div class="mt-6 grid gap-4 sm:grid-cols-2">
+      {services.map((service) => (
+        <a
+          href={`/services/${service.slug}`}
+          class="rounded-xl border border-brand-green/10 p-5 hover:shadow-md transition-shadow"
+        >
+          <h3 class="font-bold text-brand-ink">{service.name}</h3>
+          <p class="mt-1 text-sm text-brand-ink/70">{service.summary}</p>
+        </a>
+      ))}
+    </div>
+
+    <div class="mt-10 overflow-hidden rounded-3xl border-4 border-brand-green/15 shadow-lg">
+      <iframe
+        title={`Map of ${area.name} — Horizon HVAC service area`}
+        src={`https://maps.google.com/maps?q=${encodeURIComponent(area.name)}&z=11&output=embed`}
+        class="h-72 w-full"
+        style="border:0;"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+
+    <div class="mt-14 rounded-2xl bg-brand-green/5 p-8 text-center">
+      <p class="text-lg font-bold text-brand-ink">Licensed &amp; Insured RI · BBB Accredited A+ · 25+ Yrs Experience</p>
+      <button
+        type="button"
+        data-open-quote-form
+        class="mt-6 inline-block rounded-full bg-brand-green px-8 py-3 font-bold text-white shadow-lg hover:opacity-90"
+      >
+        Get a Free Estimate in {townName}
+      </button>
+    </div>
   </section>
+
+  <FaqSection faqs={faqs} title={`${townName} HVAC — Frequently Asked Questions`} />
+
+  {nearbyAreas.length > 0 && (
+    <section class="bg-white pb-16">
+      <div class="mx-auto max-w-4xl px-4 text-center">
+        <h2 class="text-xl font-bold text-brand-ink">Also Serving Nearby in {area.county}</h2>
+        <div class="mt-5 flex flex-wrap justify-center gap-2">
+          {nearbyAreas.map((a) => (
+            <a
+              href={`/service-areas/${a.slug}`}
+              class="rounded-full border border-brand-green/20 px-4 py-1.5 text-sm font-semibold text-brand-green hover:bg-brand-green hover:text-white transition-colors"
+            >
+              {a.name}
+            </a>
+          ))}
+        </div>
+        <a href="/service-areas" class="mt-4 inline-block text-sm font-semibold text-brand-green hover:underline">
+          View all service areas →
+        </a>
+      </div>
+    </section>
+  )}
 </BaseLayout>

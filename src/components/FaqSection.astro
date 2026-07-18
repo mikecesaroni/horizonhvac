@@ -1,0 +1,44 @@
+---
+interface Faq {
+  q: string;
+  a: string;
+}
+
+interface Props {
+  faqs: Faq[];
+  title?: string;
+}
+
+const { faqs, title = "Frequently Asked Questions" } = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.a,
+    },
+  })),
+};
+---
+
+<section class="bg-white py-16">
+  <div class="mx-auto max-w-3xl px-4">
+    <h2 class="text-3xl font-extrabold text-brand-ink text-center">{title}</h2>
+    <div class="mt-8 space-y-3">
+      {faqs.map((faq) => (
+        <details class="group rounded-xl border border-brand-green/15 p-5 open:shadow-md transition-shadow">
+          <summary class="cursor-pointer list-none font-semibold text-brand-ink flex items-center justify-between gap-4">
+            {faq.q}
+            <span class="shrink-0 text-brand-green text-xl leading-none group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <p class="mt-3 text-brand-ink/70">{faq.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

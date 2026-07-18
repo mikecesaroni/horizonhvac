@@ -8,7 +8,11 @@ const posts = (await getCollection("blog")).sort(
 );
 ---
 
-<BaseLayout title="Blog">
+<BaseLayout
+  title="Blog"
+  fullTitle="HVAC Tips & Rhode Island Heating/Cooling Advice | Horizon HVAC Blog"
+  description="Seasonal maintenance checklists, energy-saving tips, and heating & cooling advice from Horizon HVAC's Rhode Island technicians."
+>
   <PageHero eyebrow="News & Tips" title="Blog" />
   <section class="mx-auto max-w-4xl px-4 py-16 space-y-6">
     {posts.map((post) => (
