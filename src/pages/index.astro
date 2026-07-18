@@ -8,6 +8,7 @@ import FeaturedServices from "../components/FeaturedServices.astro";
 import CredentialBadges from "../components/CredentialBadges.astro";
 import SpecialOffers from "../components/SpecialOffers.astro";
 import AreasWeServe from "../components/AreasWeServe.astro";
+import EmbeddedQuoteForm from "../components/EmbeddedQuoteForm.astro";
 import HorizonDivider from "../components/HorizonDivider.astro";
 ---
 
@@ -100,6 +101,16 @@ import HorizonDivider from "../components/HorizonDivider.astro";
   />
 
   <AreasWeServe />
+
+  <HorizonDivider fromClass="bg-white" toColorClass="text-brand-green" side="left" />
+
+  <EmbeddedQuoteForm />
+
+  <HorizonDivider
+    fromClass="bg-gradient-to-b from-brand-green via-brand-green/80 to-brand-green/45"
+    toColorClass="text-white"
+    side="right"
+  />
 
   <section class="mx-auto max-w-4xl px-4 py-16 text-center">
     <h2 class="text-3xl font-extrabold text-brand-ink">Ready for a Comfortable Home?</h2>
