@@ -35,5 +35,40 @@ const {
     <HorizonDivider fromClass="bg-white" toColorClass="text-brand-green-dark" side="left" />
     <Footer />
     <QuoteFormModal />
+
+    <script>
+      // Auto-applies scroll-reveal to page sections and grid cards, site-wide, with no
+      // per-component markup needed. The first section (hero) is skipped so it's visible
+      // immediately on load instead of fading in. A section with a grid gets its cards
+      // animated individually (staggered); a section without one animates as a whole block
+      // — never both, to avoid double/compounded motion.
+      const sections = Array.from(document.querySelectorAll("main > section"));
+      sections.forEach((section, i) => {
+        if (i === 0) return;
+        const gridItems = section.querySelectorAll(".grid > *");
+        if (gridItems.length > 0) {
+          gridItems.forEach((card, j) => {
+            card.classList.add("reveal-card");
+            (card as HTMLElement).style.transitionDelay = `${(j % 4) * 90}ms`;
+          });
+        } else {
+          section.classList.add("reveal-section");
+        }
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("revealed");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+
+      document.querySelectorAll(".reveal-section, .reveal-card").forEach((el) => observer.observe(el));
+    </script>
   </body>
 </html>

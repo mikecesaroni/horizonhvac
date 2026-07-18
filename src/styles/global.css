@@ -54,3 +54,51 @@ body {
 #site-header.is-transparent.is-scrolled #free-estimate-pill {
   transform: translateY(-6px) scale(0.92);
 }
+
+/* Button hover animation — applies site-wide to any linked/clickable pill or CTA card,
+   without needing to touch every component individually. Scoped to <a>/<button> only so
+   decorative rounded-full divs (e.g. the step icon circles) are never affected. */
+@media (prefers-reduced-motion: no-preference) {
+  a.rounded-full,
+  button.rounded-full,
+  a.rounded-3xl,
+  button.rounded-3xl,
+  a.rounded-2xl,
+  button.rounded-2xl {
+    transition: transform 200ms ease, box-shadow 200ms ease, filter 200ms ease;
+  }
+  a.rounded-full:hover,
+  button.rounded-full:hover,
+  a.rounded-3xl:hover,
+  button.rounded-3xl:hover,
+  a.rounded-2xl:hover,
+  button.rounded-2xl:hover {
+    transform: translateY(-3px) scale(1.035);
+    box-shadow: 0 14px 26px rgba(0, 0, 0, 0.25);
+  }
+  a.rounded-full:active,
+  button.rounded-full:active,
+  a.rounded-3xl:active,
+  button.rounded-3xl:active,
+  a.rounded-2xl:active,
+  button.rounded-2xl:active {
+    transform: translateY(-1px) scale(1.01);
+  }
+}
+
+/* Scroll reveal — sections/cards fade + slide up into place as they enter the viewport.
+   Classes are applied automatically by the script in BaseLayout.astro, no markup changes
+   needed per component. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-section,
+  .reveal-card {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 700ms ease, transform 700ms ease;
+  }
+  .reveal-section.revealed,
+  .reveal-card.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
