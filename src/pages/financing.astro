@@ -1,16 +1,77 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHero from "../components/PageHero.astro";
+
+const terms = [
+  {
+    rate: "0% APR",
+    length: "24 Months",
+    tag: "Best Value",
+    note: "No interest at all if paid off within 24 months — the lowest total cost.",
+  },
+  {
+    rate: "9.99% APR",
+    length: "60 Months",
+    tag: "Most Popular",
+    note: "A balance of manageable monthly payments and reasonable total interest.",
+  },
+  {
+    rate: "9.99% APR",
+    length: "120 Months",
+    tag: "Lowest Monthly Payment",
+    note: "Stretch payments out further for the smallest possible monthly bill.",
+  },
+];
 ---
 
 <BaseLayout
   title="Financing"
-  fullTitle="HVAC Financing Options in Rhode Island | Horizon HVAC"
-  description="Flexible financing for furnace, AC, and heat pump installation in Rhode Island. Ask Horizon HVAC about current financing options and available rebates."
+  fullTitle="0% APR HVAC Financing in Rhode Island | Horizon HVAC"
+  description="Horizon HVAC partners with Synchrony Financial to offer 0% APR financing for 24 months on heat pump, AC, and furnace installations across Rhode Island."
 >
-  <PageHero eyebrow="Flexible Options" title="Financing" />
-  <section class="mx-auto max-w-4xl px-4 py-16 text-brand-ink/80 space-y-4">
-    <!-- TODO: replace with real financing partners/terms copy -->
-    <p>Financing details coming soon — paste your current financing page copy here.</p>
+  <PageHero eyebrow="Flexible Options" title="Financing" description="0% APR Financing for 24 Months on HVAC Installations" />
+
+  <section class="mx-auto max-w-4xl px-4 py-16">
+    <p class="text-brand-ink/80 leading-relaxed">
+      Horizon HVAC partners with <strong>Synchrony Financial</strong> to offer no-interest financing on heat pumps,
+      central AC, furnaces, and complete home HVAC installations. Most qualifying buyers approve in under five
+      minutes online or by phone — with no impact to your credit score until you accept the offer.
+    </p>
+    <p class="mt-4 text-brand-ink/80 leading-relaxed">
+      Three terms are available based on what fits your budget: 0% APR for 24 months, 9.99% APR for 60 months, or
+      9.99% APR for 120 months. Combine your financing with <a href="/services/installation" class="font-semibold text-brand-green hover:underline">Clean Heat RI rebates</a> —
+      up to $11,500 per heat pump install — for the lowest out-of-pocket cost in Rhode Island.
+    </p>
+
+    <div class="mt-12 grid gap-6 sm:grid-cols-3">
+      {terms.map((term) => (
+        <div class="rounded-2xl border-2 border-brand-green/15 p-6 text-center shadow-sm">
+          <p class="text-xs font-bold uppercase tracking-wide text-brand-gold">{term.tag}</p>
+          <p class="mt-3 text-3xl font-extrabold text-brand-green">{term.rate}</p>
+          <p class="mt-1 text-lg font-bold text-brand-ink">{term.length}</p>
+          <p class="mt-3 text-sm text-brand-ink/70">{term.note}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-14 rounded-2xl bg-brand-green/5 p-8 text-center">
+      <p class="text-lg font-bold text-brand-ink">Licensed &amp; Insured RI · BBB Accredited A+ · 25+ Yrs Experience</p>
+      <div class="mt-6 flex flex-wrap justify-center gap-4">
+        <a
+          href="https://www.synchrony.com/mmc/HY243822400"
+          target="_blank"
+          rel="noopener"
+          class="rounded-full bg-brand-green px-8 py-3 font-bold text-white shadow-lg hover:opacity-90"
+        >
+          Apply Online — Synchrony
+        </a>
+        <a
+          href="tel:14014259879"
+          class="rounded-full bg-brand-gold px-8 py-3 font-bold text-brand-ink shadow-lg hover:opacity-90"
+        >
+          Call (401) 425-9879
+        </a>
+      </div>
+    </div>
   </section>
 </BaseLayout>
