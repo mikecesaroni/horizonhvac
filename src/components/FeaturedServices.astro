@@ -1,7 +1,23 @@
 ---
+import { Image } from "astro:assets";
 import { services } from "../data/services";
+import heatingRepairFurnace from "../assets/services/heating-repair-furnace.jpg";
+import acRepairMiniSplits from "../assets/services/ac-repair-mini-splits.jpg";
 
 const featured = services.filter((s) => s.featured);
+
+// Photos are added per-service as they're provided; slugs without an entry here
+// still fall back to the placeholder box below.
+const serviceImages: Record<string, { src: ImageMetadata; alt: string }> = {
+  "heating-repair": {
+    src: heatingRepairFurnace,
+    alt: "Carrier Comfort 92 gas furnace installed by Horizon HVAC",
+  },
+  "ac-repair": {
+    src: acRepairMiniSplits,
+    alt: "Mitsubishi Electric ductless mini-split condensers installed by Horizon HVAC",
+  },
+};
 ---
 
 <section class="mx-auto max-w-6xl px-4 py-16">
@@ -12,10 +28,19 @@ const featured = services.filter((s) => s.featured);
   <div class="mt-12 grid gap-8 sm:grid-cols-3">
     {featured.map((service) => (
       <div class="overflow-hidden rounded-2xl border-2 border-brand-green/30 shadow-sm">
-        <!-- TODO: replace with a real photo for this service -->
-        <div class="flex h-48 items-center justify-center bg-brand-green/10 text-brand-green/50 text-sm">
-          Photo placeholder
-        </div>
+        {serviceImages[service.slug] ? (
+          <Image
+            src={serviceImages[service.slug].src}
+            alt={serviceImages[service.slug].alt}
+            width={480}
+            height={192}
+            class="h-48 w-full object-cover"
+          />
+        ) : (
+          <div class="flex h-48 items-center justify-center bg-brand-green/10 text-brand-green/50 text-sm">
+            Photo placeholder
+          </div>
+        )}
         <div class="bg-gradient-to-b from-brand-green to-brand-green-dark p-6 text-center text-white">
           <h3 class="text-xl font-extrabold uppercase">{service.name}</h3>
           <p class="mt-3 text-sm text-white/85">{service.description}</p>
