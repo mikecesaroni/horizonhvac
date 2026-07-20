@@ -15,13 +15,21 @@ const { transparent = false } = Astro.props;
     transparent ? "fixed top-0 inset-x-0 is-transparent" : "sticky top-0 bg-brand-green shadow-md",
   ]}
 >
-  <button
-    type="button"
-    data-open-quote-form
-    class="block w-full bg-brand-green-dark py-2 text-center text-xs sm:text-sm font-bold uppercase tracking-widest text-white hover:bg-brand-gold hover:text-brand-ink transition-colors"
-  >
-    Free Estimate — Book Online
-  </button>
+  <div class="w-full bg-brand-green-dark py-2 text-center">
+    <button
+      type="button"
+      data-open-quote-form
+      class="inline-flex items-center gap-2 rounded-full bg-brand-gold px-5 py-1.5 text-xs sm:text-sm font-bold uppercase tracking-wide text-brand-ink shadow-md hover:brightness-105 active:scale-[0.98] transition"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+      </svg>
+      Free Estimate — Book Online
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+      </svg>
+    </button>
+  </div>
 
   {!transparent && <TopBar />}
 
