@@ -1,6 +1,6 @@
 ---
-// TODO: wire this form's submission to a GoHighLevel form/webhook once account details are available.
 // Same fields as QuoteFormModal.astro, just laid out inline in the page instead of a popup.
+// Submits to GoHighLevel via netlify/functions/submit-quote.js — see src/scripts/quoteForm.ts.
 ---
 
 <section class="bg-brand-green py-16">
@@ -9,7 +9,7 @@
     <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-white">Request Your Free Estimate</h2>
     <p class="mt-3 text-white/80">Fill out the form below and we'll get back to you shortly.</p>
 
-    <form class="mt-8 space-y-4 rounded-3xl border-4 border-white/20 bg-brand-green-dark/40 p-6 sm:p-8 text-left shadow-lg">
+    <form id="embedded-quote-form" class="mt-8 space-y-4 rounded-3xl border-4 border-white/20 bg-brand-green-dark/40 p-6 sm:p-8 text-left shadow-lg">
       <div class="grid gap-4 sm:grid-cols-2">
         <input
           type="text"
@@ -85,3 +85,10 @@
     </form>
   </div>
 </section>
+
+<script>
+  import { wireQuoteForm } from "../scripts/quoteForm";
+
+  const form = document.getElementById("embedded-quote-form") as HTMLFormElement | null;
+  if (form) wireQuoteForm(form);
+</script>

@@ -1,6 +1,6 @@
 ---
-// TODO: wire this form's submission to a GoHighLevel form/webhook once account details are available.
 // Opened by any element with a `data-open-quote-form` attribute (see Header.astro's mobile bar).
+// Submits to GoHighLevel via netlify/functions/submit-quote.js — see src/scripts/quoteForm.ts.
 ---
 
 <div
@@ -23,7 +23,7 @@
       Contact Us
     </div>
 
-    <form class="space-y-4">
+    <form id="quote-form-modal-form" class="space-y-4">
       <input
         type="text"
         name="firstName"
@@ -95,8 +95,12 @@
 </div>
 
 <script>
+  import { wireQuoteForm } from "../scripts/quoteForm";
+
   const modal = document.getElementById("quote-form-modal");
   const closeBtn = document.getElementById("quote-form-close");
+  const form = document.getElementById("quote-form-modal-form") as HTMLFormElement | null;
+  if (form) wireQuoteForm(form);
 
   function openModal() {
     modal?.classList.remove("hidden");
