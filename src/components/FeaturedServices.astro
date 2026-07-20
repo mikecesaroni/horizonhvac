@@ -3,12 +3,17 @@ import { Image } from "astro:assets";
 import { services } from "../data/services";
 import heatingRepairFurnace from "../assets/services/heating-repair-furnace.jpg";
 import acRepairMiniSplits from "../assets/services/ac-repair-mini-splits.jpg";
+import emergencyServiceTechnician from "../assets/services/emergency-service-technician.jpg";
 
 const featured = services.filter((s) => s.featured);
 
 // Photos are added per-service as they're provided; slugs without an entry here
 // still fall back to the placeholder box below.
 const serviceImages: Record<string, { src: ImageMetadata; alt: string }> = {
+  "emergency-service": {
+    src: emergencyServiceTechnician,
+    alt: "Horizon HVAC technician servicing an outdoor AC condenser",
+  },
   "heating-repair": {
     src: heatingRepairFurnace,
     alt: "Carrier Comfort 92 gas furnace installed by Horizon HVAC",
