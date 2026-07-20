@@ -11,11 +11,13 @@ const { eyebrow, title, description } = Astro.props;
 
 <section class="relative isolate overflow-hidden bg-brand-green">
   <div class="absolute inset-0 -z-20 bg-cover bg-center" style="background-image: url('/Untitled-design-8.png');"></div>
-  <div class="absolute inset-0 -z-10 bg-gradient-to-b from-brand-green-dark/90 via-brand-green/85 to-brand-green-dark/90"></div>
-  <div class="mx-auto max-w-6xl px-4 py-16 text-center text-white">
+  <div class="absolute inset-0 -z-10 bg-gradient-to-b from-brand-green-dark/90 via-brand-green/80 to-brand-green-dark/70"></div>
+  <div class="mx-auto max-w-6xl px-4 pt-16 pb-28 sm:pb-40 text-center text-white">
     {eyebrow && <p class="text-sm font-semibold uppercase tracking-wide text-brand-gold">{eyebrow}</p>}
     <h1 class="mt-2 text-4xl sm:text-5xl font-extrabold">{title}</h1>
     {description && <p class="mt-4 max-w-2xl mx-auto text-white/80">{description}</p>}
   </div>
+  <div class="absolute inset-x-0 bottom-0">
+    <HorizonDivider fromClass="bg-transparent" toColorClass="text-white" side="right" />
+  </div>
 </section>
-<HorizonDivider fromClass="bg-gradient-to-b from-brand-green via-brand-green/80 to-brand-green/45" toColorClass="text-white" side="right" />
