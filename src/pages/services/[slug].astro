@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageHero from "../../components/PageHero.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import FaqSection from "../../components/FaqSection.astro";
 import { services } from "../../data/services";
 import { serviceAreas } from "../../data/serviceAreas";
@@ -22,14 +21,16 @@ const linkedAreas = Array.from({ length: 6 }, (_, i) => serviceAreas[(offset + i
 ---
 
 <BaseLayout title={service.name} fullTitle={service.metaTitle} description={service.metaDescription}>
-  <Breadcrumbs
-    items={[
+  <PageHero
+    eyebrow="Services"
+    title={service.name}
+    description={service.description}
+    breadcrumbs={[
       { label: "Home", href: "/" },
       { label: "Services", href: "/services" },
       { label: service.name, href: `/services/${service.slug}` },
     ]}
   />
-  <PageHero eyebrow="Services" title={service.name} description={service.description} />
 
   <section class="mx-auto max-w-4xl px-4 py-16">
     <h2 class="text-2xl font-extrabold text-brand-ink">Signs You Need {service.name}</h2>
