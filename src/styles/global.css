@@ -48,13 +48,6 @@ body {
 #site-header.is-transparent.is-scrolled .logo-text {
   font-size: 1.35rem;
 }
-#site-header.is-transparent #free-estimate-pill {
-  transition: transform 300ms ease, opacity 300ms ease;
-}
-#site-header.is-transparent.is-scrolled #free-estimate-pill {
-  transform: translateY(-6px) scale(0.92);
-}
-
 /* Button hover animation — applies site-wide to any linked/clickable pill or CTA card,
    without needing to touch every component individually. Scoped to <a>/<button> only so
    decorative rounded-full divs (e.g. the step icon circles) are never affected. */

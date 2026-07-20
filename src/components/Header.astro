@@ -18,32 +18,18 @@ const { transparent = false } = Astro.props;
   <button
     type="button"
     data-open-quote-form
-    class="block w-full bg-brand-green-dark py-2 text-center text-xs font-bold uppercase tracking-widest text-white lg:hidden"
+    class="block w-full bg-brand-green-dark py-2 text-center text-xs sm:text-sm font-bold uppercase tracking-widest text-white hover:bg-brand-gold hover:text-brand-ink transition-colors"
   >
-    Free Estimate
+    Free Estimate — Book Online
   </button>
 
   {!transparent && <TopBar />}
 
-  <div id="header-inner" class="header-inner mx-auto max-w-[1600px] flex items-center justify-between px-4 lg:px-6 py-3">
-    <div class="flex items-center gap-6 shrink-0">
-      {transparent && (
-        <a
-          href="/contact"
-          id="free-estimate-pill"
-          class="hidden min-[1500px]:flex shrink-0 items-center gap-3 rounded-full bg-white px-5 py-3 shadow-lg font-bold text-brand-ink text-sm"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-          </svg>
-          <span class="leading-tight">FREE ESTIMATE<br /><span class="font-semibold text-brand-green">— Book Online —</span></span>
-        </a>
-      )}
-      <a href="/" class="flex items-center gap-2 text-white shrink-0">
-        <!-- TODO: replace with real logo asset -->
-        <span id="logo-text" class="logo-text font-extrabold tracking-wide whitespace-nowrap">HORIZON <span class="font-light">HVAC</span></span>
-      </a>
-    </div>
+  <div id="header-inner" class="header-inner mx-auto max-w-7xl flex items-center justify-between px-4 py-3">
+    <a href="/" class="flex items-center gap-2 text-white shrink-0">
+      <!-- TODO: replace with real logo asset -->
+      <span id="logo-text" class="logo-text font-extrabold tracking-wide whitespace-nowrap">HORIZON <span class="font-light">HVAC</span></span>
+    </a>
 
     <nav class="hidden lg:flex items-center gap-3 xl:gap-5 mx-3 text-white font-semibold uppercase text-xs xl:text-sm whitespace-nowrap" aria-label="Primary">
       {navItems.map((item) => (
