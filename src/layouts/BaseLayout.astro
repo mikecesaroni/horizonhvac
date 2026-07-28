@@ -97,9 +97,9 @@ const businessSchema = {
     <script type="application/ld+json" set:html={JSON.stringify(businessSchema)} />
     <slot name="head" />
   </head>
-  <body class="bg-white text-brand-ink">
+  <body class:list={["bg-white text-brand-ink", minimal && "flex min-h-screen flex-col"]}>
     {minimal ? (
-      <header class="bg-brand-green py-4">
+      <header class="shrink-0 bg-brand-green py-4">
         <div class="mx-auto flex max-w-4xl items-center justify-between px-4">
           <span class="text-xl font-extrabold tracking-wide text-white">HORIZON <span class="font-light">HVAC</span></span>
           <a
@@ -113,11 +113,11 @@ const businessSchema = {
     ) : (
       <Header transparent={transparentHeader} />
     )}
-    <main>
+    <main class:list={minimal && "flex flex-1 flex-col"}>
       <slot />
     </main>
     {minimal ? (
-      <footer class="bg-brand-green-dark py-6 text-center text-xs text-white/70">
+      <footer class="shrink-0 bg-brand-green-dark py-6 text-center text-xs text-white/70">
         &copy; {new Date().getFullYear()} Horizon HVAC. Licensed &amp; Insured RI.
       </footer>
     ) : (
