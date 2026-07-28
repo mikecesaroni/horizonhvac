@@ -14,6 +14,9 @@ interface Props {
   fullTitle?: string;
   ogImage?: string;
   noindex?: boolean;
+  /** Strips the full nav/footer down to just a logo + phone number, no links off the page.
+   * For campaign landing pages (e.g. Meta Ads) where every exit point hurts conversion. */
+  minimal?: boolean;
 }
 
 const {
@@ -23,6 +26,7 @@ const {
   fullTitle,
   ogImage = "/Untitled-design-8.png",
   noindex = false,
+  minimal = false,
 } = Astro.props;
 
 const pageTitle = fullTitle ?? `${title} | Horizon HVAC`;
@@ -94,12 +98,34 @@ const businessSchema = {
     <slot name="head" />
   </head>
   <body class="bg-white text-brand-ink">
-    <Header transparent={transparentHeader} />
+    {minimal ? (
+      <header class="bg-brand-green py-4">
+        <div class="mx-auto flex max-w-4xl items-center justify-between px-4">
+          <span class="text-xl font-extrabold tracking-wide text-white">HORIZON <span class="font-light">HVAC</span></span>
+          <a
+            href="tel:14014259879"
+            class="rounded-full bg-brand-gold px-5 py-2 text-sm font-bold text-brand-ink shadow-lg hover:opacity-90"
+          >
+            Call 401-425-9879
+          </a>
+        </div>
+      </header>
+    ) : (
+      <Header transparent={transparentHeader} />
+    )}
     <main>
       <slot />
     </main>
-    <HorizonDivider fromClass="bg-white" toColorClass="text-brand-green-dark" side="left" />
-    <Footer />
+    {minimal ? (
+      <footer class="bg-brand-green-dark py-6 text-center text-xs text-white/70">
+        &copy; {new Date().getFullYear()} Horizon HVAC. Licensed &amp; Insured RI.
+      </footer>
+    ) : (
+      <>
+        <HorizonDivider fromClass="bg-white" toColorClass="text-brand-green-dark" side="left" />
+        <Footer />
+      </>
+    )}
     <QuoteFormModal />
 
     <!-- GoHighLevel chat widget — required for GHL's SMS/A2P 10DLC compliance registration -->

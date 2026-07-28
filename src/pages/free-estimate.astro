@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import EmergencyBanner from "../components/EmergencyBanner.astro";
+import TrustBadges from "../components/TrustBadges.astro";
+import RatingBadges from "../components/RatingBadges.astro";
+import CredentialBadges from "../components/CredentialBadges.astro";
+import EmbeddedQuoteForm from "../components/EmbeddedQuoteForm.astro";
+---
+
+<BaseLayout
+  title="Free Estimate"
+  fullTitle="Free HVAC Estimate in Rhode Island | Horizon HVAC"
+  description="Get a free, no-obligation HVAC estimate from Horizon HVAC. Same-day service, 24/7 emergency calls answered, licensed & insured RI."
+  minimal={true}
+  noindex={true}
+>
+  <section class="relative isolate overflow-hidden bg-brand-green text-center text-white">
+    <div class="absolute inset-0 -z-20 bg-cover bg-center" style="background-image: url('/Untitled-design-8.png');"></div>
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-brand-green-dark/90 via-brand-green/85 to-brand-green-dark/90"></div>
+
+    <div class="mx-auto max-w-3xl px-4 py-14 sm:py-20">
+      <EmergencyBanner />
+
+      <h1 class="mt-8 text-3xl sm:text-5xl font-extrabold uppercase leading-tight drop-shadow-lg">
+        Get Your Free HVAC Estimate — <span class="text-brand-gold">Today</span>
+      </h1>
+      <p class="mt-4 text-lg font-semibold text-white/85">
+        Same-day service, upfront pricing, and a 100% satisfaction guarantee. Proudly serving all of Rhode Island.
+      </p>
+
+      <div class="mt-8 border-t border-white/20 pt-6">
+        <TrustBadges />
+      </div>
+      <div class="mt-6">
+        <RatingBadges />
+      </div>
+      <div class="mt-6">
+        <CredentialBadges />
+      </div>
+    </div>
+  </section>
+
+  <EmbeddedQuoteForm />
+</BaseLayout>
