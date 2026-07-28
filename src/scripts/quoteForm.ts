@@ -25,6 +25,8 @@ export function wireQuoteForm(form: HTMLFormElement) {
       });
       if (!res.ok) throw new Error("Request failed");
 
+      (window as any).fbq?.("track", "Lead");
+
       form.reset();
       statusEl.textContent = "Thanks! We'll be in touch shortly.";
       statusEl.className = "text-sm font-semibold text-center min-h-5 text-white";
