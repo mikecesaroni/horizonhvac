@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import MetaPixel from "../components/MetaPixel.astro";
 ---
 
 <BaseLayout
@@ -9,6 +10,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   minimal={true}
   noindex={true}
 >
+  <MetaPixel slot="head" pixelId="1223362445852584" />
+
   <section class="relative isolate flex-1 overflow-hidden bg-brand-green text-white lg:flex lg:items-center">
     <div class="absolute inset-0 -z-20 bg-cover bg-center" style="background-image: url('/Untitled-design-8.png');"></div>
     <div class="absolute inset-0 -z-10 bg-gradient-to-b from-brand-green-dark/90 via-brand-green/85 to-brand-green-dark/90"></div>
