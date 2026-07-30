@@ -1,0 +1,129 @@
+---
+// Opened by any element with a `data-open-quote-form` attribute (see Header.astro's mobile bar).
+// Submits to GoHighLevel via netlify/functions/submit-quote.js — see src/scripts/quoteForm.ts.
+---
+
+<div
+  id="quote-form-modal"
+  class="fixed inset-0 z-[100] hidden items-start justify-center overflow-y-auto bg-black/60 px-4 py-10"
+>
+  <div class="relative w-full max-w-md rounded-3xl border-4 border-white/40 bg-gradient-to-b from-brand-green to-brand-green-dark p-6 shadow-2xl">
+    <button
+      type="button"
+      id="quote-form-close"
+      aria-label="Close"
+      class="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-md border-2 border-white/70 text-white hover:bg-white/10"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <div class="mx-auto mb-6 w-fit rounded-full bg-white px-8 py-3 text-center text-xl font-extrabold text-brand-green shadow">
+      Contact Us
+    </div>
+
+    <form id="quote-form-modal-form" class="space-y-4">
+      <input
+        type="text"
+        name="firstName"
+        placeholder="First Name"
+        required
+        class="w-full rounded-md border-2 border-white bg-white px-4 py-3 text-brand-ink placeholder:text-brand-ink/50"
+      />
+      <input
+        type="text"
+        name="lastName"
+        placeholder="Last Name"
+        required
+        class="w-full rounded-md border-2 border-white bg-white px-4 py-3 text-brand-ink placeholder:text-brand-ink/50"
+      />
+      <input
+        type="tel"
+        name="phone"
+        placeholder="Phone Number"
+        required
+        class="w-full rounded-md border-2 border-white bg-white px-4 py-3 text-brand-ink placeholder:text-brand-ink/50"
+      />
+      <input
+        type="email"
+        name="email"
+        placeholder="Email Address"
+        required
+        class="w-full rounded-md border-2 border-white bg-white px-4 py-3 text-brand-ink placeholder:text-brand-ink/50"
+      />
+      <input
+        type="text"
+        name="address"
+        placeholder="Service Address"
+        required
+        class="w-full rounded-md border-2 border-white bg-white px-4 py-3 text-brand-ink placeholder:text-brand-ink/50"
+      />
+      <select
+        name="serviceType"
+        required
+        class="w-full rounded-md border-2 border-white bg-white px-4 py-3 text-brand-ink"
+      >
+        <option>Install</option>
+        <option>Repair</option>
+        <option>Maintenance</option>
+        <option>Emergency Service</option>
+      </select>
+      <input
+        type="text"
+        name="unitAge"
+        placeholder="Unit Age"
+        class="w-full rounded-md border-2 border-white bg-white px-4 py-3 text-brand-ink placeholder:text-brand-ink/50"
+      />
+      <textarea
+        name="message"
+        placeholder="Message"
+        rows="3"
+        class="w-full rounded-md border-2 border-white bg-white px-4 py-3 text-brand-ink placeholder:text-brand-ink/50"
+      ></textarea>
+      <label class="flex items-start gap-2 text-xs text-white/90">
+        <input type="checkbox" required class="mt-1 shrink-0" />
+        <span>
+          By submitting this form, you agree to be contacted by Horizon HVAC about your inquiry.
+        </span>
+      </label>
+      <button
+        type="submit"
+        class="w-full rounded-full bg-brand-gold px-6 py-3 font-bold text-brand-ink shadow-lg hover:opacity-90 transition-opacity"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
+
+<script>
+  import { wireQuoteForm } from "../scripts/quoteForm";
+
+  const modal = document.getElementById("quote-form-modal");
+  const closeBtn = document.getElementById("quote-form-close");
+  const form = document.getElementById("quote-form-modal-form") as HTMLFormElement | null;
+  if (form) wireQuoteForm(form);
+
+  function openModal() {
+    modal?.classList.remove("hidden");
+    modal?.classList.add("flex");
+    document.body.style.overflow = "hidden";
+  }
+  function closeModal() {
+    modal?.classList.add("hidden");
+    modal?.classList.remove("flex");
+    document.body.style.overflow = "";
+  }
+
+  document.querySelectorAll("[data-open-quote-form]").forEach((btn) => {
+    btn.addEventListener("click", openModal);
+  });
+  closeBtn?.addEventListener("click", closeModal);
+  modal?.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
+</script>

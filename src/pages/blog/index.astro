@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout
+  title="Blog"
+  fullTitle="HVAC Tips & Rhode Island Heating/Cooling Advice | Horizon HVAC Blog"
+  description="Seasonal maintenance checklists, energy-saving tips, and heating & cooling advice from Horizon HVAC's Rhode Island technicians."
+>
+  <PageHero eyebrow="News & Tips" title="Blog" />
+  <section class="mx-auto max-w-4xl px-4 py-16 space-y-6">
+    {posts.map((post) => (
+      <a href={`/blog/${post.id}`} class="block rounded-xl border border-brand-green/10 p-6 hover:shadow-md transition-shadow">
+        <h2 class="text-xl font-bold text-brand-ink">{post.data.title}</h2>
+        <p class="mt-1 text-sm text-brand-ink/60">{post.data.pubDate.toDateString()}</p>
+        {post.data.description && <p class="mt-2 text-brand-ink/70">{post.data.description}</p>}
+      </a>
+    ))}
+  </section>
+</BaseLayout>

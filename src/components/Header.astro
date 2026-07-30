@@ -1,0 +1,137 @@
+---
+import TopBar from "./TopBar.astro";
+import { navItems } from "../data/nav";
+
+interface Props {
+  transparent?: boolean;
+}
+const { transparent = false } = Astro.props;
+---
+
+<header
+  id="site-header"
+  class:list={[
+    "w-full z-50",
+    transparent ? "fixed top-0 inset-x-0 is-transparent" : "sticky top-0 bg-brand-green shadow-md",
+  ]}
+>
+  <div class="w-full bg-brand-green-dark py-2 text-center">
+    <button
+      type="button"
+      data-open-quote-form
+      class="inline-flex items-center gap-2 rounded-full bg-brand-gold px-5 py-1.5 text-xs sm:text-sm font-bold uppercase tracking-wide text-brand-ink shadow-md hover:brightness-105 active:scale-[0.98] transition"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+      </svg>
+      Free Estimate — Book Online
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+      </svg>
+    </button>
+  </div>
+
+  {!transparent && <TopBar />}
+
+  <div id="header-inner" class="header-inner mx-auto max-w-7xl flex items-center justify-between px-4 py-3">
+    <a href="/" class="flex items-center gap-2 text-white shrink-0">
+      <!-- TODO: replace with real logo asset -->
+      <span id="logo-text" class="logo-text font-extrabold tracking-wide whitespace-nowrap">HORIZON <span class="font-light">HVAC</span></span>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-3 xl:gap-5 mx-3 text-white font-semibold uppercase text-xs xl:text-sm whitespace-nowrap" aria-label="Primary">
+      {navItems.map((item) => (
+        <div class="relative group py-2">
+          <a href={item.href} class="flex items-center gap-1 hover:text-brand-gold transition-colors">
+            {item.label}
+            {item.children && (
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            )}
+          </a>
+          {item.children && (
+            <div class="absolute left-0 top-full hidden group-hover:block bg-white rounded-md shadow-lg py-2 min-w-[10rem] normal-case">
+              {item.children.map((child) => (
+                <a href={child.href} class="block px-4 py-2 text-sm font-medium text-brand-ink hover:bg-brand-green/5 hover:text-brand-green">
+                  {child.label}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+    </nav>
+
+    <a
+      href="tel:14014259879"
+      class="hidden lg:inline-block shrink-0 whitespace-nowrap rounded-full bg-brand-gold px-4 xl:px-6 py-2.5 xl:py-3 font-bold text-brand-ink text-xs xl:text-sm shadow-lg hover:opacity-90 transition-opacity"
+    >
+      CALL 401-425-9879
+    </a>
+
+    <div class="flex items-center gap-3 lg:hidden">
+      <a
+        href="tel:14014259879"
+        aria-label="Call Horizon HVAC"
+        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-gold text-brand-ink"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.25 6.75c0 8.284 6.716 15 15 15h1.5a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106a2.25 2.25 0 00-2.328.638l-.727.727a11.25 11.25 0 01-6.06-6.06l.727-.727a2.25 2.25 0 00.638-2.328L6.913 4.352a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 5.75v1z" />
+        </svg>
+      </a>
+
+      <button
+        id="mobile-nav-toggle"
+        class="text-white"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <nav id="mobile-nav" class="hidden lg:hidden bg-brand-green-dark px-4 pb-4" aria-label="Mobile">
+    {navItems.map((item) => (
+      <a href={item.href} class="block py-2 text-white border-b border-white/10">
+        {item.label}
+      </a>
+    ))}
+    <a
+      href="/contact"
+      class="mt-3 block rounded-md bg-brand-gold px-5 py-2 text-center font-semibold text-brand-ink"
+    >
+      Book Now
+    </a>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById("mobile-nav-toggle");
+  const menu = document.getElementById("mobile-nav");
+  toggle?.addEventListener("click", () => {
+    const isHidden = menu?.classList.toggle("hidden");
+    toggle.setAttribute("aria-expanded", String(!isHidden));
+  });
+
+  const header = document.getElementById("site-header");
+  if (header?.classList.contains("is-transparent")) {
+    let ticking = false;
+    const applyScrollState = () => {
+      header.classList.toggle("is-scrolled", window.scrollY > 60);
+      ticking = false;
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(applyScrollState);
+        ticking = true;
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    applyScrollState();
+  }
+</script>

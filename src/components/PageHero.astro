@@ -1,0 +1,26 @@
+---
+import HorizonDivider from "./HorizonDivider.astro";
+import Breadcrumbs, { type Crumb } from "./Breadcrumbs.astro";
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  breadcrumbs?: Crumb[];
+}
+const { eyebrow, title, description, breadcrumbs } = Astro.props;
+---
+
+<section class="relative isolate overflow-hidden bg-brand-green">
+  <div class="absolute inset-0 -z-20 bg-cover bg-center" style="background-image: url('/Untitled-design-8.png');"></div>
+  <div class="absolute inset-0 -z-10 bg-gradient-to-b from-brand-green-dark/90 via-brand-green/80 to-brand-green-dark/70"></div>
+  <div class="mx-auto max-w-6xl px-4 pt-36 sm:pt-44 pb-28 sm:pb-40 text-center text-white">
+    {breadcrumbs && <div class="mb-4"><Breadcrumbs items={breadcrumbs} /></div>}
+    {eyebrow && <p class="text-sm font-semibold uppercase tracking-wide text-brand-gold">{eyebrow}</p>}
+    <h1 class="mt-2 text-4xl sm:text-5xl font-extrabold">{title}</h1>
+    {description && <p class="mt-4 max-w-2xl mx-auto text-white/80">{description}</p>}
+  </div>
+  <div class="absolute inset-x-0 bottom-0">
+    <HorizonDivider fromClass="bg-transparent" toColorClass="text-white" side="right" />
+  </div>
+</section>

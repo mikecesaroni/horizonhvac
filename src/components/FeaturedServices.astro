@@ -1,0 +1,62 @@
+---
+import { Image } from "astro:assets";
+import { services } from "../data/services";
+import heatingRepairFurnace from "../assets/services/heating-repair-furnace.jpg";
+import acRepairMiniSplits from "../assets/services/ac-repair-mini-splits.jpg";
+import emergencyServiceTechnician from "../assets/services/emergency-service-technician.jpg";
+
+const featured = services.filter((s) => s.featured);
+
+// Photos are added per-service as they're provided; slugs without an entry here
+// still fall back to the placeholder box below.
+const serviceImages: Record<string, { src: ImageMetadata; alt: string }> = {
+  "emergency-service": {
+    src: emergencyServiceTechnician,
+    alt: "Horizon HVAC technician servicing an outdoor AC condenser",
+  },
+  "heating-repair": {
+    src: heatingRepairFurnace,
+    alt: "Carrier Comfort 92 gas furnace installed by Horizon HVAC",
+  },
+  "ac-repair": {
+    src: acRepairMiniSplits,
+    alt: "Mitsubishi Electric ductless mini-split condensers installed by Horizon HVAC",
+  },
+};
+---
+
+<section class="mx-auto max-w-6xl px-4 py-16">
+  <h2 class="text-center text-3xl sm:text-4xl font-extrabold uppercase text-brand-green">
+    Our Featured Services
+  </h2>
+
+  <div class="mt-12 grid gap-8 sm:grid-cols-3">
+    {featured.map((service) => (
+      <div class="overflow-hidden rounded-2xl border-2 border-brand-green/30 shadow-sm">
+        {serviceImages[service.slug] ? (
+          <Image
+            src={serviceImages[service.slug].src}
+            alt={serviceImages[service.slug].alt}
+            width={480}
+            height={192}
+            class="h-48 w-full object-cover"
+          />
+        ) : (
+          <div class="flex h-48 items-center justify-center bg-brand-green/10 text-brand-green/50 text-sm">
+            Photo placeholder
+          </div>
+        )}
+        <div class="bg-gradient-to-b from-brand-green to-brand-green-dark p-6 text-center text-white">
+          <h3 class="text-xl font-extrabold uppercase">{service.name}</h3>
+          <p class="mt-3 text-sm text-white/85">{service.description}</p>
+          <a
+            href={`/services/${service.slug}`}
+            class="mt-5 inline-block rounded-full bg-brand-gold px-6 py-2.5 text-sm font-bold text-brand-ink hover:opacity-90 transition-opacity"
+          >
+            Learn More →
+          </a>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

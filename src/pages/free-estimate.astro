@@ -1,0 +1,112 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import MetaPixel from "../components/MetaPixel.astro";
+---
+
+<BaseLayout
+  title="Free Estimate"
+  fullTitle="Free HVAC Estimate in Rhode Island | Horizon HVAC"
+  description="Get a free, no-obligation HVAC estimate from Horizon HVAC. Same-day service, 24/7 emergency calls answered, licensed & insured RI."
+  minimal={true}
+  noindex={true}
+>
+  <MetaPixel slot="head" pixelId="1223362445852584" />
+
+  <section class="relative isolate flex-1 overflow-hidden bg-brand-green text-white lg:flex lg:items-center">
+    <div class="absolute inset-0 -z-20 bg-cover bg-center" style="background-image: url('/Untitled-design-8.png');"></div>
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-brand-green-dark/90 via-brand-green/85 to-brand-green-dark/90"></div>
+
+    <div class="mx-auto grid w-full max-w-6xl items-center gap-4 px-4 py-4 lg:grid-cols-2 lg:gap-8 lg:py-4">
+      <div class="text-center lg:text-left">
+        <p class="text-xs sm:text-sm font-bold uppercase tracking-widest text-brand-gold">24/7 Emergency Service · No Heat? No AC?</p>
+        <h1 class="mt-1 sm:mt-2 text-2xl sm:text-4xl font-extrabold uppercase leading-tight drop-shadow-lg">
+          Get Your Free HVAC Estimate — <span class="text-brand-gold">Today</span>
+        </h1>
+        <p class="mt-2 sm:mt-3 text-sm sm:text-lg font-semibold text-white/85">
+          Same-day service, upfront pricing, and a 100% satisfaction guarantee. Proudly serving all of Rhode Island.
+        </p>
+        <div class="mt-2 sm:mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-1 text-xs sm:text-sm font-semibold text-white/90 lg:justify-start">
+          <span>★★★★★ 4.9 Rating</span>
+          <span>Licensed &amp; Insured RI</span>
+          <span>BBB Accredited A+</span>
+          <span>25+ Yrs Experience</span>
+        </div>
+      </div>
+
+      <div class="mx-auto w-full max-w-md">
+        <form
+          id="free-estimate-form"
+          class="space-y-2 sm:space-y-3 rounded-3xl border-4 border-white/20 bg-brand-green-dark/40 p-4 sm:p-6 text-left shadow-lg"
+        >
+          <p class="text-center text-base sm:text-lg font-extrabold text-white">Request Your Free Estimate</p>
+          <div class="grid grid-cols-2 gap-3">
+            <input
+              type="text"
+              name="firstName"
+              placeholder="First Name"
+              required
+              class="w-full rounded-md border-2 border-white bg-white px-3 py-2.5 text-sm text-brand-ink placeholder:text-brand-ink/50"
+            />
+            <input
+              type="text"
+              name="lastName"
+              placeholder="Last Name"
+              required
+              class="w-full rounded-md border-2 border-white bg-white px-3 py-2.5 text-sm text-brand-ink placeholder:text-brand-ink/50"
+            />
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Phone Number"
+              required
+              class="w-full rounded-md border-2 border-white bg-white px-3 py-2.5 text-sm text-brand-ink placeholder:text-brand-ink/50"
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              required
+              class="w-full rounded-md border-2 border-white bg-white px-3 py-2.5 text-sm text-brand-ink placeholder:text-brand-ink/50"
+            />
+          </div>
+          <input
+            type="text"
+            name="address"
+            placeholder="Service Address"
+            required
+            class="w-full rounded-md border-2 border-white bg-white px-3 py-2.5 text-sm text-brand-ink placeholder:text-brand-ink/50"
+          />
+          <select
+            name="serviceType"
+            required
+            class="w-full rounded-md border-2 border-white bg-white px-3 py-2.5 text-sm text-brand-ink"
+          >
+            <option>Install</option>
+            <option>Repair</option>
+            <option>Maintenance</option>
+            <option>Emergency Service</option>
+          </select>
+          <label class="flex items-start gap-2 text-xs text-white/90">
+            <input type="checkbox" required class="mt-1 shrink-0" />
+            <span>By submitting this form, you agree to be contacted by Horizon HVAC about your inquiry.</span>
+          </label>
+          <button
+            type="submit"
+            class="w-full rounded-full bg-brand-gold px-6 py-3 font-bold text-brand-ink shadow-lg hover:opacity-90 transition-opacity"
+          >
+            Get My Free Estimate
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  import { wireQuoteForm } from "../scripts/quoteForm";
+
+  const form = document.getElementById("free-estimate-form") as HTMLFormElement | null;
+  if (form) wireQuoteForm(form);
+</script>

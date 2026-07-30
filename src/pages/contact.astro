@@ -1,0 +1,32 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+---
+
+<BaseLayout
+  title="Contact"
+  fullTitle="Contact Horizon HVAC | Free HVAC Estimate in Rhode Island"
+  description="Get a free HVAC estimate from Horizon HVAC. Call 401-425-9879 or request an estimate online — same-day service, 24/7 emergency calls answered."
+>
+  <PageHero eyebrow="Get In Touch" title="Contact Us" description="Same-day service, 7 days a week." />
+  <section class="mx-auto max-w-2xl px-4 py-16 text-center">
+    <p class="text-lg text-brand-ink/70">
+      Ready to get started? Request your free estimate and we'll get back to you shortly.
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-4">
+      <button
+        type="button"
+        data-open-quote-form
+        class="rounded-full bg-brand-green px-8 py-4 font-bold text-white shadow-lg hover:opacity-90 transition-opacity"
+      >
+        Request Your Free Estimate
+      </button>
+      <a
+        href="tel:14014259879"
+        class="rounded-full bg-brand-gold px-8 py-4 font-bold text-brand-ink shadow-lg hover:opacity-90 transition-opacity"
+      >
+        Call 401-425-9879
+      </a>
+    </div>
+  </section>
+</BaseLayout>

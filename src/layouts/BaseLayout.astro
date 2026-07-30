@@ -1,0 +1,174 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import HorizonDivider from "../components/HorizonDivider.astro";
+import QuoteFormModal from "../components/QuoteFormModal.astro";
+import { googleMapsUrl } from "../data/business";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  transparentHeader?: boolean;
+  /** Full page title override — skips the "{title} | Horizon HVAC" template for pages that need precise control over the <title> tag. */
+  fullTitle?: string;
+  ogImage?: string;
+  noindex?: boolean;
+  /** Strips the full nav/footer down to just a logo + phone number, no links off the page.
+   * For campaign landing pages (e.g. Meta Ads) where every exit point hurts conversion. */
+  minimal?: boolean;
+}
+
+const {
+  title,
+  description = "Rhode Island's trusted 24/7 heating & cooling experts. Same-day HVAC repair, installation, and maintenance serving every RI city and town.",
+  transparentHeader = true,
+  fullTitle,
+  ogImage = "/Untitled-design-8.png",
+  noindex = false,
+  minimal = false,
+} = Astro.props;
+
+const pageTitle = fullTitle ?? `${title} | Horizon HVAC`;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(ogImage, Astro.site);
+
+const businessSchema = {
+  "@context": "https://schema.org",
+  "@type": "HVACBusiness",
+  "@id": "https://horizonhvacinc.com/#business",
+  name: "Horizon HVAC",
+  image: ogImageURL.toString(),
+  url: "https://horizonhvacinc.com",
+  telephone: "+1-401-425-9879",
+  priceRange: "$$",
+  areaServed: {
+    "@type": "State",
+    name: "Rhode Island",
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressRegion: "RI",
+    addressCountry: "US",
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+    ],
+    opens: "00:00",
+    closes: "23:59",
+  },
+  sameAs: [googleMapsUrl],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <meta name="theme-color" content="#1d5c32" />
+    <title>{pageTitle}</title>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Horizon HVAC" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(businessSchema)} />
+    <slot name="head" />
+  </head>
+  <body class:list={["bg-white text-brand-ink", minimal && "flex min-h-screen flex-col"]}>
+    {minimal ? (
+      <header class="shrink-0 bg-brand-green py-4">
+        <div class="mx-auto flex max-w-4xl items-center justify-between px-4">
+          <span class="text-xl font-extrabold tracking-wide text-white">HORIZON <span class="font-light">HVAC</span></span>
+          <a
+            href="tel:14014259879"
+            class="rounded-full bg-brand-gold px-5 py-2 text-sm font-bold text-brand-ink shadow-lg hover:opacity-90"
+          >
+            Call 401-425-9879
+          </a>
+        </div>
+      </header>
+    ) : (
+      <Header transparent={transparentHeader} />
+    )}
+    <main class:list={minimal && "flex flex-1 flex-col"}>
+      <slot />
+    </main>
+    {minimal ? (
+      <footer class="shrink-0 bg-brand-green-dark py-6 text-center text-xs text-white/70">
+        &copy; {new Date().getFullYear()} Horizon HVAC. Licensed &amp; Insured RI.
+      </footer>
+    ) : (
+      <>
+        <HorizonDivider fromClass="bg-white" toColorClass="text-brand-green-dark" side="left" />
+        <Footer />
+      </>
+    )}
+    <QuoteFormModal />
+
+    <!-- GoHighLevel chat widget — required for GHL's SMS/A2P 10DLC compliance registration -->
+    <script
+      src="https://widgets.leadconnectorhq.com/loader.js"
+      data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+      data-widget-id="6a5e68db6802349a339630e9"
+      data-source="WEB_USER"
+    ></script>
+
+    <script>
+      // Auto-applies scroll-reveal to page sections and grid cards, site-wide, with no
+      // per-component markup needed. The first section (hero) is skipped so it's visible
+      // immediately on load instead of fading in. A section with a grid gets its cards
+      // animated individually (staggered); a section without one animates as a whole block
+      // — never both, to avoid double/compounded motion.
+      const sections = Array.from(document.querySelectorAll("main > section"));
+      sections.forEach((section, i) => {
+        if (i === 0) return;
+        const gridItems = section.querySelectorAll(".grid > *");
+        if (gridItems.length > 0) {
+          gridItems.forEach((card, j) => {
+            card.classList.add("reveal-card");
+            (card as HTMLElement).style.transitionDelay = `${(j % 4) * 90}ms`;
+          });
+        } else {
+          section.classList.add("reveal-section");
+        }
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("revealed");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+
+      document.querySelectorAll(".reveal-section, .reveal-card").forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>

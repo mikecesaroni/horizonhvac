@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+import { serviceAreas } from "../../data/serviceAreas";
+---
+
+<BaseLayout
+  title="Service Areas"
+  fullTitle="HVAC Service Areas | All of Rhode Island | Horizon HVAC"
+  description="Horizon HVAC provides heating & cooling repair, installation, and maintenance in every Rhode Island city and town — from Providence to Westerly to Newport."
+>
+  <PageHero
+    eyebrow="Where We Work"
+    title="Service Areas"
+    description="Proudly serving all of Rhode Island."
+    breadcrumbs={[{ label: "Home", href: "/" }, { label: "Service Areas", href: "/service-areas" }]}
+  />
+  <section class="mx-auto max-w-6xl px-4 py-16">
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {serviceAreas.map((area) => (
+        <a
+          href={`/service-areas/${area.slug}`}
+          class="rounded-xl border border-brand-green/10 p-6 text-center font-semibold text-brand-ink hover:shadow-md transition-shadow"
+        >
+          {area.name}
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

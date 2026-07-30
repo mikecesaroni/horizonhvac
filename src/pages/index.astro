@@ -1,0 +1,136 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ThreeStepProcess from "../components/ThreeStepProcess.astro";
+import EmergencyBanner from "../components/EmergencyBanner.astro";
+import TrustBadges from "../components/TrustBadges.astro";
+import RatingBadges from "../components/RatingBadges.astro";
+import FeaturedServices from "../components/FeaturedServices.astro";
+import CredentialBadges from "../components/CredentialBadges.astro";
+import SpecialOffers from "../components/SpecialOffers.astro";
+import AreasWeServe from "../components/AreasWeServe.astro";
+import EmbeddedQuoteForm from "../components/EmbeddedQuoteForm.astro";
+import HorizonDivider from "../components/HorizonDivider.astro";
+import { googleMapsUrl } from "../data/business";
+---
+
+<BaseLayout
+  title="Home"
+  fullTitle="Rhode Island HVAC Company | 24/7 Heating & Cooling Repair | Horizon HVAC"
+  description="Horizon HVAC provides same-day heating & cooling repair, installation, and maintenance across all of Rhode Island. 24/7 emergency service. Licensed & insured, BBB A+."
+  transparentHeader={true}
+>
+  <section class="relative isolate overflow-hidden text-center text-white">
+    <div
+      class="absolute inset-0 -z-20 bg-cover bg-center"
+      style="background-image: url('/Untitled-design-8.png');"
+    >
+    </div>
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-brand-green-dark/90 via-brand-green/85 to-brand-green-dark/90"></div>
+
+    <div class="mx-auto max-w-5xl px-4 pt-40 sm:pt-48 pb-24">
+      <EmergencyBanner />
+
+      <p class="mt-10 text-sm sm:text-base font-bold uppercase tracking-widest text-brand-gold">
+        Your Comfort. Our Priority.
+      </p>
+      <h1 class="mt-4 text-4xl sm:text-6xl font-extrabold uppercase leading-tight drop-shadow-lg">
+        Trusted Heating &amp; Air Conditioning<br class="hidden sm:block" /> Services in{" "}
+        <span class="text-brand-gold">Rhode Island</span>
+      </h1>
+      <p class="mt-4 text-lg font-semibold text-white/80 uppercase tracking-wide">
+        Proudly Serving All of Rhode Island
+      </p>
+
+      <div class="mt-10 border-t border-white/20 pt-8">
+        <TrustBadges />
+      </div>
+
+      <div class="mt-10">
+        <RatingBadges />
+      </div>
+
+      <div class="mt-8">
+        <CredentialBadges />
+      </div>
+
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a href="/contact" class="rounded-full bg-white px-8 py-4 font-bold text-brand-ink shadow-lg hover:opacity-90 transition-opacity">
+          Free Estimate — Book Online
+        </a>
+        <a href="tel:14014259879" class="rounded-full bg-brand-gold px-8 py-4 font-bold text-brand-ink shadow-lg hover:opacity-90 transition-opacity">
+          Call 401-425-9879
+        </a>
+      </div>
+    </div>
+
+    <svg class="absolute bottom-0 left-0 w-full text-white" viewBox="0 0 1440 100" fill="currentColor" preserveAspectRatio="none">
+      <path d="M0,64 C240,120 480,0 720,32 C960,64 1200,120 1440,48 L1440,100 L0,100 Z" />
+    </svg>
+  </section>
+
+  <FeaturedServices />
+
+  <HorizonDivider fromClass="bg-white" toColorClass="text-brand-green" side="left" />
+
+  <ThreeStepProcess dark={true} />
+
+  <HorizonDivider
+    fromClass="bg-gradient-to-b from-brand-green via-brand-green/80 to-brand-green/45"
+    toColorClass="text-white"
+    side="right"
+  />
+
+  <SpecialOffers />
+
+  <HorizonDivider fromClass="bg-white" toColorClass="text-brand-green" side="left" />
+
+  <section class="bg-brand-green py-16">
+    <div class="mx-auto max-w-6xl px-4 text-center">
+      <h2 class="text-3xl font-extrabold text-white">What Your Neighbors Are Saying</h2>
+      <p class="mt-2 text-white/80">4.9 Stars · 165 Reviews</p>
+      <!-- TODO: wire up real Google Reviews content -->
+      <div class="mt-10 grid gap-6 sm:grid-cols-3">
+        {[1, 2, 3].map(() => (
+          <div class="rounded-xl bg-white p-6 shadow-sm text-left">
+            <p class="text-brand-ink/80">"Placeholder review text — replace with real customer testimonials."</p>
+            <p class="mt-4 font-semibold text-brand-ink">— Customer Name</p>
+          </div>
+        ))}
+      </div>
+      <a
+        href={googleMapsUrl}
+        target="_blank"
+        rel="noopener"
+        class="mt-10 inline-block rounded-full bg-white px-8 py-3 font-bold text-brand-green shadow-lg hover:opacity-90 transition-opacity"
+      >
+        Read Our Reviews on Google
+      </a>
+    </div>
+  </section>
+
+  <HorizonDivider
+    fromClass="bg-gradient-to-b from-brand-green via-brand-green/80 to-brand-green/45"
+    toColorClass="text-white"
+    side="right"
+  />
+
+  <AreasWeServe />
+
+  <HorizonDivider fromClass="bg-white" toColorClass="text-brand-green" side="left" />
+
+  <EmbeddedQuoteForm />
+
+  <HorizonDivider
+    fromClass="bg-gradient-to-b from-brand-green via-brand-green/80 to-brand-green/45"
+    toColorClass="text-white"
+    side="right"
+  />
+
+  <section class="mx-auto max-w-4xl px-4 py-16 text-center">
+    <h2 class="text-3xl font-extrabold text-brand-ink">Ready for a Comfortable Home?</h2>
+    <p class="mt-3 text-brand-ink/70">Same-day service, upfront pricing, and a 100% satisfaction guarantee.</p>
+    <a href="/contact" class="mt-6 inline-block rounded-md bg-brand-gold px-8 py-3 font-semibold text-brand-ink hover:opacity-90">
+      Book Your Appointment
+    </a>
+  </section>
+</BaseLayout>

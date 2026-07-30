@@ -1,0 +1,47 @@
+---
+import { navItems } from "../data/nav";
+import { googleMapsUrl } from "../data/business";
+---
+
+<footer class="bg-brand-green-dark text-white">
+  <div class="mx-auto max-w-7xl px-4 py-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+    <div>
+      <span class="text-xl font-extrabold tracking-wide">HORIZON <span class="font-light">HVAC</span></span>
+      <p class="mt-3 text-sm text-white/70">
+        Same-Day Service · 7 Days a Week. Rhode Island's trusted heating &amp; cooling experts.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-semibold text-brand-gold">Quick Links</h3>
+      <ul class="mt-3 space-y-2 text-sm text-white/80">
+        {navItems.map((item) => (
+          <li><a href={item.href} class="hover:text-brand-gold">{item.label}</a></li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="font-semibold text-brand-gold">Contact</h3>
+      <ul class="mt-3 space-y-2 text-sm text-white/80">
+        <li><a href="tel:14014259879" class="hover:text-brand-gold">401-425-9879</a></li>
+        <li>Serving All of Rhode Island</li>
+        <li>24/7 Emergency Service</li>
+        <li>
+          <a href={googleMapsUrl} target="_blank" rel="noopener" class="hover:text-brand-gold">
+            Read Our Reviews on Google
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="font-semibold text-brand-gold">Hours</h3>
+      <p class="mt-3 text-sm text-white/80">Same-Day Service, 7 Days a Week</p>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10 px-4 py-4 text-center text-xs text-white/60">
+    &copy; {new Date().getFullYear()} Horizon HVAC. All rights reserved.
+  </div>
+</footer>

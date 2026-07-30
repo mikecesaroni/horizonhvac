@@ -1,0 +1,89 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+import FaqSection from "../../components/FaqSection.astro";
+import { services } from "../../data/services";
+import { serviceAreas } from "../../data/serviceAreas";
+
+export function getStaticPaths() {
+  return services.map((service) => ({
+    params: { slug: service.slug },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+
+// Rotate which handful of towns each service page links to, so the 39 town pages
+// get spread across internal links instead of every service page linking the same five.
+const offset = services.findIndex((s) => s.slug === service.slug) * 7;
+const linkedAreas = Array.from({ length: 6 }, (_, i) => serviceAreas[(offset + i) % serviceAreas.length]);
+---
+
+<BaseLayout title={service.name} fullTitle={service.metaTitle} description={service.metaDescription}>
+  <PageHero
+    eyebrow="Services"
+    title={service.name}
+    description={service.description}
+    breadcrumbs={[
+      { label: "Home", href: "/" },
+      { label: "Services", href: "/services" },
+      { label: service.name, href: `/services/${service.slug}` },
+    ]}
+  />
+
+  <section class="mx-auto max-w-4xl px-4 py-16">
+    <h2 class="text-2xl font-extrabold text-brand-ink">Signs You Need {service.name}</h2>
+    <ul class="mt-6 grid gap-3 sm:grid-cols-2">
+      {service.signs.map((sign) => (
+        <li class="flex gap-3 rounded-lg border border-brand-green/10 p-4 text-brand-ink/80">
+          <span class="text-brand-green font-bold">✓</span>
+          <span>{sign}</span>
+        </li>
+      ))}
+    </ul>
+
+    <h2 class="mt-14 text-2xl font-extrabold text-brand-ink">What Horizon HVAC Does</h2>
+    <ul class="mt-6 space-y-3">
+      {service.whatWeDo.map((item) => (
+        <li class="flex gap-3 text-brand-ink/80">
+          <span class="text-brand-gold font-bold">•</span>
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+
+    <div class="mt-14 rounded-2xl bg-brand-green/5 p-8 text-center">
+      <p class="text-lg font-bold text-brand-ink">Licensed &amp; Insured RI · BBB Accredited A+ · 25+ Yrs Experience</p>
+      <button
+        type="button"
+        data-open-quote-form
+        class="mt-6 inline-block rounded-full bg-brand-green px-8 py-3 font-bold text-white shadow-lg hover:opacity-90"
+      >
+        Book {service.name} — Free Estimate
+      </button>
+    </div>
+  </section>
+
+  <FaqSection faqs={service.faqs} title={`${service.name} — Frequently Asked Questions`} />
+
+  <section class="bg-white pb-16">
+    <div class="mx-auto max-w-4xl px-4 text-center">
+      <h2 class="text-xl font-bold text-brand-ink">{service.name} Near You</h2>
+      <p class="mt-2 text-brand-ink/70">Proudly serving all of Rhode Island, including:</p>
+      <div class="mt-5 flex flex-wrap justify-center gap-2">
+        {linkedAreas.map((area) => (
+          <a
+            href={`/service-areas/${area.slug}`}
+            class="rounded-full border border-brand-green/20 px-4 py-1.5 text-sm font-semibold text-brand-green hover:bg-brand-green hover:text-white transition-colors"
+          >
+            {area.name}
+          </a>
+        ))}
+      </div>
+      <a href="/service-areas" class="mt-4 inline-block text-sm font-semibold text-brand-green hover:underline">
+        View all service areas →
+      </a>
+    </div>
+  </section>
+</BaseLayout>
