@@ -1,6 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import TopBar from "./TopBar.astro";
 import { navItems } from "../data/nav";
+import logo from "../assets/brand/logo.png";
 
 interface Props {
   transparent?: boolean;
@@ -34,9 +36,8 @@ const { transparent = false } = Astro.props;
   {!transparent && <TopBar />}
 
   <div id="header-inner" class="header-inner mx-auto max-w-7xl flex items-center justify-between px-4 py-3">
-    <a href="/" class="flex items-center gap-2 text-white shrink-0">
-      <!-- TODO: replace with real logo asset -->
-      <span id="logo-text" class="logo-text font-extrabold tracking-wide whitespace-nowrap">HORIZON <span class="font-light">HVAC</span></span>
+    <a href="/" class="flex items-center shrink-0">
+      <Image id="logo-img" src={logo} alt="Horizon HVAC" class="logo-img h-16 w-auto" />
     </a>
 
     <nav class="hidden lg:flex items-center gap-3 xl:gap-5 mx-3 text-white font-semibold uppercase text-xs xl:text-sm whitespace-nowrap" aria-label="Primary">

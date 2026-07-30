@@ -41,12 +41,12 @@ body {
   padding-top: 0.65rem;
   padding-bottom: 0.65rem;
 }
-#site-header.is-transparent .logo-text {
-  font-size: 1.75rem;
-  transition: font-size 300ms ease;
+#site-header.is-transparent .logo-img {
+  height: 5.5rem;
+  transition: height 300ms ease;
 }
-#site-header.is-transparent.is-scrolled .logo-text {
-  font-size: 1.35rem;
+#site-header.is-transparent.is-scrolled .logo-img {
+  height: 3.5rem;
 }
 /* Button hover animation — applies site-wide to any linked/clickable pill or CTA card,
    without needing to touch every component individually. Scoped to <a>/<button> only so
