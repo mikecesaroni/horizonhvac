@@ -41,6 +41,7 @@ export default async (req) => {
     body: JSON.stringify({
       ...payload,
       source: "horizonhvacinc.com",
+      sourcePage: payload.pageUrl || "unknown",
       submittedAt: new Date().toISOString(),
     }),
   });

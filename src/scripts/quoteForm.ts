@@ -9,7 +9,10 @@ export function wireQuoteForm(form: HTMLFormElement) {
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const payload = Object.fromEntries(new FormData(form).entries());
+    const payload = {
+      ...Object.fromEntries(new FormData(form).entries()),
+      pageUrl: window.location.href,
+    };
 
     if (submitBtn) {
       submitBtn.disabled = true;
