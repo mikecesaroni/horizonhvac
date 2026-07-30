@@ -1,9 +1,11 @@
 ---
+import { Image } from "astro:assets";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import HorizonDivider from "../components/HorizonDivider.astro";
 import QuoteFormModal from "../components/QuoteFormModal.astro";
 import { googleMapsUrl } from "../data/business";
+import logo from "../assets/brand/logo.png";
 import "../styles/global.css";
 
 interface Props {
@@ -99,9 +101,9 @@ const businessSchema = {
   </head>
   <body class:list={["bg-white text-brand-ink", minimal && "flex min-h-screen flex-col"]}>
     {minimal ? (
-      <header class="shrink-0 bg-brand-green py-4">
+      <header class="shrink-0 bg-brand-green py-2">
         <div class="mx-auto flex max-w-4xl items-center justify-between px-4">
-          <span class="text-xl font-extrabold tracking-wide text-white">HORIZON <span class="font-light">HVAC</span></span>
+          <Image src={logo} alt="Horizon HVAC" class="h-12 w-auto" />
           <a
             href="tel:14014259879"
             class="rounded-full bg-brand-gold px-5 py-2 text-sm font-bold text-brand-ink shadow-lg hover:opacity-90"
