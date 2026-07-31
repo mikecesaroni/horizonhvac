@@ -18,7 +18,7 @@ export const navItems: NavItem[] = [
     href: "/service-areas",
     children: [{ label: "All Service Areas", href: "/service-areas" }],
   },
-  { label: "Plans", href: "/plans" },
+  { label: "Deals", href: "/deals" },
   { label: "Blogs", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
