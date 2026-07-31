@@ -35,6 +35,13 @@ export default async (req) => {
     });
   }
 
+  if (payload.riResident !== "true") {
+    return new Response(JSON.stringify({ error: "Rhode Island residency confirmation required" }), {
+      status: 400,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+
   const ghlResponse = await fetch(webhookUrl, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
