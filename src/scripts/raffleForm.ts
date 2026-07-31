@@ -30,10 +30,10 @@ export function wireRaffleForm(form: HTMLFormElement) {
 
       form.reset();
       statusEl.textContent = "You're entered! Good luck.";
-      statusEl.className = "text-sm font-semibold text-center min-h-5 text-white";
+      statusEl.className = "text-sm font-semibold text-center min-h-5 text-brand-green";
     } catch {
       statusEl.textContent = "Something went wrong — please call us at 401-425-9879 instead.";
-      statusEl.className = "text-sm font-semibold text-center min-h-5 text-red-200";
+      statusEl.className = "text-sm font-semibold text-center min-h-5 text-red-600";
     } finally {
       if (submitBtn) {
         submitBtn.disabled = false;
