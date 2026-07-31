@@ -1,0 +1,62 @@
+---
+// Deliberately separate from QuoteFormModal/EmbeddedQuoteForm — raffle entries go
+// to their own GoHighLevel pipeline (submit-raffle.js / GHL_RAFFLE_WEBHOOK_URL),
+// not the quote-request pipeline.
+import { raffle } from "../data/raffle";
+---
+
+<section class="bg-white py-16">
+  <div class="mx-auto max-w-2xl px-4 text-center">
+    <p class="text-sm font-semibold uppercase tracking-wide text-brand-gold">Enter To Win</p>
+    <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-ink">Monthly Raffle</h2>
+    <p class="mt-4 text-2xl sm:text-3xl font-extrabold text-brand-green">{raffle.prizeName}</p>
+    <p class="mt-3 text-brand-ink/70">{raffle.prizeDescription}</p>
+
+    <form
+      id="raffle-form"
+      class="mt-8 space-y-4 rounded-3xl border-4 border-brand-green/15 bg-brand-green/5 p-6 sm:p-8 text-left shadow-lg"
+    >
+      <input
+        type="text"
+        name="fullName"
+        placeholder="Full Name"
+        required
+        class="w-full rounded-md border-2 border-brand-green/20 bg-white px-4 py-3 text-brand-ink placeholder:text-brand-ink/50"
+      />
+      <div class="grid gap-4 sm:grid-cols-2">
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Phone Number"
+          required
+          class="w-full rounded-md border-2 border-brand-green/20 bg-white px-4 py-3 text-brand-ink placeholder:text-brand-ink/50"
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email Address"
+          required
+          class="w-full rounded-md border-2 border-brand-green/20 bg-white px-4 py-3 text-brand-ink placeholder:text-brand-ink/50"
+        />
+      </div>
+      <label class="flex items-start gap-2 text-xs text-brand-ink/70">
+        <input type="checkbox" required class="mt-1 shrink-0" />
+        <span>By entering, you agree to be contacted by Horizon HVAC and accept the official raffle rules.</span>
+      </label>
+      <button
+        type="submit"
+        class="w-full rounded-full bg-brand-green px-6 py-3 font-bold text-white shadow-lg hover:opacity-90 transition-opacity"
+      >
+        Enter Raffle
+      </button>
+    </form>
+    <p class="mt-4 text-xs text-brand-ink/50">No purchase necessary. One entry per person. Winner announced monthly.</p>
+  </div>
+</section>
+
+<script>
+  import { wireRaffleForm } from "../scripts/raffleForm";
+
+  const form = document.getElementById("raffle-form") as HTMLFormElement | null;
+  if (form) wireRaffleForm(form);
+</script>

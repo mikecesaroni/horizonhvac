@@ -1,0 +1,62 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import RaffleForm from "../components/RaffleForm.astro";
+import { offers } from "../data/offers";
+---
+
+<BaseLayout
+  title="Deals"
+  fullTitle="Current HVAC Deals, Coupons & Monthly Raffle | Horizon HVAC"
+  description="Current HVAC coupons, a first-2-customers monthly bonus perk, and our monthly raffle — from Horizon HVAC, Rhode Island's trusted heating & cooling experts."
+>
+  <PageHero eyebrow="Limited Time" title="Deals" description="Fresh deals every 30 days — check back often." />
+
+  <section class="bg-white py-16">
+    <div class="mx-auto max-w-6xl px-4 text-center">
+      <h2 class="text-3xl sm:text-4xl font-extrabold uppercase text-brand-green">Current Coupons</h2>
+      <p class="mt-2 text-brand-ink/70">New deals every 30 days — bookmark this page so you don't miss the next one.</p>
+
+      <div class="mt-12 grid gap-8 sm:grid-cols-3">
+        {offers.map((offer) => (
+          <div class="overflow-hidden rounded-2xl border-4 border-brand-green/20 bg-white shadow-lg">
+            <div class="bg-gradient-to-b from-brand-green to-brand-green-dark px-6 py-12 text-white">
+              <p class="flex items-start justify-center leading-none">
+                <span class="text-7xl sm:text-8xl font-extrabold">{offer.amount.replace(" OFF", "")}</span>
+                <span class="mt-2 sm:mt-3 ml-1 text-xl sm:text-2xl font-extrabold">OFF</span>
+              </p>
+              <p class="mt-5 font-bold uppercase tracking-wide">{offer.label}</p>
+            </div>
+            <div class="p-4">
+              <span class="inline-block rounded-full bg-brand-green px-3 py-1 text-xs font-bold text-white">HORIZON HVAC</span>
+              <p class="mt-2 text-xs text-brand-ink/60">{offer.fineprint}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-14 rounded-3xl bg-gradient-to-br from-[#f0d199] via-brand-gold to-[#8a5f24] px-6 py-10 shadow-[0_16px_32px_rgba(0,0,0,0.35)]">
+        <p
+          class="text-2xl sm:text-3xl font-extrabold uppercase text-white"
+          style="text-shadow: 0 3px 6px rgba(0,0,0,0.45), 0 1px 0 rgba(0,0,0,0.3);"
+        >
+          🎧 First 2 Customers This Month Get a Free Bonus Gift
+        </p>
+        <p class="mt-3 font-semibold text-white/95">
+          Book any service this month, and if you're one of the first 2 customers, you'll walk away with a free
+          bonus gift — think AirPods and similar prizes. The gift rotates every month, so the earlier you book, the
+          better your shot.
+        </p>
+        <button
+          type="button"
+          data-open-quote-form
+          class="mt-6 inline-block rounded-full bg-white px-8 py-3 font-bold text-brand-ink shadow-lg hover:opacity-90"
+        >
+          Book Now &amp; Claim Yours
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <RaffleForm />
+</BaseLayout>
