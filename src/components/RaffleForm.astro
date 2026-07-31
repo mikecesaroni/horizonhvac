@@ -11,6 +11,7 @@ import { raffle } from "../data/raffle";
     <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-ink">Monthly Raffle</h2>
     <p class="mt-4 text-2xl sm:text-3xl font-extrabold text-brand-green">{raffle.prizeName}</p>
     <p class="mt-3 text-brand-ink/70">{raffle.prizeDescription}</p>
+    <p class="mt-2 text-sm font-semibold text-brand-ink/60">{raffle.eligibility}</p>
 
     <form
       id="raffle-form"
@@ -40,6 +41,10 @@ import { raffle } from "../data/raffle";
         />
       </div>
       <label class="flex items-start gap-2 text-xs text-brand-ink/70">
+        <input type="checkbox" name="riResident" value="true" required class="mt-1 shrink-0" />
+        <span>I confirm I am a current Rhode Island resident.</span>
+      </label>
+      <label class="flex items-start gap-2 text-xs text-brand-ink/70">
         <input type="checkbox" required class="mt-1 shrink-0" />
         <span>By entering, you agree to be contacted by Horizon HVAC and accept the official raffle rules.</span>
       </label>
@@ -50,7 +55,9 @@ import { raffle } from "../data/raffle";
         Enter Raffle
       </button>
     </form>
-    <p class="mt-4 text-xs text-brand-ink/50">No purchase necessary. One entry per person. Winner announced monthly.</p>
+    <p class="mt-4 text-xs text-brand-ink/50">
+      No purchase necessary. Open to Rhode Island residents only. One entry per person. Winner announced monthly.
+    </p>
   </div>
 </section>
 
