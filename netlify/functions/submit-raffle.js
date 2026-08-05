@@ -2,6 +2,8 @@
 // dedicated GoHighLevel inbound webhook — a separate pipeline from the
 // regular quote-form leads (see submit-quote.js), so raffle entrants don't
 // land in the same workflow as service-estimate leads.
+import { getSourceLabel } from "./lib/source.js";
+
 export default async (req) => {
   if (req.method !== "POST") {
     return new Response(JSON.stringify({ error: "Method not allowed" }), {
@@ -47,7 +49,7 @@ export default async (req) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       ...payload,
-      source: "horizonhvacinc.com",
+      source: getSourceLabel(payload.pageUrl),
       sourcePage: payload.pageUrl || "unknown",
       submittedAt: new Date().toISOString(),
     }),

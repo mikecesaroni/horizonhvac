@@ -2,6 +2,8 @@
 // to the GoHighLevel inbound webhook. Kept server-side (rather than the browser
 // calling GHL directly) so the webhook URL never appears in page source and the
 // request isn't subject to the browser's CORS restrictions.
+import { getSourceLabel } from "./lib/source.js";
+
 export default async (req) => {
   if (req.method !== "POST") {
     return new Response(JSON.stringify({ error: "Method not allowed" }), {
@@ -40,7 +42,7 @@ export default async (req) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       ...payload,
-      source: "horizonhvacinc.com",
+      source: getSourceLabel(payload.pageUrl),
       sourcePage: payload.pageUrl || "unknown",
       submittedAt: new Date().toISOString(),
     }),
