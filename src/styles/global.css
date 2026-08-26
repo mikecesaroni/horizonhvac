@@ -95,3 +95,14 @@ body {
     transform: translateY(0);
   }
 }
+
+/* Meta Ads landing page (/free-estimate, /free-estimate-email): the whole point is
+   fitting the entire form in view with zero scrolling. On short viewports (older/smaller
+   phones in landscape-constrained heights) there isn't room for the supporting trust copy
+   alongside the full form, so it's hidden here — the form itself is never touched. */
+@media (max-height: 740px) {
+  .lp-short-hide {
+    display: none;
+  }
+}
+
