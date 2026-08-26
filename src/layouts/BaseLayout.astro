@@ -103,12 +103,12 @@ const businessSchema = {
   </head>
   <body class:list={["bg-white text-brand-ink", minimal && "flex min-h-screen flex-col"]}>
     {minimal ? (
-      <header class="shrink-0 bg-brand-green py-2">
+      <header class="shrink-0 bg-brand-green py-1.5 sm:py-2">
         <div class="mx-auto flex max-w-4xl items-center justify-between px-4">
-          <Image src={logo} alt="Horizon HVAC" class="h-12 w-auto" />
+          <Image src={logo} alt="Horizon HVAC" class="h-9 w-auto sm:h-12" />
           <a
             href="tel:14014259879"
-            class="rounded-full bg-brand-gold px-5 py-2 text-sm font-bold text-brand-ink shadow-lg hover:opacity-90"
+            class="rounded-full bg-brand-gold px-3.5 py-1.5 text-xs font-bold text-brand-ink shadow-lg hover:opacity-90 sm:px-5 sm:py-2 sm:text-sm"
           >
             Call 401-425-9879
           </a>
@@ -121,7 +121,7 @@ const businessSchema = {
       <slot />
     </main>
     {minimal ? (
-      <footer class="shrink-0 bg-brand-green-dark py-6 text-center text-xs text-white/70">
+      <footer class="lp-short-hide shrink-0 bg-brand-green-dark py-2 text-center text-xs text-white/70 sm:py-6">
         &copy; {new Date().getFullYear()} Horizon HVAC. Licensed &amp; Insured RI.
       </footer>
     ) : (
