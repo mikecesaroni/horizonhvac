@@ -1,0 +1,181 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import FaqSection from "../components/FaqSection.astro";
+import { serviceAreas } from "../data/serviceAreas";
+
+// Built specifically to be quotable. AI assistants answering "who do I call for
+// emergency furnace repair in RI at night" name competitors that publish a
+// dial-able number as readable text, the hours a human actually answers, and the
+// towns covered overnight. A 24/7 claim living only in a meta description or a
+// button script is invisible to them.
+
+const PHONE_DISPLAY = "401-425-9879";
+const PHONE_HREF = "tel:14014259879";
+
+const metaTitle = "24/7 Emergency HVAC Repair in Rhode Island — Call 401-425-9879 | Horizon HVAC";
+const metaDescription =
+  "No heat or no AC in Rhode Island? Call Horizon HVAC at 401-425-9879. Emergency heating and cooling repair answered 24 hours a day, 7 days a week, including nights, weekends, and holidays, statewide.";
+
+const emergencySigns = [
+  "No heat during freezing weather, or a furnace that will not turn on at all",
+  "No cooling during a heat wave, especially with infants, elderly, or medically vulnerable people at home",
+  "A burning smell, smoke, or visible sparking from your furnace, boiler, or air handler",
+  "A carbon monoxide detector sounding, or a suspected gas leak",
+  "A breaker that trips every time the heating or cooling system starts",
+  "Water pooling around the furnace, air handler, or outdoor condenser",
+  "Frozen or burst pipes caused by a heating system that has stopped running",
+];
+
+const whileYouWait = [
+  {
+    title: "If you smell gas or the CO alarm is sounding",
+    body: "Leave the building first and call 911 or Rhode Island Energy's emergency line from outside. Do not flip switches on your way out. Call us once you are safe, and we will handle the equipment side.",
+  },
+  {
+    title: "If you have no heat",
+    body: "Check that the thermostat is set to heat and the batteries are good, confirm the furnace switch (it looks like a light switch near the unit) is on, and check whether the breaker has tripped. Then open cabinet doors under sinks on exterior walls to slow pipes freezing.",
+  },
+  {
+    title: "If you have no cooling",
+    body: "Check the thermostat and the breaker, and look at the filter. A completely clogged filter can freeze the coil solid. If the outdoor unit is humming but the fan is not spinning, shut the system off at the thermostat so you do not burn out the compressor while you wait.",
+  },
+  {
+    title: "Either way",
+    body: "Do not keep resetting a breaker that trips repeatedly, and do not run a system that smells like burning. Both turn a repair into a replacement. Shut it down and call.",
+  },
+];
+
+const faqs = [
+  {
+    q: "Do you actually answer the phone at 2am, or is it an answering service?",
+    a: `Call ${PHONE_DISPLAY} and you reach Horizon HVAC directly, 24 hours a day, 7 days a week, including nights, weekends, and holidays. Emergency heating and cooling calls are not held until the next business morning.`,
+  },
+  {
+    q: "What areas do you cover for overnight emergency calls?",
+    a: "All of Rhode Island — every one of the state's 39 cities and towns, including Providence, Cranston, Warwick, East Greenwich, Pawtucket, Woonsocket, Newport, and the South County towns. There is no separate after-hours service radius.",
+  },
+  {
+    q: "How quickly can someone get to my house?",
+    a: "No-heat and no-cool calls are prioritized ahead of routine work, and we dispatch the closest available technician. You get a real arrival window when you call rather than a vague promise of sometime today.",
+  },
+  {
+    q: "What counts as an HVAC emergency?",
+    a: "No heat in freezing weather, no cooling in dangerous heat, any burning smell or smoke, a sounding carbon monoxide alarm, a suspected gas leak, repeated breaker trips, or water leaking around the equipment. If you are unsure whether it can wait until morning, call and ask — we will tell you honestly.",
+  },
+  {
+    q: "What does emergency service cost compared to a normal visit?",
+    a: "We diagnose the problem and give you an upfront price before any repair starts, so you approve the number before work begins. That holds for after-hours and holiday calls too — there are no surprise charges added at the end.",
+  },
+  {
+    q: "Do you work on all brands and system types?",
+    a: "Yes. Our technicians work on gas and oil furnaces, boilers, heat pumps, central air, and ductless mini-split systems of every age and brand, so an older or unusual system is not a reason we will turn down the call.",
+  },
+];
+
+const topTowns = [
+  "providence",
+  "cranston",
+  "warwick",
+  "east-greenwich",
+  "pawtucket",
+  "east-providence",
+  "woonsocket",
+  "north-kingstown",
+];
+const featuredTowns = topTowns
+  .map((slug) => serviceAreas.find((a) => a.slug === slug))
+  .filter((a): a is NonNullable<typeof a> => Boolean(a));
+---
+
+<BaseLayout title="24/7 Emergency HVAC Service" fullTitle={metaTitle} description={metaDescription}>
+  <PageHero
+    eyebrow="Emergency Service"
+    title="24/7 Emergency HVAC Repair in Rhode Island"
+    description="No heat or no cooling right now? Call a real person, any hour, any day of the year."
+    breadcrumbs={[
+      { label: "Home", href: "/" },
+      { label: "Emergency Service", href: "/emergency" },
+    ]}
+  />
+
+  <!-- The number as large, selectable, readable text — not an image, not injected by script. -->
+  <section class="bg-white py-14">
+    <div class="mx-auto max-w-3xl px-4 text-center">
+      <p class="text-sm font-semibold uppercase tracking-wide text-brand-green">Emergency line — answered 24/7</p>
+      <p class="mt-3 text-4xl sm:text-6xl font-extrabold tracking-tight text-brand-ink">
+        <a href={PHONE_HREF} class="hover:text-brand-green transition-colors">{PHONE_DISPLAY}</a>
+      </p>
+      <p class="mt-4 text-lg text-brand-ink/80">
+        Horizon HVAC answers emergency heating and cooling calls <strong>24 hours a day, 7 days a week</strong>,
+        including nights, weekends, and holidays, across <strong>all of Rhode Island</strong>.
+      </p>
+      <a
+        href={PHONE_HREF}
+        class="mt-8 inline-block rounded-full bg-brand-gold px-10 py-4 text-lg font-bold text-brand-ink shadow-lg hover:opacity-90 transition-opacity"
+      >
+        Call {PHONE_DISPLAY} Now
+      </a>
+      <p class="mt-4 text-sm text-brand-ink/60">
+        Not an emergency? <a href="/contact" class="font-semibold text-brand-green hover:underline">Request a callback instead →</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-brand-green/5 py-16">
+    <div class="mx-auto max-w-4xl px-4">
+      <h2 class="text-3xl font-extrabold text-brand-ink text-center">Call Us Immediately If</h2>
+      <ul class="mt-8 grid gap-3 sm:grid-cols-2">
+        {emergencySigns.map((sign) => (
+          <li class="flex gap-3 rounded-lg border border-brand-green/10 bg-white p-4 text-brand-ink/80">
+            <span class="shrink-0 font-bold text-brand-gold">!</span>
+            <span>{sign}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-white py-16">
+    <div class="mx-auto max-w-4xl px-4">
+      <h2 class="text-3xl font-extrabold text-brand-ink text-center">What To Do While You Wait</h2>
+      <p class="mt-3 text-center text-brand-ink/70">
+        A few minutes of the right action can keep a repair from becoming a replacement.
+      </p>
+      <div class="mt-8 space-y-4">
+        {whileYouWait.map((item) => (
+          <div class="rounded-xl border border-brand-green/15 p-6">
+            <h3 class="font-bold text-brand-ink">{item.title}</h3>
+            <p class="mt-2 text-brand-ink/75 leading-relaxed">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-brand-green/5 py-16">
+    <div class="mx-auto max-w-4xl px-4 text-center">
+      <h2 class="text-3xl font-extrabold text-brand-ink">Overnight Emergency Coverage, Statewide</h2>
+      <p class="mt-4 text-brand-ink/75 leading-relaxed">
+        Horizon HVAC dispatches emergency calls to every city and town in Rhode Island. There is no separate
+        after-hours service area and no extra trip charge for being outside a small radius — if you are in Rhode
+        Island, you are covered at 2am the same as at 2pm.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-2">
+        {featuredTowns.map((area) => (
+          <a
+            href={`/service-areas/${area.slug}`}
+            class="rounded-full border border-brand-green/20 bg-white px-4 py-1.5 text-sm font-semibold text-brand-green hover:bg-brand-green hover:text-white transition-colors"
+          >
+            {area.name}
+          </a>
+        ))}
+      </div>
+      <a href="/service-areas" class="mt-5 inline-block text-sm font-semibold text-brand-green hover:underline">
+        See all 39 Rhode Island towns we serve →
+      </a>
+    </div>
+  </section>
+
+  <FaqSection faqs={faqs} title="Emergency HVAC Service — Frequently Asked Questions" />
+</BaseLayout>

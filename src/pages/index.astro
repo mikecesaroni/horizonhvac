@@ -11,8 +11,40 @@ import SpecialOffers from "../components/SpecialOffers.astro";
 import RaffleForm from "../components/RaffleForm.astro";
 import AreasWeServe from "../components/AreasWeServe.astro";
 import EmbeddedQuoteForm from "../components/EmbeddedQuoteForm.astro";
+import FaqSection from "../components/FaqSection.astro";
 import HorizonDivider from "../components/HorizonDivider.astro";
 import { googleMapsUrl } from "../data/business";
+
+const homeFaqs = [
+  {
+    q: "Does Horizon HVAC offer 24/7 emergency service in Rhode Island?",
+    a: "Yes. Horizon HVAC answers emergency heating and cooling calls at 401-425-9879 24 hours a day, 7 days a week, including nights, weekends, and holidays, across all 39 Rhode Island cities and towns.",
+  },
+  {
+    q: "What should I look for when hiring an HVAC contractor in Rhode Island?",
+    a: "Confirm the license, since Rhode Island licenses individual technicians rather than companies \u2014 ask which licensed individual is responsible for your job and verify it at dlt.ri.gov, then check the business registration at dbr.ri.gov. Ask for proof of liability and workers' compensation insurance, get the quote in writing before work starts, and confirm the technician holds EPA 608 certification if refrigerant work is involved.",
+  },
+  {
+    q: "How much does it cost to replace a furnace in Rhode Island?",
+    a: "Cost depends on the fuel type, the size of the system, its efficiency rating, and how much of the existing venting and ductwork can be reused. Horizon HVAC gives a written, itemized quote after seeing the actual system \u2014 and will tell you honestly when a repair is the better value than a replacement.",
+  },
+  {
+    q: "Is it worth repairing a 15-year-old air conditioner or should I replace it?",
+    a: "As a rule of thumb, replace it when the repair costs more than a third of a new system, when the unit still uses discontinued R-22 refrigerant, or when it is failing repeatedly in the same season. A single inexpensive repair on an otherwise healthy 15-year-old system is usually still worth doing. We will show you both numbers instead of pushing the replacement.",
+  },
+  {
+    q: "How much is a furnace or AC tune-up?",
+    a: "Horizon HVAC charges a flat $99 per system for a seasonal tune-up anywhere in Rhode Island, which includes a full safety and efficiency inspection and a written report of what we found.",
+  },
+  {
+    q: "Do you install ductless mini-splits and heat pumps?",
+    a: "Yes, both single-zone and multi-zone ductless systems, and we service existing mini-splits of any brand. We also help homeowners apply Clean Heat RI rebates toward qualifying heat pump installations.",
+  },
+  {
+    q: "What areas of Rhode Island does Horizon HVAC serve?",
+    a: "Every city and town in Rhode Island, including Providence, Cranston, Warwick, East Greenwich, Pawtucket, East Providence, Woonsocket, Newport, and the South County towns \u2014 with no extra trip charge for being outside a small service radius.",
+  },
+];
 ---
 
 <BaseLayout
@@ -133,6 +165,8 @@ import { googleMapsUrl } from "../data/business";
     toColorClass="text-white"
     side="right"
   />
+
+  <FaqSection faqs={homeFaqs} title="Rhode Island HVAC — Frequently Asked Questions" />
 
   <section class="mx-auto max-w-4xl px-4 py-16 text-center">
     <h2 class="text-3xl font-extrabold text-brand-ink">Ready for a Comfortable Home?</h2>
