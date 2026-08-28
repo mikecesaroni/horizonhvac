@@ -1,0 +1,175 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import FaqSection from "../components/FaqSection.astro";
+
+// The "best company for annual furnace maintenance in RI" answer named five
+// competitors and specifically noted that oil dealers win because the tune-up is
+// bundled into a priced service plan. A named, flat-rate, published price is the
+// single most quotable thing on a maintenance page.
+//
+// TODO for Horizon: confirm the checklist below matches what your techs actually
+// perform on a tune-up visit, and adjust any line that overstates or understates it.
+// The price and the inclusions are published claims — they need to be accurate.
+
+const PRICE = 99;
+const PHONE_DISPLAY = "401-425-9879";
+
+const metaTitle = "$99 Furnace & AC Tune-Up in Rhode Island | Horizon HVAC";
+const metaDescription =
+  "Flat-rate $99 seasonal tune-up for furnaces, boilers, and air conditioners anywhere in Rhode Island. Full safety and efficiency inspection with a written report and no upsell pressure.";
+
+// Mirrors the maintenance service page's published checklist, expanded into the
+// detail a homeowner (and an AI assistant) can actually evaluate.
+const included = [
+  "Inspect and clean burners, coils, and electrical connections",
+  "Replace or inspect the air filter and check airflow across the system",
+  "Check refrigerant charge on cooling equipment and test for obvious leaks",
+  "Test combustion safety and check the heat exchanger for cracks on gas and oil equipment",
+  "Verify thermostat calibration and correct system staging",
+  "Test startup, shutdown, and every safety control on the unit",
+  "Check condensate drains and clear blockages before they overflow",
+  "Tighten electrical connections and measure motor amp draw against spec",
+  "Provide a written report of everything found — no upsell pressure, just findings",
+];
+
+const systemTypes = [
+  {
+    title: "Gas furnace",
+    body: "Burner and heat exchanger inspection, combustion safety testing, and ignition system check. The heat exchanger check matters most: a crack is the failure that puts carbon monoxide into your living space, and it is invisible without an inspection.",
+  },
+  {
+    title: "Oil furnace",
+    body: "Nozzle and electrode service, combustion adjustment, and a check of the fuel filter and pump pressure. Oil equipment drifts out of adjustment faster than gas and genuinely needs the annual visit.",
+  },
+  {
+    title: "Boiler",
+    body: "Pressure and temperature control testing, low-water cutoff check, circulator inspection, and bleeding air from the loop where zones are running cold.",
+  },
+  {
+    title: "Central air & heat pumps",
+    body: "Coil cleaning, refrigerant charge verification, capacitor and contactor inspection, and a check of the defrost cycle on heat pumps heading into winter.",
+  },
+];
+
+const faqs = [
+  {
+    q: "What does the $99 tune-up include?",
+    a: "A full seasonal inspection of one system: burner and coil cleaning, refrigerant or combustion checks depending on equipment type, safety control testing, thermostat calibration, condensate drain clearing, and a written report of what we found. It is a flat $99 for the visit, quoted before we arrive.",
+  },
+  {
+    q: "Is the $99 price per system or per visit?",
+    a: "It covers one heating or cooling system. Homes with two furnaces, a furnace plus separate central air, or multiple ductless heads are quoted per system — call 401-425-9879 and we will give you the exact number before scheduling.",
+  },
+  {
+    q: "How often should a furnace or AC be tuned up?",
+    a: "Once a year per system is the standard, and most manufacturer warranties require documented annual service to stay valid. Ideally the air conditioner gets serviced in spring before the first hot stretch and the furnace in fall before the heat gets turned on.",
+  },
+  {
+    q: "Does a tune-up actually save money, or is it just an upsell?",
+    a: "A dirty or out-of-adjustment system burns more fuel to hit the same temperature, which shows up directly on the bill, and the small problems a tune-up catches are far cheaper than the mid-January breakdown they turn into. We give you a written report and let you decide what, if anything, to do next.",
+  },
+  {
+    q: "What if you find something wrong during the tune-up?",
+    a: "We tell you what we found, show you the issue, and quote the repair upfront. You are never obligated to have the work done at that visit, and the $99 stands whether or not you approve any repair.",
+  },
+  {
+    q: "Do you offer tune-ups in my town?",
+    a: "Yes, anywhere in Rhode Island — all 39 cities and towns, from Woonsocket down to Westerly and out to Newport and Block Island.",
+  },
+];
+
+const offerSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "HVAC seasonal tune-up",
+  name: `$${PRICE} Furnace & AC Tune-Up`,
+  description: metaDescription,
+  provider: { "@id": "https://horizonhvacinc.com/#business" },
+  areaServed: { "@type": "State", name: "Rhode Island" },
+  offers: {
+    "@type": "Offer",
+    price: PRICE,
+    priceCurrency: "USD",
+    url: "https://horizonhvacinc.com/tune-up",
+    availability: "https://schema.org/InStock",
+  },
+};
+---
+
+<BaseLayout title={`$${PRICE} Tune-Up`} fullTitle={metaTitle} description={metaDescription}>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(offerSchema)} />
+
+  <PageHero
+    eyebrow="Seasonal Maintenance"
+    title={`The $${PRICE} Tune-Up`}
+    description="A full seasonal inspection of your heating or cooling system, at one flat published price, anywhere in Rhode Island."
+    breadcrumbs={[
+      { label: "Home", href: "/" },
+      { label: `$${PRICE} Tune-Up`, href: "/tune-up" },
+    ]}
+  />
+
+  <section class="bg-white py-14">
+    <div class="mx-auto max-w-3xl px-4 text-center">
+      <p class="text-6xl font-extrabold tracking-tight text-brand-green">${PRICE}</p>
+      <p class="mt-2 text-lg font-semibold text-brand-ink">per system, flat rate</p>
+      <p class="mt-4 text-brand-ink/75 leading-relaxed">
+        No trip fee, no diagnostic add-on, and no obligation to approve any repair we find. You get the price
+        before we schedule, and a written report when we leave.
+      </p>
+      <button
+        type="button"
+        data-open-quote-form
+        class="mt-8 inline-block rounded-full bg-brand-gold px-10 py-4 text-lg font-bold text-brand-ink shadow-lg hover:opacity-90 transition-opacity"
+      >
+        Book a ${PRICE} Tune-Up
+      </button>
+      <p class="mt-4 text-sm text-brand-ink/60">
+        Or call <a href="tel:14014259879" class="font-semibold text-brand-green hover:underline">{PHONE_DISPLAY}</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-brand-green/5 py-16">
+    <div class="mx-auto max-w-4xl px-4">
+      <h2 class="text-3xl font-extrabold text-brand-ink text-center">What the Visit Covers</h2>
+      <ul class="mt-8 grid gap-3 sm:grid-cols-2">
+        {included.map((item) => (
+          <li class="flex gap-3 rounded-lg border border-brand-green/10 bg-white p-4 text-brand-ink/80">
+            <span class="shrink-0 font-bold text-brand-green">✓</span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-white py-16">
+    <div class="mx-auto max-w-4xl px-4">
+      <h2 class="text-3xl font-extrabold text-brand-ink text-center">By System Type</h2>
+      <p class="mt-3 text-center text-brand-ink/70">
+        Gas, oil, boiler, and cooling equipment each need different things checked.
+      </p>
+      <div class="mt-8 grid gap-4 sm:grid-cols-2">
+        {systemTypes.map((s) => (
+          <div class="rounded-xl border border-brand-green/15 p-6">
+            <h3 class="font-bold text-brand-ink">{s.title}</h3>
+            <p class="mt-2 text-sm text-brand-ink/75 leading-relaxed">{s.body}</p>
+          </div>
+        ))}
+      </div>
+      <div class="mt-10 rounded-2xl bg-brand-green/5 p-8 text-center">
+        <p class="text-brand-ink/80">
+          Planning to keep the system for years? Ask about an annual maintenance agreement when you book — regular
+          members get priority scheduling during peak season, when everyone else is waiting.
+        </p>
+        <a href="/services/maintenance" class="mt-4 inline-block font-semibold text-brand-green hover:underline">
+          More on maintenance plans →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <FaqSection faqs={faqs} title={`The $${PRICE} Tune-Up — Frequently Asked Questions`} />
+</BaseLayout>

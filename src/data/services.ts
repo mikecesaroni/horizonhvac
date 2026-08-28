@@ -203,4 +203,50 @@ export const services: Service[] = [
       },
     ],
   },
+  {
+    slug: "ductless-mini-splits",
+    name: "Ductless Mini-Splits",
+    summary: "Ductless mini-split and heat pump installation & repair.",
+    description:
+      "Ductless mini-split systems heat and cool room by room without ductwork \u2014 ideal for older Rhode Island homes, additions, finished attics, and any space a duct run was never going to reach.",
+    metaTitle: "Ductless Mini-Split Installation & Repair in Rhode Island | Horizon HVAC",
+    metaDescription:
+      "Ductless mini-split and heat pump installation, repair, and service across Rhode Island. Room-by-room comfort without ductwork, with Clean Heat RI rebate help.",
+    signs: [
+      "You have rooms that never get comfortable no matter what the thermostat says",
+      "You're heating or cooling an addition, attic, garage, or sunroom with no ductwork",
+      "You're running window units or space heaters to make up the difference",
+      "Your home has radiators or baseboard heat and no way to add central air",
+      "You want to cut oil or propane use with an efficient electric heat pump",
+    ],
+    whatWeDo: [
+      "Size the system to the actual room \u2014 an oversized head short-cycles and never dehumidifies properly",
+      "Install single-zone and multi-zone systems, including wall, ceiling cassette, and floor-mounted heads",
+      "Repair and service existing mini-splits of any brand, including refrigerant leaks and failed outdoor units",
+      "Clean and service indoor heads, which collect mold and dust far faster than homeowners expect",
+      "Walk you through Clean Heat RI rebates and available financing before you commit",
+    ],
+    faqs: [
+      {
+        q: "Do ductless mini-splits actually heat well in a Rhode Island winter?",
+        a: "Modern cold-climate heat pumps produce usable heat well below 0\u00b0F, which covers nearly every Rhode Island winter night. Many homes keep the existing furnace or boiler as backup for the coldest stretches and run the heat pump the rest of the year, which is usually the cheaper way to heat.",
+      },
+      {
+        q: "How many indoor heads do I need?",
+        a: "It depends on the layout, not just the square footage. Open-plan spaces can often be covered by one well-placed head, while a home with closed-off rooms needs a head per zone. We size it on site rather than guessing from a floor plan.",
+      },
+      {
+        q: "Can I get a rebate on a mini-split in Rhode Island?",
+        a: "Qualifying heat pump installations are eligible under Clean Heat RI, and we help homeowners apply the rebate to the job. We'll tell you upfront what your specific equipment qualifies for.",
+      },
+      {
+        q: "Are mini-splits noisy?",
+        a: "The indoor heads run quieter than a refrigerator at normal speed, and the compressor sits outside. They are noticeably quieter than window units or a forced-air system cycling on and off.",
+      },
+      {
+        q: "Do you service mini-splits you didn't install?",
+        a: "Yes. We repair and maintain ductless systems of every brand and age, whether or not Horizon HVAC installed them.",
+      },
+    ],
+  },
 ];

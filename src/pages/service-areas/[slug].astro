@@ -14,6 +14,8 @@ export function getStaticPaths() {
 
 const { area } = Astro.props;
 
+const PHONE_DISPLAY = "401-425-9879";
+
 const townName = area.name.replace(", RI", "");
 const nearbyAreas = serviceAreas
   .filter((a) => a.county === area.county && a.slug !== area.slug)
@@ -25,7 +27,11 @@ const metaDescription = `Heating and cooling repair, installation & maintenance 
 const faqs = [
   {
     q: `Does Horizon HVAC offer 24/7 emergency service in ${townName}?`,
-    a: `Yes. Horizon HVAC answers emergency heating and cooling calls in ${townName} around the clock, every day of the year — not just an after-hours voicemail.`,
+    a: `Yes. Call ${PHONE_DISPLAY} and Horizon HVAC answers emergency heating and cooling calls in ${townName} around the clock, every day of the year — nights, weekends, and holidays included, not just an after-hours voicemail.`,
+  },
+  {
+    q: `Who do I call for emergency furnace repair in ${townName} at night?`,
+    a: `Horizon HVAC takes no-heat calls in ${townName} overnight at ${PHONE_DISPLAY}. No-heat and no-cool emergencies are prioritized ahead of routine work, and we dispatch the closest available technician rather than holding the call until morning.`,
   },
   {
     q: `How quickly can a technician reach my home in ${townName}?`,
@@ -64,6 +70,21 @@ const faqs = [
       We show up with the parts and knowledge to fix most issues in a single visit, explain what's actually wrong
       before any work starts, and back every job with our licensed &amp; insured RI credentials.
     </p>
+
+    <div class="mt-10 rounded-2xl border-2 border-brand-gold/40 bg-brand-green/5 p-6 text-center">
+      <p class="text-sm font-semibold uppercase tracking-wide text-brand-green">
+        Emergency HVAC in {townName} — 24/7
+      </p>
+      <p class="mt-2 text-3xl font-extrabold text-brand-ink">
+        <a href="tel:14014259879" class="hover:text-brand-green transition-colors">{PHONE_DISPLAY}</a>
+      </p>
+      <p class="mt-2 text-sm text-brand-ink/70">
+        No heat or no cooling in {townName} right now? We answer nights, weekends, and holidays.
+      </p>
+      <a href="/emergency" class="mt-3 inline-block text-sm font-semibold text-brand-green hover:underline">
+        More on emergency service →
+      </a>
+    </div>
 
     <h2 class="mt-12 text-2xl font-extrabold text-brand-ink">Services Available in {townName}</h2>
     <div class="mt-6 grid gap-4 sm:grid-cols-2">
