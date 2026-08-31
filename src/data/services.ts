@@ -168,42 +168,6 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "maintenance",
-    name: "Maintenance Plans",
-    summary: "Keep your system running efficiently year-round.",
-    description: "Seasonal tune-ups and maintenance plans that keep your system running efficiently year-round.",
-    metaTitle: "HVAC Maintenance Plans in Rhode Island | Horizon HVAC",
-    metaDescription:
-      "Seasonal furnace & AC tune-ups that catch small problems before they become expensive breakdowns. Rhode Island maintenance plans from Horizon HVAC.",
-    signs: [
-      "It's been over a year since your last tune-up",
-      "You want to avoid an emergency breakdown during peak season",
-      "You'd like to keep your manufacturer's warranty valid (many require documented annual service)",
-      "Your energy bills are creeping up year over year",
-    ],
-    whatWeDo: [
-      "Inspect and clean burners, coils, filters, and electrical connections",
-      "Check refrigerant charge and combustion safety",
-      "Test system startup, shutdown, and safety controls",
-      "Provide a written report of findings — no upsell pressure, just what we found",
-      "Prioritize maintenance-plan members for scheduling during peak season",
-    ],
-    faqs: [
-      {
-        q: "What's included in a maintenance plan?",
-        a: "See our Plans page for full details — typically two visits a year (spring AC check, fall furnace check), priority scheduling, and a member discount on repairs.",
-      },
-      {
-        q: "Does regular maintenance actually save money?",
-        a: "Yes. A dirty or neglected system works harder to hit the same temperature, which shows up directly on your energy bill, and small issues caught early are far cheaper than the breakdown they'd eventually cause.",
-      },
-      {
-        q: "When should I schedule my seasonal tune-up?",
-        a: "Ideally AC service in spring before the first hot stretch, and furnace service in fall before the heat gets turned on for the season — both before, not during, peak demand.",
-      },
-    ],
-  },
-  {
     slug: "ductless-mini-splits",
     name: "Ductless Mini-Splits",
     summary: "Ductless mini-split and heat pump installation & repair.",
