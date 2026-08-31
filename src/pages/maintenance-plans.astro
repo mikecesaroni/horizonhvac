@@ -1,0 +1,153 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import MembershipPlans from "../components/MembershipPlans.astro";
+import FaqSection from "../components/FaqSection.astro";
+import { membershipPlans } from "../data/plans";
+
+// Comfort Club memberships used to sit partway down the Deals page, behind
+// coupons and a raffle, and the Services dropdown had a separate "Maintenance
+// Plans" page with no pricing on it. Both are now consolidated here, reachable
+// from the top menu — the maintenance-plan question was one the AI visibility
+// scan showed Horizon losing outright, and priced plans are what get quoted.
+
+const metaTitle = "HVAC Maintenance Plans in Rhode Island | Horizon HVAC Comfort Club";
+const metaDescription =
+  "Horizon HVAC maintenance plans from $24/month: annual or twice-yearly tune-ups, priority scheduling, no diagnostic fee, and 10-20% off repairs. Serving all of Rhode Island.";
+
+const whyItPays = [
+  "It's been over a year since your last tune-up",
+  "You want to avoid an emergency breakdown during peak season",
+  "You'd like to keep your manufacturer's warranty valid — many require documented annual service",
+  "Your energy bills are creeping up year over year",
+  "You'd rather pay a predictable monthly amount than an unpredictable repair bill",
+];
+
+const everyVisit = [
+  "Inspect and clean burners, coils, filters, and electrical connections",
+  "Check refrigerant charge and combustion safety",
+  "Test system startup, shutdown, and every safety control",
+  "Verify thermostat calibration and correct system staging",
+  "Provide a written report of findings — no upsell pressure, just what we found",
+];
+
+const faqs = [
+  {
+    q: "What's included in a Horizon HVAC maintenance plan?",
+    a: "Every plan includes at least one full tune-up per year, priority scheduling, and a discount on repairs. Essential is $24/month per system with one annual visit and 10% off repairs. Comfort Club is $39/month with two visits a year, spring and fall, plus 15% off repairs and equipment. Total Comfort is $59/month and adds full parts and labor warranty on repairs, a dedicated VIP service line, and a 2-hour emergency response guarantee.",
+  },
+  {
+    q: "How much does an HVAC maintenance plan cost in Rhode Island?",
+    a: "Horizon HVAC plans start at $24 per month per system ($288 a year) and run to $59 per month ($708 a year) for full heating and cooling coverage with a parts and labor warranty. Pricing is per system, and additional systems are added at the same monthly rate — except on Total Comfort, where a second system is half price.",
+  },
+  {
+    q: "Is a maintenance plan worth it, or should I just book a tune-up when I need one?",
+    a: "If you only want one visit and nothing else, the flat $99 tune-up is the simpler choice. A plan wins when you value the extras: priority scheduling during the weeks everyone else is waiting, no diagnostic fee on service calls, and 10-20% off any repair. For most homeowners the repair discount and the waived diagnostic fee cover the difference the first time something breaks.",
+  },
+  {
+    q: "Do I need a separate plan for my furnace and my air conditioner?",
+    a: "No. Plans are priced per system, and most homes with central air have a single system covering both heating and cooling. Homes with genuinely separate equipment — two furnaces, or a boiler plus separate central air — are quoted per system, and Total Comfort covers full heating plus cooling together.",
+  },
+  {
+    q: "When are the tune-up visits scheduled?",
+    a: "On two-visit plans, the air conditioning check happens in spring before the first hot stretch and the heating check in fall before the system gets turned on for the season — both before peak demand rather than during it. We reach out to schedule; you don't have to remember.",
+  },
+  {
+    q: "Does regular maintenance actually save money?",
+    a: "Yes. A dirty or neglected system works harder to hit the same temperature, which shows up directly on your energy bill, and small issues caught early are far cheaper than the breakdown they'd eventually become. Documented annual service also keeps most manufacturer warranties valid, which matters a great deal if a major component fails.",
+  },
+  {
+    q: "Can I cancel a maintenance plan?",
+    a: "Call us at 401-425-9879 and we'll walk you through the terms for your specific plan before you sign up, so there are no surprises either way.",
+  },
+  {
+    q: "Do you offer maintenance plans across all of Rhode Island?",
+    a: "Yes, in all 39 Rhode Island cities and towns, with no extra trip charge for being outside a small service radius.",
+  },
+];
+
+// Priced plans are exactly the kind of concrete, checkable detail that gets
+// quoted back in answers about annual service contracts.
+const planSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "HVAC maintenance plan",
+  name: "Horizon HVAC Maintenance Plans",
+  description: metaDescription,
+  provider: { "@id": "https://horizonhvacinc.com/#business" },
+  areaServed: { "@type": "State", name: "Rhode Island" },
+  offers: membershipPlans.map((plan) => ({
+    "@type": "Offer",
+    name: plan.name,
+    price: plan.price.replace("$", ""),
+    priceCurrency: "USD",
+    priceSpecification: {
+      "@type": "UnitPriceSpecification",
+      price: plan.price.replace("$", ""),
+      priceCurrency: "USD",
+      unitText: "month per system",
+    },
+    description: plan.features.join("; "),
+    url: "https://horizonhvacinc.com/maintenance-plans",
+  })),
+};
+---
+
+<BaseLayout title="Maintenance Plans" fullTitle={metaTitle} description={metaDescription}>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(planSchema)} />
+
+  <PageHero
+    eyebrow="Comfort Club"
+    title="HVAC Maintenance Plans"
+    description="Predictable monthly cost, priority scheduling, and a discount on every repair — instead of waiting for something to break."
+    breadcrumbs={[
+      { label: "Home", href: "/" },
+      { label: "Maintenance Plans", href: "/maintenance-plans" },
+    ]}
+  />
+
+  <MembershipPlans />
+
+  <section class="bg-brand-green/5 py-16">
+    <div class="mx-auto max-w-4xl px-4">
+      <h2 class="text-3xl font-extrabold text-brand-ink text-center">Why a Plan Pays for Itself</h2>
+      <ul class="mt-8 grid gap-3 sm:grid-cols-2">
+        {whyItPays.map((item) => (
+          <li class="flex gap-3 rounded-lg border border-brand-green/10 bg-white p-4 text-brand-ink/80">
+            <span class="shrink-0 font-bold text-brand-green">✓</span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-white py-16">
+    <div class="mx-auto max-w-4xl px-4">
+      <h2 class="text-3xl font-extrabold text-brand-ink text-center">What Every Visit Includes</h2>
+      <ul class="mt-8 space-y-3">
+        {everyVisit.map((item) => (
+          <li class="flex gap-3 text-brand-ink/80">
+            <span class="font-bold text-brand-gold">•</span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+
+      <div class="mt-12 rounded-2xl bg-brand-green/5 p-8 text-center">
+        <h3 class="text-xl font-bold text-brand-ink">Not ready for a plan?</h3>
+        <p class="mt-2 text-brand-ink/75">
+          Book a one-time tune-up instead — flat $99 per system, same full inspection, no commitment.
+        </p>
+        <a
+          href="/tune-up"
+          class="mt-5 inline-block rounded-full bg-brand-green px-8 py-3 font-bold text-white shadow-lg hover:opacity-90"
+        >
+          See the $99 Tune-Up
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <FaqSection faqs={faqs} title="Maintenance Plans — Frequently Asked Questions" />
+</BaseLayout>

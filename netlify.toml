@@ -7,3 +7,11 @@
   from = "/plans"
   to = "/deals"
   status = 301
+
+# /services/maintenance was a service page with no pricing on it. Its content is
+# now consolidated into /maintenance-plans, which is reachable from the top menu.
+# 301 rather than a meta-refresh so any existing links and search rankings carry over.
+[[redirects]]
+  from = "/services/maintenance"
+  to = "/maintenance-plans"
+  status = 301
