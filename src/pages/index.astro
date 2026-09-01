@@ -13,7 +13,7 @@ import AreasWeServe from "../components/AreasWeServe.astro";
 import EmbeddedQuoteForm from "../components/EmbeddedQuoteForm.astro";
 import FaqSection from "../components/FaqSection.astro";
 import HorizonDivider from "../components/HorizonDivider.astro";
-import { googleMapsUrl } from "../data/business";
+import { googleReviewsUrl } from "../data/business";
 import { reviews } from "../data/reviews";
 
 const homeFaqs = [
@@ -151,7 +151,7 @@ const homeFaqs = [
         ))}
       </div>
       <a
-        href={googleMapsUrl}
+        href={googleReviewsUrl}
         target="_blank"
         rel="noopener"
         class="mt-10 inline-block rounded-full bg-white px-8 py-3 font-bold text-brand-green shadow-lg hover:opacity-90 transition-opacity"
