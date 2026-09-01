@@ -5,11 +5,11 @@
 // Points at the review deep link rather than the profile, so the label matches
 // what actually happens on click: the write-a-review dialog opens. Badges that
 // say "review us" but land on a map pin lose the review.
-import { googleReviewUrl } from "../data/business";
+import { googleWriteReviewUrl } from "../data/business";
 ---
 
 <a
-  href={googleReviewUrl}
+  href={googleWriteReviewUrl}
   target="_blank"
   rel="noopener"
   aria-label="Leave Horizon HVAC a review on Google (opens in a new tab)"
