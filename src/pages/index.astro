@@ -14,6 +14,7 @@ import EmbeddedQuoteForm from "../components/EmbeddedQuoteForm.astro";
 import FaqSection from "../components/FaqSection.astro";
 import HorizonDivider from "../components/HorizonDivider.astro";
 import { googleMapsUrl } from "../data/business";
+import { reviews } from "../data/reviews";
 
 const homeFaqs = [
   {
@@ -128,13 +129,25 @@ const homeFaqs = [
     <div class="mx-auto max-w-6xl px-4 text-center">
       <h2 class="text-3xl font-extrabold text-white">What Your Neighbors Are Saying</h2>
       <p class="mt-2 text-white/80">4.9 Stars · 165 Reviews</p>
-      <!-- TODO: wire up real Google Reviews content -->
-      <div class="mt-10 grid gap-6 sm:grid-cols-3">
-        {[1, 2, 3].map(() => (
-          <div class="rounded-xl bg-white p-6 shadow-sm text-left">
-            <p class="text-brand-ink/80">"Placeholder review text — replace with real customer testimonials."</p>
-            <p class="mt-4 font-semibold text-brand-ink">— Customer Name</p>
-          </div>
+      <div class="mt-10 grid gap-6 sm:grid-cols-3 items-start">
+        {reviews.map((review) => (
+          <figure class="flex h-full flex-col rounded-xl bg-white p-6 shadow-sm text-left">
+            <div class="flex text-brand-gold" aria-label="5 out of 5 stars">
+              {Array.from({ length: 5 }).map(() => (
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M10 15.27L16.18 19l-1.64-7.03L20 7.24l-7.19-.61L10 0 7.19 6.63 0 7.24l5.46 4.73L3.82 19z" />
+                </svg>
+              ))}
+            </div>
+            <blockquote class="mt-4 grow text-brand-ink/80">{review.quote}</blockquote>
+            <figcaption class="mt-5 border-t border-brand-green/10 pt-4">
+              <span class="block font-bold text-brand-ink">{review.name}</span>
+              <span class="block text-sm text-brand-ink/60">{review.service}</span>
+              <span class="mt-1 block text-xs font-semibold uppercase tracking-wide text-brand-green">
+                Google review
+              </span>
+            </figcaption>
+          </figure>
         ))}
       </div>
       <a
