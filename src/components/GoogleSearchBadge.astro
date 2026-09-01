@@ -1,14 +1,18 @@
 ---
-// Links to the real Google Business Profile (src/data/business.ts) — not a claim of
-// enrollment in any paid Google certification program (e.g. "Google Guaranteed"),
-// just a "find & review us on Google" trust badge.
-import { googleMapsUrl } from "../data/business";
+// A "review us on Google" trust badge — not a claim of enrollment in any paid
+// Google certification program (e.g. "Google Guaranteed").
+//
+// Points at the review deep link rather than the profile, so the label matches
+// what actually happens on click: the write-a-review dialog opens. Badges that
+// say "review us" but land on a map pin lose the review.
+import { googleReviewUrl } from "../data/business";
 ---
 
 <a
-  href={googleMapsUrl}
+  href={googleReviewUrl}
   target="_blank"
   rel="noopener"
+  aria-label="Leave Horizon HVAC a review on Google (opens in a new tab)"
   class="inline-flex items-center gap-3 rounded-full bg-white px-5 py-3 shadow-lg"
 >
   <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0" viewBox="0 0 48 48">
@@ -18,7 +22,7 @@ import { googleMapsUrl } from "../data/business";
     <path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.3-2.2 4.2-4.1 5.6l6.6 5.6C39.6 37.7 44 31.9 44 24c0-1.3-.1-2.7-.4-3.5z" />
   </svg>
   <span class="text-left leading-tight">
-    <span class="block text-xs font-semibold text-brand-ink/60">Find &amp; Review Us on</span>
-    <span class="block text-sm font-extrabold text-brand-ink">Google Search</span>
+    <span class="block text-xs font-semibold text-brand-ink/60">Review Us on</span>
+    <span class="block text-sm font-extrabold text-brand-ink">Google</span>
   </span>
 </a>
