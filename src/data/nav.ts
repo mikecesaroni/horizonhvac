@@ -39,7 +39,7 @@ export const navItems: NavItem[] = [
     href: "/deals",
     children: [
       { label: "Current Deals", href: "/deals" },
-      { label: "$99 Tune-Up", href: "/tune-up" },
+      { label: "$149 Tune-Up", href: "/tune-up" },
     ],
   },
   { label: "Blogs", href: "/blog" },

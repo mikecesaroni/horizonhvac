@@ -12,12 +12,12 @@ import FaqSection from "../components/FaqSection.astro";
 // perform on a tune-up visit, and adjust any line that overstates or understates it.
 // The price and the inclusions are published claims — they need to be accurate.
 
-const PRICE = 99;
+const PRICE = 149;
 const PHONE_DISPLAY = "401-425-9879";
 
-const metaTitle = "$99 Furnace & AC Tune-Up in Rhode Island | Horizon HVAC";
+const metaTitle = `$${PRICE} Furnace & AC Tune-Up in Rhode Island | Horizon HVAC`;
 const metaDescription =
-  "Flat-rate $99 seasonal tune-up for furnaces, boilers, and air conditioners anywhere in Rhode Island. Full safety and efficiency inspection with a written report and no upsell pressure.";
+  `Flat-rate $${PRICE} seasonal tune-up for furnaces, boilers, and air conditioners anywhere in Rhode Island. Full safety and efficiency inspection with a written report and no upsell pressure.`;
 
 // Mirrors the maintenance service page's published checklist, expanded into the
 // detail a homeowner (and an AI assistant) can actually evaluate.
@@ -54,11 +54,11 @@ const systemTypes = [
 
 const faqs = [
   {
-    q: "What does the $99 tune-up include?",
-    a: "A full seasonal inspection of one system: burner and coil cleaning, refrigerant or combustion checks depending on equipment type, safety control testing, thermostat calibration, condensate drain clearing, and a written report of what we found. It is a flat $99 for the visit, quoted before we arrive.",
+    q: `What does the $${PRICE} tune-up include?`,
+    a: `A full seasonal inspection of one system: burner and coil cleaning, refrigerant or combustion checks depending on equipment type, safety control testing, thermostat calibration, condensate drain clearing, and a written report of what we found. It is a flat $${PRICE} for the visit, quoted before we arrive.`,
   },
   {
-    q: "Is the $99 price per system or per visit?",
+    q: `Is the $${PRICE} price per system or per visit?`,
     a: "It covers one heating or cooling system. Homes with two furnaces, a furnace plus separate central air, or multiple ductless heads are quoted per system — call 401-425-9879 and we will give you the exact number before scheduling.",
   },
   {
@@ -71,7 +71,7 @@ const faqs = [
   },
   {
     q: "What if you find something wrong during the tune-up?",
-    a: "We tell you what we found, show you the issue, and quote the repair upfront. You are never obligated to have the work done at that visit, and the $99 stands whether or not you approve any repair.",
+    a: `We tell you what we found, show you the issue, and quote the repair upfront. You are never obligated to have the work done at that visit, and the $${PRICE} stands whether or not you approve any repair.`,
   },
   {
     q: "Do you offer tune-ups in my town?",
