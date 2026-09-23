@@ -61,4 +61,4 @@ Replace on your own timeline and you can get multiple quotes, compare equipment 
 
 Ask any contractor to quote both paths — the repair and the replacement — and to tell you what refrigerant your system uses. A contractor unwilling to price the repair, or one who leads with the replacement quote before diagnosing, is answering a different question than the one you asked.
 
-Horizon HVAC gives you both numbers and an honest read on which makes sense for your specific system. Call **401-425-9879**, or [request a free estimate](/contact). If you want the system checked over before deciding, a [$99 tune-up](/tune-up) includes a written report of its actual condition.
+Horizon HVAC gives you both numbers and an honest read on which makes sense for your specific system. Call **401-425-9879**, or [request a free estimate](/contact). If you want the system checked over before deciding, a [$149 tune-up](/tune-up) includes a written report of its actual condition.
