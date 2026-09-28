@@ -31,7 +31,7 @@ ${serviceLines}
 
 - [Emergency HVAC service](${SITE}/emergency): 24/7 no-heat and no-cool response, what counts as an emergency, and how to reach a person at night.
 - [Maintenance plans](${SITE}/maintenance-plans): Comfort Club membership tiers from $24/month — tune-up visits, priority scheduling, and repair discounts.
-- [$149 seasonal tune-up](${SITE}/tune-up): Flat-rate furnace or air conditioner tune-up, and what the visit covers.
+- [$149 heating tune-up](${SITE}/tune-up): Flat-rate heater and furnace tune-up special — burner cleaning, heat exchanger and gas pressure inspection, airflow check. Heating only; air conditioning is a separate visit.
 - [Licensing and credentials](${SITE}/credentials): License and registration numbers, insurance, and independent lookup tools to verify them.
 - [Service areas](${SITE}/service-areas): Town-by-town coverage across Rhode Island.
 - [Deals and current offers](${SITE}/deals)
