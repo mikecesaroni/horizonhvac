@@ -1,0 +1,59 @@
+---
+import { tuneUp } from "../data/tuneUp";
+
+// The tune-up is a flat-price offer, not a "$X OFF" coupon, so it deliberately
+// does not reuse the coupon card — that markup hardcodes the word OFF and would
+// render "$149 OFF", which is wrong and would be read as a discount.
+
+interface Props {
+  /** Tightens vertical padding when the band sits inside an existing section. */
+  compact?: boolean;
+}
+const { compact = false } = Astro.props;
+---
+
+<div
+  class:list={[
+    "overflow-hidden rounded-3xl border-4 border-brand-gold/50 bg-gradient-to-br from-brand-green to-brand-green-dark text-white shadow-[0_16px_32px_rgba(0,0,0,0.35)]",
+    compact ? "px-6 py-8" : "px-6 py-10 sm:px-10",
+  ]}
+>
+  <div class="mx-auto flex max-w-4xl flex-col items-center gap-8 sm:flex-row sm:items-center sm:text-left">
+    <div class="shrink-0 text-center">
+      <p class="text-6xl sm:text-7xl font-extrabold leading-none text-brand-gold">${tuneUp.price}</p>
+      <p class="mt-2 text-sm font-bold uppercase tracking-wide text-white/85">Flat rate</p>
+    </div>
+
+    <div class="flex-1">
+      <p class="text-sm font-semibold uppercase tracking-wide text-brand-gold">Heating Season Special</p>
+      <h3 class="mt-1 text-2xl sm:text-3xl font-extrabold uppercase">{tuneUp.name}</h3>
+      <p class="mt-3 text-white/85 leading-relaxed">{tuneUp.blurb}</p>
+
+      <ul class="mt-5 grid gap-x-6 gap-y-1.5 text-sm text-white/90 sm:grid-cols-2">
+        {tuneUp.checklist.map((item) => (
+          <li class="flex gap-2">
+            <span class="shrink-0 font-bold text-brand-gold">✓</span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+
+      <div class="mt-7 flex flex-wrap items-center justify-center gap-4 sm:justify-start">
+        <button
+          type="button"
+          data-open-quote-form
+          class="rounded-full bg-brand-gold px-8 py-3 font-bold text-brand-ink shadow-lg hover:opacity-90 transition-opacity"
+        >
+          Book the ${tuneUp.price} Tune-Up
+        </button>
+        <a href={tuneUp.href} class="font-semibold text-white underline underline-offset-4 hover:text-brand-gold">
+          See everything it covers →
+        </a>
+      </div>
+
+      <p class="mt-4 text-xs text-white/60">
+        Heating systems only — air conditioning service is a separate visit.
+      </p>
+    </div>
+  </div>
+</div>

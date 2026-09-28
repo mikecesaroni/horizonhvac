@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHero from "../components/PageHero.astro";
 import FaqSection from "../components/FaqSection.astro";
+import { tuneUp } from "../data/tuneUp";
 
 // The "best company for annual furnace maintenance in RI" answer named five
 // competitors and specifically noted that oil dealers win because the tune-up is
@@ -14,23 +15,12 @@ import FaqSection from "../components/FaqSection.astro";
 // offer, and the page has an FAQ that says so explicitly so customers don't
 // arrive expecting their AC to be serviced.
 
-const PRICE = 149;
+const PRICE = tuneUp.price;
 const PHONE_DISPLAY = "401-425-9879";
 
 const metaTitle = `$${PRICE} Heating & Furnace Tune-Up in Rhode Island | Horizon HVAC`;
 const metaDescription =
   `Flat-rate $${PRICE} heating and furnace tune-up anywhere in Rhode Island. Burner cleaning, heat exchanger and gas pressure inspection, airflow check, and a written recommendation when we're done.`;
-
-// Verbatim from the Housecall Pro price book entry for this service.
-const included = [
-  "Clean blower",
-  "Clean & adjust burners",
-  "Inspect heat exchanger",
-  "Inspect gas pressure & flame",
-  "Inspect igniter / pilot light",
-  "Inspect filter",
-  "Check airflow",
-];
 
 // Why the checklist items above matter — written from the checklist itself
 // rather than inventing additional scope.
@@ -148,7 +138,7 @@ const offerSchema = {
         Seven checks that keep your heating system in good working order.
       </p>
       <ul class="mt-8 grid gap-3 sm:grid-cols-2">
-        {included.map((item) => (
+        {tuneUp.checklist.map((item) => (
           <li class="flex gap-3 rounded-lg border border-brand-green/10 bg-white p-4 font-semibold text-brand-ink/80">
             <span class="shrink-0 font-bold text-brand-green">✓</span>
             <span>{item}</span>
@@ -156,8 +146,7 @@ const offerSchema = {
         ))}
       </ul>
       <p class="mt-6 text-center text-brand-ink/75">
-        When it's completed you'll receive a recommendation for any further maintenance or repair your system
-        needs.
+        {tuneUp.recommendation}
       </p>
     </div>
   </section>
