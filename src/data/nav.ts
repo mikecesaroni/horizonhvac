@@ -34,14 +34,6 @@ export const navItems: NavItem[] = [
     children: [{ label: "All Service Areas", href: "/service-areas" }],
   },
   { label: "Maintenance Plans", href: "/maintenance-plans" },
-  {
-    label: "Deals",
-    href: "/deals",
-    children: [
-      { label: "Current Deals", href: "/deals" },
-      { label: "$149 Heating Tune-Up", href: "/tune-up" },
-    ],
-  },
   { label: "Blogs", href: "/blog" },
   { label: "Contact", href: "/contact" },
   { label: "24/7 Emergency", href: "/emergency" },
