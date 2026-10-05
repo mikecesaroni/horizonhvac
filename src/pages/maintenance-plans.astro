@@ -5,11 +5,9 @@ import MembershipPlans from "../components/MembershipPlans.astro";
 import FaqSection from "../components/FaqSection.astro";
 import { membershipPlans } from "../data/plans";
 
-// Comfort Club memberships used to sit partway down the Deals page, behind
-// coupons and a raffle, and the Services dropdown had a separate "Maintenance
-// Plans" page with no pricing on it. Both are now consolidated here, reachable
-// from the top menu — the maintenance-plan question was one the AI visibility
-// scan showed Horizon losing outright, and priced plans are what get quoted.
+// The single home for Comfort Club memberships, reachable from the top menu.
+// The maintenance-plan question was one the AI visibility scan showed Horizon
+// losing outright, and priced plans are what get quoted back in answers.
 
 const metaTitle = "HVAC Maintenance Plans in Rhode Island | Horizon HVAC Comfort Club";
 const metaDescription =
@@ -41,8 +39,8 @@ const faqs = [
     a: "Horizon HVAC plans start at $24 per month per system ($288 a year) and run to $59 per month ($708 a year) for full heating and cooling coverage with a parts and labor warranty. Pricing is per system, and additional systems are added at the same monthly rate — except on Total Comfort, where a second system is half price.",
   },
   {
-    q: "Is a maintenance plan worth it, or should I just book a tune-up when I need one?",
-    a: "If you only want one visit and nothing else, the flat $149 heating tune-up is the simpler choice. A plan wins when you value the extras: priority scheduling during the weeks everyone else is waiting, no diagnostic fee on service calls, and 10-20% off any repair. For most homeowners the repair discount and the waived diagnostic fee cover the difference the first time something breaks.",
+    q: "Is a maintenance plan worth it, or should I just call when something needs doing?",
+    a: "A plan wins when you value the extras: the seasonal visits happen without you having to remember, you get priority scheduling during the weeks everyone else is waiting, there is no diagnostic fee on service calls, and you get 10-20% off any repair. For most homeowners the repair discount and the waived diagnostic fee cover the difference the first time something breaks. If you would rather book a one-off visit, call 401-425-9879 and we will quote it.",
   },
   {
     q: "Do I need a separate plan for my furnace and my air conditioner?",
@@ -137,13 +135,14 @@ const planSchema = {
       <div class="mt-12 rounded-2xl bg-brand-green/5 p-8 text-center">
         <h3 class="text-xl font-bold text-brand-ink">Not ready for a plan?</h3>
         <p class="mt-2 text-brand-ink/75">
-          Book a one-time heating tune-up instead — flat $149 per heating system, no commitment. (Heating only; plans cover cooling too.)
+          You can book a one-time seasonal visit instead — call us and we'll quote it before we schedule, with no
+          commitment either way.
         </p>
         <a
-          href="/tune-up"
+          href="tel:14014259879"
           class="mt-5 inline-block rounded-full bg-brand-green px-8 py-3 font-bold text-white shadow-lg hover:opacity-90"
         >
-          See the $149 Heating Tune-Up
+          Call 401-425-9879
         </a>
       </div>
     </div>

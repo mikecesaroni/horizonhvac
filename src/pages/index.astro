@@ -7,8 +7,6 @@ import RatingBadges from "../components/RatingBadges.astro";
 import FeaturedServices from "../components/FeaturedServices.astro";
 import CredentialBadges from "../components/CredentialBadges.astro";
 import GoogleSearchBadge from "../components/GoogleSearchBadge.astro";
-import SpecialOffers from "../components/SpecialOffers.astro";
-import RaffleForm from "../components/RaffleForm.astro";
 import AreasWeServe from "../components/AreasWeServe.astro";
 import EmbeddedQuoteForm from "../components/EmbeddedQuoteForm.astro";
 import FaqSection from "../components/FaqSection.astro";
@@ -32,10 +30,6 @@ const homeFaqs = [
   {
     q: "Is it worth repairing a 15-year-old air conditioner or should I replace it?",
     a: "As a rule of thumb, replace it when the repair costs more than a third of a new system, when the unit still uses discontinued R-22 refrigerant, or when it is failing repeatedly in the same season. A single inexpensive repair on an otherwise healthy 15-year-old system is usually still worth doing. We will show you both numbers instead of pushing the replacement.",
-  },
-  {
-    q: "How much is a furnace tune-up in Rhode Island?",
-    a: "Horizon HVAC charges a flat $149 per heating system for a heater or furnace tune-up anywhere in Rhode Island. It covers cleaning the blower and burners, inspecting the heat exchanger, gas pressure and flame, the igniter or pilot light and the filter, plus an airflow check and a written recommendation. Air conditioning service is a separate visit.",
   },
   {
     q: "Do you install ductless mini-splits and heat pumps?",
@@ -112,18 +106,6 @@ const homeFaqs = [
   <HorizonDivider fromClass="bg-white" toColorClass="text-brand-green" side="left" />
 
   <ThreeStepProcess dark={true} />
-
-  <HorizonDivider
-    fromClass="bg-gradient-to-b from-brand-green via-brand-green/80 to-brand-green/45"
-    toColorClass="text-white"
-    side="right"
-  />
-
-  <SpecialOffers />
-
-  <RaffleForm />
-
-  <HorizonDivider fromClass="bg-white" toColorClass="text-brand-green" side="left" />
 
   <section class="bg-brand-green py-16">
     <div class="mx-auto max-w-6xl px-4 text-center">
