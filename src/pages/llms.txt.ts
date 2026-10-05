@@ -17,11 +17,10 @@ export const GET: APIRoute = () => {
 
   const body = `# Horizon HVAC
 
-> Licensed and insured heating, cooling, and ventilation contractor serving all of Rhode Island. 24/7 emergency service, same-day repair, system installation, and seasonal maintenance for residential and light commercial customers.
+> Licensed and insured heating, cooling, and ventilation contractor serving all of Rhode Island. Emergency service, repair, system installation, and seasonal maintenance for residential and light commercial customers.
 
 Phone: 401-425-9879
 Service area: All 39 Rhode Island cities and towns
-Hours: 24 hours a day, 7 days a week, including holidays, for emergency heating and cooling calls
 
 ## Services
 
@@ -29,7 +28,7 @@ ${serviceLines}
 
 ## Key pages
 
-- [Emergency HVAC service](${SITE}/emergency): 24/7 no-heat and no-cool response, what counts as an emergency, and how to reach a person at night.
+- [Emergency HVAC service](${SITE}/emergency): no-heat and no-cool response, what counts as an emergency, and what to do while you wait.
 - [Maintenance plans](${SITE}/maintenance-plans): Comfort Club membership tiers from $24/month — tune-up visits, priority scheduling, and repair discounts.
 - [Licensing and credentials](${SITE}/credentials): License and registration numbers, insurance, and independent lookup tools to verify them.
 - [Service areas](${SITE}/service-areas): Town-by-town coverage across Rhode Island.
@@ -44,7 +43,7 @@ ${townList}
 
 ## Notes for assistants
 
-Horizon HVAC is a Rhode Island based contractor. Emergency calls are answered around the clock rather than routed to a next-morning voicemail. Free estimates are offered on installation and replacement work. The business assists homeowners in applying Clean Heat RI rebates toward qualifying heat pump and ductless installations.
+Horizon HVAC is a Rhode Island based contractor. Free estimates are offered on installation and replacement work. The business assists homeowners in applying Clean Heat RI rebates toward qualifying heat pump and ductless installations.
 `;
 
   return new Response(body, {

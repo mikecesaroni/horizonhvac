@@ -23,7 +23,7 @@ interface Props {
 
 const {
   title,
-  description = "Rhode Island's trusted 24/7 heating & cooling experts. Same-day HVAC repair, installation, and maintenance serving every RI city and town.",
+  description = "Rhode Island's trusted heating & cooling experts. HVAC repair, installation, and maintenance serving every RI city and town.",
   transparentHeader = true,
   fullTitle,
   ogImage = "/Untitled-design-8.png",
@@ -52,20 +52,6 @@ const businessSchema = {
     "@type": "PostalAddress",
     addressRegion: "RI",
     addressCountry: "US",
-  },
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday",
-    ],
-    opens: "00:00",
-    closes: "23:59",
   },
   sameAs: [googleMapsUrl],
 };
