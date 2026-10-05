@@ -50,4 +50,4 @@ The logic is sound and technicians do use it. You still should not do it yoursel
 
 Call once you have shut the system down and confirmed it is not something obvious like ice or a tripped breaker. This is a diagnosis worth having done properly, and the repair — if it is the capacitor — is usually a same-visit fix from parts carried on the truck.
 
-Horizon HVAC answers cooling calls across Rhode Island 24 hours a day at **401-425-9879**, including nights and weekends. If the house is dangerously hot, or there are infants, elderly, or medically vulnerable people at home, treat it as an emergency and say so when you call.
+Horizon HVAC takes cooling calls across Rhode Island at **401-425-9879**. If the house is dangerously hot, or there are infants, elderly, or medically vulnerable people at home, treat it as an emergency and say so when you call.

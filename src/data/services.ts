@@ -15,13 +15,13 @@ export const services: Service[] = [
   {
     slug: "emergency-service",
     name: "HVAC Emergencies",
-    summary: "True 24/7 emergency HVAC service.",
+    summary: "Fast emergency HVAC service.",
     description:
       "Heating or cooling crisis? Horizon HVAC provides true emergency service, showing up promptly with solutions that protect your home and peace of mind.",
     featured: true,
-    metaTitle: "24/7 Emergency HVAC Repair in Rhode Island | Horizon HVAC",
+    metaTitle: "Emergency HVAC Repair in Rhode Island | Horizon HVAC",
     metaDescription:
-      "No heat in a Rhode Island winter or no AC in a heat wave? Horizon HVAC answers day or night, 7 days a week, with fast emergency heating & cooling repair.",
+      "No heat in a Rhode Island winter or no AC in a heat wave? Horizon HVAC prioritizes emergency heating and cooling calls across Rhode Island — call 401-425-9879.",
     signs: [
       "No heat during a cold snap, or a furnace that won't turn on at all",
       "Central air that's stopped cooling during a summer heat wave",
@@ -30,15 +30,15 @@ export const services: Service[] = [
       "Water pooling around your furnace, air handler, or outdoor condenser",
     ],
     whatWeDo: [
-      "Answer the phone and dispatch a technician — day, night, weekends, and holidays",
+      "Prioritize no-heat and no-cool calls ahead of routine work",
       "Diagnose the failure on-site and explain the problem in plain language before any work starts",
       "Carry common parts on the truck to fix most emergencies in a single visit",
       "Provide safe temporary solutions when a full repair requires ordering a part",
     ],
     faqs: [
       {
-        q: "Do you really answer the phone at 2am?",
-        a: "Yes. Horizon HVAC offers true 24/7 emergency service across Rhode Island, every day of the year, not just an answering service that calls you back in the morning.",
+        q: "What should I do if my heat or AC fails outside business hours?",
+        a: "Call 401-425-9879 and leave the details. Emergency calls are prioritized ahead of routine work, and we will tell you honestly how quickly we can get a technician to you rather than leaving you guessing.",
       },
       {
         q: "How fast can a technician get to my home?",
@@ -46,7 +46,7 @@ export const services: Service[] = [
       },
       {
         q: "What does emergency HVAC service cost?",
-        a: "We diagnose the issue and give you an upfront price before any repair begins, so there are never surprise charges — even for after-hours emergency calls.",
+        a: "We diagnose the issue and give you an upfront price before any repair begins, so there are never surprise charges.",
       },
     ],
   },

@@ -50,4 +50,4 @@ If you smell gas, leave first and call from outside.
 
 Change the filter and clear the vents. If the furnace still short-cycles after that, it needs a technician — it has moved past what can be safely sorted out from the thermostat.
 
-Horizon HVAC answers no-heat and heating calls across Rhode Island 24 hours a day at **401-425-9879**. Short-cycling in the middle of a cold snap is worth treating as urgent, both because of the safety angle and because a furnace behaving this way is often close to stopping altogether.
+Horizon HVAC takes no-heat and heating calls across Rhode Island at **401-425-9879**. Short-cycling in the middle of a cold snap is worth treating as urgent, both because of the safety angle and because a furnace behaving this way is often close to stopping altogether.

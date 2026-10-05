@@ -36,5 +36,5 @@ export const navItems: NavItem[] = [
   { label: "Maintenance Plans", href: "/maintenance-plans" },
   { label: "Blogs", href: "/blog" },
   { label: "Contact", href: "/contact" },
-  { label: "24/7 Emergency", href: "/emergency" },
+  { label: "Emergency Service", href: "/emergency" },
 ];
