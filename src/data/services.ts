@@ -21,7 +21,7 @@ export const services: Service[] = [
     featured: true,
     metaTitle: "Emergency HVAC Repair in Rhode Island | Horizon HVAC",
     metaDescription:
-      "No heat in a Rhode Island winter or no AC in a heat wave? Horizon HVAC prioritizes emergency heating and cooling calls across Rhode Island — call 401-425-9879.",
+      "No heat in a Rhode Island winter or no AC in a heat wave? Horizon HVAC prioritizes emergency heating and cooling calls across Rhode Island, call 401-425-9879.",
     signs: [
       "No heat during a cold snap, or a furnace that won't turn on at all",
       "Central air that's stopped cooling during a summer heat wave",
@@ -62,7 +62,7 @@ export const services: Service[] = [
       "Furnace not heating, short-cycling, or making noise? Horizon HVAC repairs gas, oil, and electric heating systems fast across Rhode Island. Same-day service.",
     signs: [
       "The furnace runs but blows cold or lukewarm air",
-      "Short cycling — the system turns on and off repeatedly",
+      "Short cycling, the system turns on and off repeatedly",
       "Rooms that heat unevenly, or a thermostat that doesn't match the actual temperature",
       "Banging, clicking, or squealing noises from the furnace",
       "A noticeable jump in heating bills with no change in usage",
@@ -82,7 +82,7 @@ export const services: Service[] = [
       },
       {
         q: "Why is my furnace making a banging noise when it starts?",
-        a: "That's often delayed ignition — gas building up before it lights — which is worth having inspected quickly for safety. It can also be ductwork expanding or a failing blower component.",
+        a: "That's often delayed ignition, gas building up before it lights, which is worth having inspected quickly for safety. It can also be ductwork expanding or a failing blower component.",
       },
       {
         q: "How often should a furnace be serviced?",
@@ -122,7 +122,7 @@ export const services: Service[] = [
       },
       {
         q: "Is it normal for my AC to freeze up?",
-        a: "No — ice on the coil or lines usually means restricted airflow (dirty filter, blocked vents) or low refrigerant. Running a frozen system can damage the compressor, so it's worth shutting it off and calling us.",
+        a: "No. Ice on the coil or lines usually means restricted airflow (dirty filter, blocked vents) or low refrigerant. Running a frozen system can damage the compressor, so it's worth shutting it off and calling us.",
       },
       {
         q: "How long does an AC repair visit take?",
@@ -155,7 +155,7 @@ export const services: Service[] = [
     faqs: [
       {
         q: "How do I know what size system I need?",
-        a: "We run a load calculation based on your home's square footage, insulation, windows, and layout — not just a guess based on the old unit. An oversized or undersized system wastes energy and wears out faster either way.",
+        a: "We run a load calculation based on your home's square footage, insulation, windows, and layout, not just a guess based on the old unit. An oversized or undersized system wastes energy and wears out faster either way.",
       },
       {
         q: "How long does a full installation take?",
@@ -163,7 +163,7 @@ export const services: Service[] = [
       },
       {
         q: "Do you offer financing for a new system?",
-        a: "Yes — see our Financing page for current options. We'll also flag any Rhode Island or federal energy-efficiency rebates your new system may qualify for.",
+        a: "Yes, see our Financing page for current options. We'll also flag any Rhode Island or federal energy-efficiency rebates your new system may qualify for.",
       },
     ],
   },
@@ -172,7 +172,7 @@ export const services: Service[] = [
     name: "Ductless Mini-Splits",
     summary: "Ductless mini-split and heat pump installation & repair.",
     description:
-      "Ductless mini-split systems heat and cool room by room without ductwork \u2014 ideal for older Rhode Island homes, additions, finished attics, and any space a duct run was never going to reach.",
+      "Ductless mini-split systems heat and cool room by room without ductwork, ideal for older Rhode Island homes, additions, finished attics, and any space a duct run was never going to reach.",
     metaTitle: "Ductless Mini-Split Installation & Repair in Rhode Island | Horizon HVAC",
     metaDescription:
       "Ductless mini-split and heat pump installation, repair, and service across Rhode Island. Room-by-room comfort without ductwork, with Clean Heat RI rebate help.",
@@ -184,7 +184,7 @@ export const services: Service[] = [
       "You want to cut oil or propane use with an efficient electric heat pump",
     ],
     whatWeDo: [
-      "Size the system to the actual room \u2014 an oversized head short-cycles and never dehumidifies properly",
+      "Size the system to the actual room, an oversized head short-cycles and never dehumidifies properly",
       "Install single-zone and multi-zone systems, including wall, ceiling cassette, and floor-mounted heads",
       "Repair and service existing mini-splits of any brand, including refrigerant leaks and failed outdoor units",
       "Clean and service indoor heads, which collect mold and dust far faster than homeowners expect",

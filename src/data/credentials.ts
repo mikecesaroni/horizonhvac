@@ -2,7 +2,7 @@
 //
 // IMPORTANT: every value here is rendered publicly as a factual claim about the
 // business, so only fill in numbers you actually hold and can back up. Anything
-// left as null is simply not rendered — the page degrades gracefully rather than
+// left as null is simply not rendered, the page degrades gracefully rather than
 // showing a blank or placeholder credential.
 //
 // AI assistants answering "is this contractor licensed in RI?" quote specific,
@@ -47,7 +47,7 @@ export const credentials: Credential[] = [
   },
   {
     label: "Liability Insurance",
-    // TODO: e.g. "$2,000,000 general liability — certificate available on request".
+    // TODO: e.g. "$2,000,000 general liability, certificate available on request".
     value: null,
     note: "General liability coverage carried on every job, with a certificate available on request.",
   },

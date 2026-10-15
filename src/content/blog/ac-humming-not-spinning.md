@@ -19,13 +19,13 @@ If your air conditioner is blowing warm air and the outdoor unit is sitting ther
 
 Turn the system off at the thermostat before you do anything else.
 
-The hum means the unit is energised and trying to start. When a compressor tries to start and cannot, it draws what is called locked-rotor current — several times its normal running draw — and it heats up fast. Give that fifteen or twenty minutes and you can turn a cheap part failure into a failed compressor, which on an older system is frequently the point where replacement makes more sense than repair.
+The hum means the unit is energised and trying to start. When a compressor tries to start and cannot, it draws what is called locked-rotor current, several times its normal running draw, and it heats up fast. Give that fifteen or twenty minutes and you can turn a cheap part failure into a failed compressor, which on an older system is frequently the point where replacement makes more sense than repair.
 
 So: thermostat off. Then diagnose.
 
 ## What is usually wrong
 
-**A failed run capacitor.** This is the most common cause by a wide margin. The capacitor is a small cylindrical component that stores and releases the electrical jolt the fan and compressor motors need to overcome inertia and start spinning. When it weakens, the motors get power but not enough to break away — so they sit and hum. Capacitors degrade with heat and age, which is why they tend to fail in the middle of a heat wave rather than in mild weather.
+**A failed run capacitor.** This is the most common cause by a wide margin. The capacitor is a small cylindrical component that stores and releases the electrical jolt the fan and compressor motors need to overcome inertia and start spinning. When it weakens, the motors get power but not enough to break away, so they sit and hum. Capacitors degrade with heat and age, which is why they tend to fail in the middle of a heat wave rather than in mild weather.
 
 **A seized fan motor.** Bearings wear out. If the motor itself has locked up, a new capacitor will not fix it.
 
@@ -48,6 +48,6 @@ The logic is sound and technicians do use it. You still should not do it yoursel
 
 ## When to call
 
-Call once you have shut the system down and confirmed it is not something obvious like ice or a tripped breaker. This is a diagnosis worth having done properly, and the repair — if it is the capacitor — is usually a same-visit fix from parts carried on the truck.
+Call once you have shut the system down and confirmed it is not something obvious like ice or a tripped breaker. This is a diagnosis worth having done properly, and the repair, if it is the capacitor, is usually a same-visit fix from parts carried on the truck.
 
 Horizon HVAC takes cooling calls across Rhode Island at **401-425-9879**. If the house is dangerously hot, or there are infants, elderly, or medically vulnerable people at home, treat it as an emergency and say so when you call.

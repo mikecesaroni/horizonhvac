@@ -1,4 +1,4 @@
-// All 39 Rhode Island cities/towns — each gets its own SEO-friendly page automatically
+// All 39 Rhode Island cities/towns, each gets its own SEO-friendly page automatically
 // via src/pages/service-areas/[slug].astro. If Horizon HVAC doesn't actually service
 // a given town, remove it here rather than leaving a page claiming coverage you don't offer.
 export type County = "Providence County" | "Kent County" | "Washington County" | "Newport County" | "Bristol County";

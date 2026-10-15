@@ -19,7 +19,7 @@ A furnace that fires up, runs for a few minutes, shuts off, then starts again a 
 
 Change it. If it has been more than a couple of months, or you cannot remember, change it before anything else.
 
-Here is the mechanism, because it makes the rest of the article make sense. Your furnace generates heat at the heat exchanger, and moving air carries that heat away into the house. Restrict the airflow and the heat has nowhere to go, so the heat exchanger temperature climbs. A high-limit switch watches for exactly this and cuts the burners when it gets too hot. The blower keeps running, things cool down, the switch resets, the burners light again — and you have a short cycle.
+Here is the mechanism, because it makes the rest of the article make sense. Your furnace generates heat at the heat exchanger, and moving air carries that heat away into the house. Restrict the airflow and the heat has nowhere to go, so the heat exchanger temperature climbs. A high-limit switch watches for exactly this and cuts the burners when it gets too hot. The blower keeps running, things cool down, the switch resets, the burners light again, and you have a short cycle.
 
 A genuinely clogged filter causes this reliably, and it is the cheapest possible fix. It is worth ruling out first every single time.
 
@@ -36,9 +36,9 @@ A genuinely clogged filter causes this reliably, and it is the cheapest possible
 
 **A failing high-limit switch, control board, or pressure switch.** These are diagnosis-and-replace items requiring a meter and knowing what the readings should be.
 
-**An oversized furnace.** If a furnace has too much capacity for the house, it heats the space to setpoint faster than a full cycle takes and shuts off early — every time, forever. Nothing fixes this except correct sizing at replacement. It is worth knowing about because it is a common consequence of replacing equipment by matching the old unit's numbers instead of doing a load calculation.
+**An oversized furnace.** If a furnace has too much capacity for the house, it heats the space to setpoint faster than a full cycle takes and shuts off early, every time, forever. Nothing fixes this except correct sizing at replacement. It is worth knowing about because it is a common consequence of replacing equipment by matching the old unit's numbers instead of doing a load calculation.
 
-**A cracked heat exchanger.** This is the serious one. Repeated overheating stresses the metal, and a crack lets combustion gases — including carbon monoxide — into the air moving through your house. This is why short-cycling should not be lived with for a whole season. It is diagnosed by inspection, and a cracked exchanger means the furnace is condemned.
+**A cracked heat exchanger.** This is the serious one. Repeated overheating stresses the metal, and a crack lets combustion gases, including carbon monoxide, into the air moving through your house. This is why short-cycling should not be lived with for a whole season. It is diagnosed by inspection, and a cracked exchanger means the furnace is condemned.
 
 ## The safety line
 
@@ -48,6 +48,6 @@ If you smell gas, leave first and call from outside.
 
 ## When to call
 
-Change the filter and clear the vents. If the furnace still short-cycles after that, it needs a technician — it has moved past what can be safely sorted out from the thermostat.
+Change the filter and clear the vents. If the furnace still short-cycles after that, it needs a technician, it has moved past what can be safely sorted out from the thermostat.
 
 Horizon HVAC takes no-heat and heating calls across Rhode Island at **401-425-9879**. Short-cycling in the middle of a cold snap is worth treating as urgent, both because of the safety angle and because a furnace behaving this way is often close to stopping altogether.

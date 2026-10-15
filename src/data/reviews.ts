@@ -1,12 +1,12 @@
 // Real Google Business Profile reviews, quoted verbatim.
 //
-// Do not edit the `quote` text — these are real customers' words, and rewriting
+// Do not edit the `quote` text, these are real customers' words, and rewriting
 // them (even for polish) misrepresents a real person. Add or remove entries as
 // the profile changes, but keep each quote exactly as posted.
 //
 // Reviewer names are as they appear publicly on the Google review, normalised
 // only for capitalisation. `service` is a short editorial label summarising what
-// the review describes — it is not part of the customer's words.
+// the review describes, it is not part of the customer's words.
 //
 // Relative dates ("3 months ago") are deliberately not stored: they go stale the
 // moment the page is built, and a wrong date on a real review looks worse than

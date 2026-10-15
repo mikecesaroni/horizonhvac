@@ -8,7 +8,7 @@ const blog = defineCollection({
     description: z.string().optional(),
     pubDate: z.coerce.date(),
     /** Optional Q&A rendered below the post and emitted as FAQPage structured data.
-     *  Diagnostic posts should use this — it's the shape AI assistants quote from. */
+     *  Diagnostic posts should use this, it's the shape AI assistants quote from. */
     faqs: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
   }),
 });

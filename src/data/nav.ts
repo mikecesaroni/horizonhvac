@@ -7,7 +7,7 @@ export type NavItem = {
 };
 
 // Header and Footer both render from this list, so adding a page here surfaces it
-// in both places — and, just as importantly, gives it internal links. Pages with
+// in both places, and, just as importantly, gives it internal links. Pages with
 // no internal links pointing at them are the ones crawlers and AI assistants miss.
 export const navItems: NavItem[] = [
   { label: "Home", href: "/" },
