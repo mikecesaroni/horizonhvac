@@ -1,0 +1,121 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+// Post-opt-in VSL page. Sent by GoHighLevel automation immediately after a lead
+// submits an ad form, so the visitor has ALREADY converted — there is
+// deliberately no form here. The job of this page is to confirm the request
+// landed, put the owner's face to the business while interest is highest, and
+// give an impatient lead a way to call right now.
+//
+// noindex: this is a private follow-up URL, not a search landing page.
+// minimal: no nav or footer links, so the only actions are watch and call.
+//
+// The video is self-hosted rather than embedded from YouTube on purpose — no
+// branding, no related-video grid, and nothing that invites the viewer to leave.
+// Source was a 1280x720 H.264/AAC QuickTime file, remuxed to MP4 with no
+// re-encode and +faststart so playback can begin before the file finishes
+// downloading.
+//
+// Claims are kept on the video, not the page: no response-time promise and no
+// availability claim, matching the rest of the site.
+
+const PHONE_DISPLAY = "401-425-9879";
+const PHONE_HREF = "tel:14014259879";
+
+const steps = [
+  {
+    n: "1",
+    title: "We review what you sent",
+    body: "Your request is already with our team along with the details you gave us, so you will not be asked to repeat yourself.",
+  },
+  {
+    n: "2",
+    title: "We call you from 401-425-9879",
+    body: "Save that number now so you know it is us. We will talk through what is going on with your system and what your options actually are.",
+  },
+  {
+    n: "3",
+    title: "You get a straight price",
+    body: "We give you the number upfront, before any work starts. No pressure to decide on the spot, and no surprise charges at the end.",
+  },
+];
+---
+
+<BaseLayout
+  title="You're All Set"
+  fullTitle="You're All Set — Horizon HVAC"
+  description="Thanks for reaching out to Horizon HVAC. Watch a quick note from Mike, our owner, and here's what happens next."
+  minimal={true}
+  noindex={true}
+>
+  <section class="relative isolate flex-1 overflow-hidden bg-brand-green text-white">
+    <div class="absolute inset-0 -z-20 bg-cover bg-center" style="background-image: url('/Untitled-design-8.png');"></div>
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-brand-green-dark/92 via-brand-green/88 to-brand-green-dark/95"></div>
+
+    <div class="mx-auto w-full max-w-3xl px-4 py-8 sm:py-12">
+      <div class="text-center">
+        <p class="text-xs sm:text-sm font-bold uppercase tracking-widest text-brand-gold">Request Received</p>
+        <h1 class="mt-2 text-2xl sm:text-4xl font-extrabold uppercase leading-tight drop-shadow-lg">
+          You're All Set — <span class="text-brand-gold">Here's What Happens Next</span>
+        </h1>
+        <p class="mt-3 text-sm sm:text-lg font-semibold text-white/85">
+          Take 60 seconds and hear it straight from Mike, the owner.
+        </p>
+      </div>
+
+      <div class="mt-6 overflow-hidden rounded-2xl border-4 border-white/20 shadow-2xl sm:mt-8">
+        <video
+          class="block h-auto w-full bg-black"
+          controls
+          playsinline
+          preload="metadata"
+          poster="/video/horizon-intro-poster.jpg"
+          width="1280"
+          height="720"
+        >
+          <source src="/video/horizon-intro.mp4" type="video/mp4" />
+          Your browser can't play this video. Call us at {PHONE_DISPLAY} and we'll tell you the same thing in person.
+        </video>
+      </div>
+
+      <div class="mt-8 rounded-2xl bg-brand-green-dark/40 p-5 sm:p-7">
+        <h2 class="text-center text-lg sm:text-xl font-extrabold uppercase tracking-wide text-brand-gold">
+          What Happens Next
+        </h2>
+        <ol class="mt-5 space-y-4">
+          {steps.map((step) => (
+            <li class="flex gap-4">
+              <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-gold text-sm font-extrabold text-brand-ink">
+                {step.n}
+              </span>
+              <div>
+                <h3 class="font-bold text-white">{step.title}</h3>
+                <p class="mt-1 text-sm leading-relaxed text-white/80">{step.body}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      <div class="mt-8 text-center">
+        <p class="text-sm font-semibold text-white/85">Don't want to wait for us to call?</p>
+        <a
+          href={PHONE_HREF}
+          class="mt-3 inline-block rounded-full bg-brand-gold px-10 py-4 text-lg font-extrabold text-brand-ink shadow-lg transition-opacity hover:opacity-90"
+        >
+          Call {PHONE_DISPLAY}
+        </a>
+        <p class="mt-4 text-sm text-white/75">
+          Asking about a new system? <a href="/financing" class="font-semibold text-brand-gold underline underline-offset-4 hover:opacity-80">See financing options →</a>
+        </p>
+      </div>
+
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-1 text-xs sm:text-sm font-semibold text-white/80">
+        <span>★★★★★ 4.9 Rating</span>
+        <span>Licensed &amp; Insured</span>
+        <span>BBB Accredited A+</span>
+        <span>Rhode Island &amp; Massachusetts</span>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
