@@ -12,7 +12,7 @@ interface Props {
   title: string;
   description?: string;
   transparentHeader?: boolean;
-  /** Full page title override — skips the "{title} | Horizon HVAC" template for pages that need precise control over the <title> tag. */
+  /** Full page title override, skips the "{title} | Horizon HVAC" template for pages that need precise control over the <title> tag. */
   fullTitle?: string;
   ogImage?: string;
   noindex?: boolean;
@@ -118,7 +118,7 @@ const businessSchema = {
     )}
     <QuoteFormModal />
 
-    <!-- GoHighLevel chat widget — required for GHL's SMS/A2P 10DLC compliance registration -->
+    <!-- GoHighLevel chat widget, required for GHL's SMS/A2P 10DLC compliance registration -->
     <script
       src="https://widgets.leadconnectorhq.com/loader.js"
       data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
@@ -131,8 +131,8 @@ const businessSchema = {
       // per-component markup needed. The first section (hero) is skipped so it's visible
       // immediately on load instead of fading in. A section with a grid gets its cards
       // animated individually (staggered); a section without one animates as a whole block
-      // — never both, to avoid double/compounded motion. Sections containing a <form> are
-      // skipped entirely — form fields must never be hidden behind a scroll animation.
+      //, never both, to avoid double/compounded motion. Sections containing a <form> are
+      // skipped entirely, form fields must never be hidden behind a scroll animation.
       const sections = Array.from(document.querySelectorAll("main > section"));
       sections.forEach((section, i) => {
         if (i === 0) return;

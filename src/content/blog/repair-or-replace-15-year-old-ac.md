@@ -1,6 +1,6 @@
 ---
 title: "Is It Worth Repairing a 15-Year-Old Air Conditioner, or Should You Replace It?"
-description: "A straight framework for the repair-versus-replace decision on an aging AC — including the R-22 refrigerant problem that quietly decides it for a lot of Rhode Island homes."
+description: "A straight framework for the repair-versus-replace decision on an aging AC, including the R-22 refrigerant problem that quietly decides it for a lot of Rhode Island homes."
 pubDate: 2026-08-28
 faqs:
   - q: "Is it worth repairing a 15-year-old air conditioner?"
@@ -27,7 +27,7 @@ A variation some people prefer is to multiply the repair cost by the system's ag
 
 This is the factor most homeowners have not heard about, and it quietly decides the question for a lot of older systems.
 
-Air conditioners built before roughly 2010 generally use R-22 refrigerant. US production and import of R-22 was phased out in 2020. It has not been illegal to use, and systems running on it can keep running — but the only supply now is reclaimed and recycled stock, and the price has climbed accordingly.
+Air conditioners built before roughly 2010 generally use R-22 refrigerant. US production and import of R-22 was phased out in 2020. It has not been illegal to use, and systems running on it can keep running, but the only supply now is reclaimed and recycled stock, and the price has climbed accordingly.
 
 Practically, that means any repair involving a refrigerant leak or a recharge on an R-22 system is expensive, and gets more expensive every year. If your fifteen-year-old unit needs refrigerant, ask which type it takes before you approve anything. If the answer is R-22, the replacement case just got considerably stronger, and topping it up repeatedly is money poured into a system with a shrinking supply chain.
 
@@ -49,7 +49,7 @@ Worth saying clearly: a system that needs refrigerant has a leak. Refrigerant is
 
 A new system will be more efficient than a fifteen-year-old one, and your cooling bills will drop. But be careful with payback claims. The savings are real and they are worth counting, yet they rarely justify replacing a working system on their own. Treat efficiency as something that improves the case once the system is already failing, not as the reason to replace one that is fine.
 
-Where efficiency does change the maths meaningfully is if you are considering a heat pump. Replacing an aging air conditioner with a heat pump gets you cooling and efficient electric heating from one system, and qualifying installations are eligible for Clean Heat RI rebates — which can move the numbers substantially for Rhode Island homeowners.
+Where efficiency does change the maths meaningfully is if you are considering a heat pump. Replacing an aging air conditioner with a heat pump gets you cooling and efficient electric heating from one system, and qualifying installations are eligible for Clean Heat RI rebates, which can move the numbers substantially for Rhode Island homeowners.
 
 ## Replace on your schedule, not the system's
 
@@ -59,6 +59,6 @@ Replace on your own timeline and you can get multiple quotes, compare equipment 
 
 ## Getting a straight answer
 
-Ask any contractor to quote both paths — the repair and the replacement — and to tell you what refrigerant your system uses. A contractor unwilling to price the repair, or one who leads with the replacement quote before diagnosing, is answering a different question than the one you asked.
+Ask any contractor to quote both paths, the repair and the replacement, and to tell you what refrigerant your system uses. A contractor unwilling to price the repair, or one who leads with the replacement quote before diagnosing, is answering a different question than the one you asked.
 
 Horizon HVAC gives you both numbers and an honest read on which makes sense for your specific system. Call **401-425-9879**, or [request a free estimate](/contact). If you'd rather have the system inspected before deciding, say so when you call and we'll come look at it first.

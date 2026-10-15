@@ -27,7 +27,7 @@ const metaDescription = `Heating and cooling repair, installation & maintenance 
 const faqs = [
   {
     q: `Does Horizon HVAC handle emergency calls in ${townName}?`,
-    a: `Yes. Call ${PHONE_DISPLAY} — no-heat and no-cool emergencies in ${townName} are prioritized ahead of routine work, and we will tell you honestly how quickly we can get a technician out to you.`,
+    a: `Yes. Call ${PHONE_DISPLAY}, no-heat and no-cool emergencies in ${townName} are prioritized ahead of routine work, and we will tell you honestly how quickly we can get a technician out to you.`,
   },
   {
     q: `Who do I call for emergency furnace repair in ${townName} at night?`,
@@ -40,7 +40,7 @@ const faqs = [
   {
     q: `What towns near ${townName} do you also service?`,
     a: nearbyAreas.length
-      ? `We serve every ${area.county} town, including ${nearbyAreas.map((a) => a.name.replace(", RI", "")).join(", ")} — plus the rest of Rhode Island.`
+      ? `We serve every ${area.county} town, including ${nearbyAreas.map((a) => a.name.replace(", RI", "")).join(", ")}, plus the rest of Rhode Island.`
       : `We serve all of Rhode Island, town to town, with no extra "trip charge" for being outside a small service radius.`,
   },
 ];
@@ -60,7 +60,7 @@ const faqs = [
 
   <section class="mx-auto max-w-4xl px-4 py-16">
     <p class="text-brand-ink/80 leading-relaxed">
-      Rhode Island winters push heating systems hard and its humid summers do the same to air conditioning — and{" "}
+      Rhode Island winters push heating systems hard and its humid summers do the same to air conditioning, and{" "}
       {townName}'s mix of older New England housing stock and newer construction means every system is a little
       different. Horizon HVAC's technicians work on furnaces, heat pumps, central air, and ductless systems of every
       age and brand across {townName} and the rest of {area.county}, so whether it's a 30-year-old furnace or a
@@ -101,7 +101,7 @@ const faqs = [
 
     <div class="mt-10 overflow-hidden rounded-3xl border-4 border-brand-green/15 shadow-lg">
       <iframe
-        title={`Map of ${area.name} — Horizon HVAC service area`}
+        title={`Map of ${area.name}, Horizon HVAC service area`}
         src={`https://maps.google.com/maps?q=${encodeURIComponent(area.name)}&z=11&output=embed`}
         class="h-72 w-full"
         style="border:0;"
@@ -122,7 +122,7 @@ const faqs = [
     </div>
   </section>
 
-  <FaqSection faqs={faqs} title={`${townName} HVAC — Frequently Asked Questions`} />
+  <FaqSection faqs={faqs} title={`${townName} HVAC : Frequently Asked Questions`} />
 
   {nearbyAreas.length > 0 && (
     <section class="bg-white pb-16">

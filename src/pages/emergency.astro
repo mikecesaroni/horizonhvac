@@ -10,14 +10,14 @@ import { serviceAreas } from "../data/serviceAreas";
 // NO AVAILABILITY CLAIM. This page previously promised 24/7 coverage, which is
 // not what Horizon does. Do not reintroduce any wording about answering at 2am,
 // overnight dispatch, or nights/weekends/holidays unless the real policy is
-// confirmed first — it was wrong across every page of the site.
+// confirmed first, it was wrong across every page of the site.
 
 const PHONE_DISPLAY = "401-425-9879";
 const PHONE_HREF = "tel:14014259879";
 
-const metaTitle = "Emergency HVAC Repair in Rhode Island — Call 401-425-9879 | Horizon HVAC";
+const metaTitle = "Emergency HVAC Repair in Rhode Island: Call 401-425-9879 | Horizon HVAC";
 const metaDescription =
-  "No heat or no AC in Rhode Island? Call Horizon HVAC at 401-425-9879. We prioritize emergency heating and cooling calls statewide — what counts as an emergency, and what to do while you wait.";
+  "No heat or no AC in Rhode Island? Call Horizon HVAC at 401-425-9879. We prioritize emergency heating and cooling calls statewide, what counts as an emergency, and what to do while you wait.";
 
 const emergencySigns = [
   "No heat during freezing weather, or a furnace that will not turn on at all",
@@ -51,11 +51,11 @@ const whileYouWait = [
 const faqs = [
   {
     q: "What should I do if my heat or AC fails outside business hours?",
-    a: `Call ${PHONE_DISPLAY} and leave the details — the equipment, what it is doing, and your address. Emergency calls are prioritized ahead of routine work, and we will tell you honestly how quickly we can get a technician to you rather than leaving you guessing. If there is any safety risk, act on the guidance below first.`,
+    a: `Call ${PHONE_DISPLAY} and leave the details, the equipment, what it is doing, and your address. Emergency calls are prioritized ahead of routine work, and we will tell you honestly how quickly we can get a technician to you rather than leaving you guessing. If there is any safety risk, act on the guidance below first.`,
   },
   {
     q: "What areas do you cover for emergency calls?",
-    a: "All of Rhode Island — every one of the state's 39 cities and towns, including Providence, Cranston, Warwick, East Greenwich, Pawtucket, Woonsocket, Newport, and the South County towns. There is no separate after-hours service radius.",
+    a: "All of Rhode Island, every one of the state's 39 cities and towns, including Providence, Cranston, Warwick, East Greenwich, Pawtucket, Woonsocket, Newport, and the South County towns. There is no separate after-hours service radius.",
   },
   {
     q: "How quickly can someone get to my house?",
@@ -63,11 +63,11 @@ const faqs = [
   },
   {
     q: "What counts as an HVAC emergency?",
-    a: "No heat in freezing weather, no cooling in dangerous heat, any burning smell or smoke, a sounding carbon monoxide alarm, a suspected gas leak, repeated breaker trips, or water leaking around the equipment. If you are unsure whether it can wait until morning, call and ask — we will tell you honestly.",
+    a: "No heat in freezing weather, no cooling in dangerous heat, any burning smell or smoke, a sounding carbon monoxide alarm, a suspected gas leak, repeated breaker trips, or water leaking around the equipment. If you are unsure whether it can wait until morning, call and ask, we will tell you honestly.",
   },
   {
     q: "What does emergency service cost compared to a normal visit?",
-    a: "We diagnose the problem and give you an upfront price before any repair starts, so you approve the number before work begins. That holds for after-hours and holiday calls too — there are no surprise charges added at the end.",
+    a: "We diagnose the problem and give you an upfront price before any repair starts, so you approve the number before work begins. That holds for after-hours and holiday calls too, there are no surprise charges added at the end.",
   },
   {
     q: "Do you work on all brands and system types?",
@@ -101,7 +101,7 @@ const featuredTowns = topTowns
     ]}
   />
 
-  <!-- The number as large, selectable, readable text — not an image, not injected by script. -->
+  <!-- The number as large, selectable, readable text, not an image, not injected by script. -->
   <section class="bg-white py-14">
     <div class="mx-auto max-w-3xl px-4 text-center">
       <p class="text-sm font-semibold uppercase tracking-wide text-brand-green">Emergency line</p>
@@ -160,7 +160,7 @@ const featuredTowns = topTowns
       <h2 class="text-3xl font-extrabold text-brand-ink">Statewide Emergency Coverage</h2>
       <p class="mt-4 text-brand-ink/75 leading-relaxed">
         Horizon HVAC dispatches emergency calls to every city and town in Rhode Island. There is no extra trip
-        charge for being outside a small radius — if you are in Rhode
+        charge for being outside a small radius, if you are in Rhode
         Island, your call goes into the same queue as everyone else in the state.
       </p>
       <div class="mt-8 flex flex-wrap justify-center gap-2">
@@ -179,5 +179,5 @@ const featuredTowns = topTowns
     </div>
   </section>
 
-  <FaqSection faqs={faqs} title="Emergency HVAC Service — Frequently Asked Questions" />
+  <FaqSection faqs={faqs} title="Emergency HVAC Service : Frequently Asked Questions" />
 </BaseLayout>

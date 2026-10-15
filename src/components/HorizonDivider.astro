@@ -1,6 +1,6 @@
 ---
 // Reusable "sunrise over the horizon" section divider.
-// `fromClass` is a bg-* (or gradient) class matching/fading from the PREVIOUS section's color —
+// `fromClass` is a bg-* (or gradient) class matching/fading from the PREVIOUS section's color,
 // this is a real background on the wrapper, not a transparency trick, so there's never a gap.
 // `toColorClass` is a text-* class controlling the wave's currentColor fill (the NEXT section's color).
 // `side` positions the sun near one edge, alternate "left"/"right" between consecutive dividers.
@@ -18,7 +18,7 @@ const uid = Math.random().toString(36).slice(2, 9);
 
 // The wave is made of cubic Bezier segments; find the one containing cx and solve for the
 // curve's actual y there (via bisection on x, since x(t) isn't evenly spaced), so the sun's
-// center always sits exactly ON the curve — precisely half hidden by it — instead of guessing.
+// center always sits exactly ON the curve, precisely half hidden by it, instead of guessing.
 type Pt = [number, number];
 const segments: [Pt, Pt, Pt, Pt][] = [
   [[0, 148], [220, 196], [380, 88], [620, 112]],

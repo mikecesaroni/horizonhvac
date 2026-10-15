@@ -1,6 +1,6 @@
 ---
 title: "Welcome to the Horizon HVAC Blog"
-description: "Placeholder post — replace with your real migrated blog content."
+description: "Placeholder post, replace with your real migrated blog content."
 pubDate: 2026-01-01
 ---
 

@@ -34,7 +34,7 @@ export function wireQuoteForm(form: HTMLFormElement) {
       statusEl.textContent = "Thanks! We'll be in touch shortly.";
       statusEl.className = "text-sm font-semibold text-center min-h-5 text-white";
     } catch {
-      statusEl.textContent = "Something went wrong — please call us at 401-425-9879 instead.";
+      statusEl.textContent = "Something went wrong. Please call us at 401-425-9879 instead.";
       statusEl.className = "text-sm font-semibold text-center min-h-5 text-red-200";
     } finally {
       if (submitBtn) {

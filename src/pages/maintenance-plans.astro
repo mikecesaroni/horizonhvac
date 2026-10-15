@@ -16,7 +16,7 @@ const metaDescription =
 const whyItPays = [
   "It's been over a year since your last tune-up",
   "You want to avoid an emergency breakdown during peak season",
-  "You'd like to keep your manufacturer's warranty valid — many require documented annual service",
+  "You'd like to keep your manufacturer's warranty valid, many require documented annual service",
   "Your energy bills are creeping up year over year",
   "You'd rather pay a predictable monthly amount than an unpredictable repair bill",
 ];
@@ -26,7 +26,7 @@ const everyVisit = [
   "Check refrigerant charge and combustion safety",
   "Test system startup, shutdown, and every safety control",
   "Verify thermostat calibration and correct system staging",
-  "Provide a written report of findings — no upsell pressure, just what we found",
+  "Provide a written report of findings, no upsell pressure, just what we found",
 ];
 
 const faqs = [
@@ -36,7 +36,7 @@ const faqs = [
   },
   {
     q: "How much does an HVAC maintenance plan cost in Rhode Island?",
-    a: "Horizon HVAC plans start at $24 per month per system ($288 a year) and run to $59 per month ($708 a year) for full heating and cooling coverage with a parts and labor warranty. Pricing is per system, and additional systems are added at the same monthly rate — except on Total Comfort, where a second system is half price.",
+    a: "Horizon HVAC plans start at $24 per month per system ($288 a year) and run to $59 per month ($708 a year) for full heating and cooling coverage with a parts and labor warranty. Pricing is per system, and additional systems are added at the same monthly rate, except on Total Comfort, where a second system is half price.",
   },
   {
     q: "Is a maintenance plan worth it, or should I just call when something needs doing?",
@@ -44,11 +44,11 @@ const faqs = [
   },
   {
     q: "Do I need a separate plan for my furnace and my air conditioner?",
-    a: "No. Plans are priced per system, and most homes with central air have a single system covering both heating and cooling. Homes with genuinely separate equipment — two furnaces, or a boiler plus separate central air — are quoted per system, and Total Comfort covers full heating plus cooling together.",
+    a: "No. Plans are priced per system, and most homes with central air have a single system covering both heating and cooling. Homes with genuinely separate equipment, such as two furnaces or a boiler plus separate central air, are quoted per system, and Total Comfort covers full heating plus cooling together.",
   },
   {
     q: "When are the tune-up visits scheduled?",
-    a: "On two-visit plans, the air conditioning check happens in spring before the first hot stretch and the heating check in fall before the system gets turned on for the season — both before peak demand rather than during it. We reach out to schedule; you don't have to remember.",
+    a: "On two-visit plans, the air conditioning check happens in spring before the first hot stretch and the heating check in fall before the system gets turned on for the season, both before peak demand rather than during it. We reach out to schedule; you don't have to remember.",
   },
   {
     q: "Does regular maintenance actually save money?",
@@ -97,7 +97,7 @@ const planSchema = {
   <PageHero
     eyebrow="Comfort Club"
     title="HVAC Maintenance Plans"
-    description="Predictable monthly cost, priority scheduling, and a discount on every repair — instead of waiting for something to break."
+    description="Predictable monthly cost, priority scheduling, and a discount on every repair, instead of waiting for something to break."
     breadcrumbs={[
       { label: "Home", href: "/" },
       { label: "Maintenance Plans", href: "/maintenance-plans" },
@@ -135,7 +135,7 @@ const planSchema = {
       <div class="mt-12 rounded-2xl bg-brand-green/5 p-8 text-center">
         <h3 class="text-xl font-bold text-brand-ink">Not ready for a plan?</h3>
         <p class="mt-2 text-brand-ink/75">
-          You can book a one-time seasonal visit instead — call us and we'll quote it before we schedule, with no
+          You can book a one-time seasonal visit instead, call us and we'll quote it before we schedule, with no
           commitment either way.
         </p>
         <a
@@ -148,5 +148,5 @@ const planSchema = {
     </div>
   </section>
 
-  <FaqSection faqs={faqs} title="Maintenance Plans — Frequently Asked Questions" />
+  <FaqSection faqs={faqs} title="Maintenance Plans : Frequently Asked Questions" />
 </BaseLayout>

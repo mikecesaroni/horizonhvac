@@ -48,7 +48,7 @@ body {
 #site-header.is-transparent.is-scrolled .logo-img {
   height: 3.5rem;
 }
-/* Button hover animation — applies site-wide to any linked/clickable pill or CTA card,
+/* Button hover animation, applies site-wide to any linked/clickable pill or CTA card,
    without needing to touch every component individually. Scoped to <a>/<button> only so
    decorative rounded-full divs (e.g. the step icon circles) are never affected. */
 @media (prefers-reduced-motion: no-preference) {
@@ -79,7 +79,7 @@ body {
   }
 }
 
-/* Scroll reveal — sections/cards fade + slide up into place as they enter the viewport.
+/* Scroll reveal, sections/cards fade + slide up into place as they enter the viewport.
    Classes are applied automatically by the script in BaseLayout.astro, no markup changes
    needed per component. */
 @media (prefers-reduced-motion: no-preference) {
@@ -99,7 +99,7 @@ body {
 /* Meta Ads landing page (/free-estimate, /free-estimate-email): the whole point is
    fitting the entire form in view with zero scrolling. On short viewports (older/smaller
    phones in landscape-constrained heights) there isn't room for the supporting trust copy
-   alongside the full form, so it's hidden here — the form itself is never touched. */
+   alongside the full form, so it's hidden here, the form itself is never touched. */
 @media (max-height: 740px) {
   .lp-short-hide {
     display: none;
