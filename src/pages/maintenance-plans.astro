@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHero from "../components/PageHero.astro";
 import MembershipPlans from "../components/MembershipPlans.astro";
 import FaqSection from "../components/FaqSection.astro";
-import { membershipPlans } from "../data/plans";
+import { membershipPlans, membershipTerms } from "../data/plans";
 
 // The single home for Comfort Club memberships, reachable from the top menu.
 // The maintenance-plan question was one the AI visibility scan showed Horizon
@@ -11,7 +11,7 @@ import { membershipPlans } from "../data/plans";
 
 const metaTitle = "HVAC Maintenance Plans in Rhode Island | Horizon HVAC Comfort Club";
 const metaDescription =
-  "Horizon HVAC maintenance plans from $24/month: annual or twice-yearly tune-ups, priority scheduling, no diagnostic fee, and 10-15% off repairs. Serving all of Rhode Island.";
+  "Horizon HVAC Comfort Club plans from $24/month per system: annual or twice-yearly tune-ups, priority scheduling, 10-15% off repair labor and parts, and a free month when you pay annually. Serving all of Rhode Island.";
 
 const whyItPays = [
   "It's been over a year since your last tune-up",
@@ -21,42 +21,42 @@ const whyItPays = [
   "You'd rather pay a predictable monthly amount than an unpredictable repair bill",
 ];
 
-const everyVisit = [
-  "Inspect and clean burners, coils, filters, and electrical connections",
-  "Check refrigerant charge and combustion safety",
-  "Test system startup, shutdown, and every safety control",
-  "Verify thermostat calibration and correct system staging",
-  "Provide a written report of findings, no upsell pressure, just what we found",
-];
-
 const faqs = [
   {
-    q: "What's included in a Horizon HVAC maintenance plan?",
-    a: "Every plan includes at least one full tune-up per year, priority scheduling, and a discount on repairs. Essential is $24/month per system with one annual visit and 10% off repairs. Comfort Club is $39/month with two visits a year, spring and fall, plus 15% off repairs and equipment. Total Comfort is $59/month and adds full parts and labor warranty on repairs, a dedicated VIP service line, and a 2-hour emergency response guarantee.",
+    q: "What's included in a Horizon HVAC Comfort Club plan?",
+    a: "Essential is $24 per month per system: one annual tune-up, 10% off repair labor and parts, a priority scheduling target within 48 hours, thermostat calibration, and filter replacement labor during the visit. Comfort Club is $39 per month: two tune-ups a year in spring and fall, 15% off repair labor and parts, an annual indoor air quality inspection, 5% off coil cleaning and boiler descaling, and a $250 credit toward future equipment replacement. Total Comfort is $59 per month: everything in Comfort Club plus your first two diagnostic or service calls free each membership year, VIP priority scheduling, one chemical A/C coil cleaning a year if needed, one annual boiler descaling on eligible equipment, and a $500 equipment credit.",
   },
   {
     q: "How much does an HVAC maintenance plan cost in Rhode Island?",
-    a: "Horizon HVAC plans start at $24 per month per system ($288 a year) and run to $59 per month ($708 a year) for full heating and cooling coverage with a parts and labor warranty. Pricing is per system, and additional systems are added at the same monthly rate, except on Total Comfort, where a second system is half price.",
+    a: "Horizon HVAC plans are $24, $39, or $59 per month per enrolled system, which is $288, $468, or $708 across a year. Paying for the year upfront gets you a month free, bringing it to $264, $429, or $649.",
+  },
+  {
+    q: "Do I still pay a diagnostic fee as a member?",
+    a: "On the Essential plan the standard diagnostic and service-call fee is $179, and it is waived when the recommended work is performed. Total Comfort includes your first two diagnostic or service calls free each membership year on the covered system, with any further calls at $139 each. Fee waivers apply only to the covered system, and repair labor and parts are billed separately at your plan discount.",
+  },
+  {
+    q: "What does it cost to add a second system?",
+    a: "Comfort Club and Total Comfort members get 50% off membership for each additional enrolled system, so a second system is $19.50 per month on Comfort Club and $29.50 per month on Total Comfort. The Essential plan is full price for each additional system, at $24 per month each.",
   },
   {
     q: "Is a maintenance plan worth it, or should I just call when something needs doing?",
-    a: "A plan wins when you value the extras: the seasonal visits happen without you having to remember, you get priority scheduling during the weeks everyone else is waiting, there is no diagnostic fee on service calls, and you get 10-15% off any repair. For most homeowners the repair discount and the waived diagnostic fee cover the difference the first time something breaks. If you would rather book a one-off visit, call 401-425-9879 and we will quote it.",
-  },
-  {
-    q: "Do I need a separate plan for my furnace and my air conditioner?",
-    a: "No. Plans are priced per system, and most homes with central air have a single system covering both heating and cooling. Homes with genuinely separate equipment, such as two furnaces or a boiler plus separate central air, are quoted per system, and Total Comfort covers full heating plus cooling together.",
+    a: "A plan wins when you value the extras: the seasonal visits happen without you having to remember, you get priority scheduling during the weeks everyone else is waiting, and you get 10-15% off repair labor and parts. The equipment replacement credit matters too, since $250 or $500 comes off a future system. If you would rather book a one-off visit, call 401-425-9879 and we will quote it.",
   },
   {
     q: "When are the tune-up visits scheduled?",
-    a: "On two-visit plans, the air conditioning check happens in spring before the first hot stretch and the heating check in fall before the system gets turned on for the season, both before peak demand rather than during it. We reach out to schedule; you don't have to remember.",
+    a: "On the two-visit plans, the air conditioning check happens in spring before the first hot stretch and the heating check in fall before the system gets turned on for the season, both ahead of peak demand rather than during it. We send seasonal reminders by email and text, so you do not have to track it.",
+  },
+  {
+    q: "Do I need a plan for each system in the house?",
+    a: "Membership benefits apply to each enrolled HVAC system, and the plans cover residential systems only. Homes with genuinely separate equipment, such as two furnaces or a boiler plus separate central air, enroll each system, with the additional-system discount applying on Comfort Club and Total Comfort.",
+  },
+  {
+    q: "What happens to my membership if I sell the house?",
+    a: "Membership is transferable to a new homeowner, subject to Horizon HVAC's transfer policy. Any outstanding balance has to be paid before the transfer goes through.",
   },
   {
     q: "Does regular maintenance actually save money?",
-    a: "Yes. A dirty or neglected system works harder to hit the same temperature, which shows up directly on your energy bill, and small issues caught early are far cheaper than the breakdown they'd eventually become. Documented annual service also keeps most manufacturer warranties valid, which matters a great deal if a major component fails.",
-  },
-  {
-    q: "Can I cancel a maintenance plan?",
-    a: "Call us at 401-425-9879 and we'll walk you through the terms for your specific plan before you sign up, so there are no surprises either way.",
+    a: "Yes. A dirty or neglected system works harder to hit the same temperature, which shows up directly on your energy bill, and small issues caught early are far cheaper than the breakdown they would eventually become. Documented annual service also keeps most manufacturer warranties valid, which matters a great deal if a major component fails.",
   },
   {
     q: "Do you offer maintenance plans across all of Rhode Island?",
@@ -77,15 +77,15 @@ const planSchema = {
   offers: membershipPlans.map((plan) => ({
     "@type": "Offer",
     name: plan.name,
-    price: plan.price.replace("$", ""),
+    price: plan.monthly.replace("$", ""),
     priceCurrency: "USD",
     priceSpecification: {
       "@type": "UnitPriceSpecification",
-      price: plan.price.replace("$", ""),
+      price: plan.monthly.replace("$", ""),
       priceCurrency: "USD",
       unitText: "month per system",
     },
-    description: plan.features.join("; "),
+    description: plan.benefits.join("; "),
     url: "https://horizonhvacinc.com/maintenance-plans",
   })),
 };
@@ -122,15 +122,18 @@ const planSchema = {
 
   <section class="bg-white py-16">
     <div class="mx-auto max-w-4xl px-4">
-      <h2 class="text-3xl font-extrabold text-brand-ink text-center">What Every Visit Includes</h2>
-      <ul class="mt-8 space-y-3">
-        {everyVisit.map((item) => (
-          <li class="flex gap-3 text-brand-ink/80">
-            <span class="font-bold text-brand-gold">•</span>
-            <span>{item}</span>
-          </li>
+      <h2 class="text-3xl font-extrabold text-brand-ink text-center">Membership Terms</h2>
+      <p class="mt-3 text-center text-brand-ink/70">
+        The fine print, in plain sight rather than buried at the bottom of a contract.
+      </p>
+      <div class="mt-8 grid gap-4 sm:grid-cols-2">
+        {membershipTerms.map((term) => (
+          <div class="rounded-xl border border-brand-green/15 p-5">
+            <h3 class="text-sm font-bold uppercase tracking-wide text-brand-green">{term.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-brand-ink/75">{term.body}</p>
+          </div>
         ))}
-      </ul>
+      </div>
 
       <div class="mt-12 rounded-2xl bg-brand-green/5 p-8 text-center">
         <h3 class="text-xl font-bold text-brand-ink">Not ready for a plan?</h3>
@@ -148,5 +151,5 @@ const planSchema = {
     </div>
   </section>
 
-  <FaqSection faqs={faqs} title="Maintenance Plans : Frequently Asked Questions" />
+  <FaqSection faqs={faqs} title="Maintenance Plans: Frequently Asked Questions" />
 </BaseLayout>
