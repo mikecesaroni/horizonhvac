@@ -64,7 +64,6 @@ export const membershipPlans: MembershipPlan[] = [
       "Free UV air purifier install (1st year)",
       "Smart thermostat programming & optimization",
       "Duct inspection + report annually",
-      "20% off new equipment + free install quote",
       "2-hr emergency response guarantee",
       "Multi-system: 2nd system 50% off",
     ],
