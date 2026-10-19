@@ -22,16 +22,10 @@ import { membershipPlans, annualPerk } from "../data/plans";
       {membershipPlans.map((plan) => (
         <div
           class:list={[
-            "relative flex h-full flex-col overflow-hidden rounded-2xl border-4 bg-white shadow-lg transition-transform",
+            "flex h-full flex-col overflow-hidden rounded-2xl border-4 bg-white shadow-lg transition-transform",
             plan.highlight ? "border-brand-gold lg:-translate-y-3 shadow-2xl" : "border-brand-green/15",
           ]}
         >
-          {plan.badge && (
-            <div class="absolute right-0 top-6 rounded-l-full bg-brand-gold px-4 py-1 text-xs font-bold uppercase tracking-wide text-brand-ink shadow">
-              {plan.badge}
-            </div>
-          )}
-
           <div
             class:list={[
               "px-6 py-8 text-white",
@@ -40,6 +34,11 @@ import { membershipPlans, annualPerk } from "../data/plans";
                 : "bg-gradient-to-b from-brand-green to-brand-green-dark",
             ]}
           >
+            {plan.badge && (
+              <p class="mx-auto mb-4 w-fit rounded-full bg-white px-4 py-1 text-[11px] font-extrabold uppercase tracking-wider text-brand-ink shadow">
+                {plan.badge}
+              </p>
+            )}
             <p class="text-lg font-extrabold uppercase tracking-wide">{plan.name}</p>
             <p class="mt-1 text-xs font-semibold uppercase tracking-wide text-white/75">{plan.tagline}</p>
 
