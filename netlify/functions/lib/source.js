@@ -5,6 +5,7 @@ export function getSourceLabel(pageUrl) {
     const path = new URL(pageUrl).pathname.replace(/\/+$/, "") || "/";
     if (path === "/free-estimate-email") return "Email Landing Page";
     if (path === "/free-estimate") return "Meta Landing Page";
+    if (path === "/black-friday") return "Black Friday Landing Page";
     return "Website";
   } catch {
     return "Website";
