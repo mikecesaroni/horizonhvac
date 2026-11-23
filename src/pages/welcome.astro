@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { fiveStarReviewCount } from "../data/business";
 
 // Post-opt-in VSL page. Sent by GoHighLevel automation immediately after a lead
 // submits an ad form, so the visitor has ALREADY converted, there is
@@ -112,7 +113,7 @@ const steps = [
       </div>
 
       <div class="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-1 text-xs sm:text-sm font-semibold text-white/80">
-        <span>★★★★★ 4.9 Rating</span>
+        <span>★★★★★ {fiveStarReviewCount} Five-Star Reviews</span>
         <span>Licensed &amp; Insured</span>
         <span>BBB Accredited A+</span>
         <span>Rhode Island &amp; Massachusetts</span>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { fiveStarReviewCount } from "../data/business";
 ---
 
 <BaseLayout
@@ -23,7 +24,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           Same-day service, upfront pricing, and a 100% satisfaction guarantee. Proudly serving all of Rhode Island &amp; Massachusetts.
         </p>
         <div class="mt-2 sm:mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-1 text-xs sm:text-sm font-semibold text-white/90 lg:justify-start">
-          <span>★★★★★ 4.9 Rating</span>
+          <span>★★★★★ {fiveStarReviewCount} Five-Star Reviews</span>
           <span>Licensed &amp; Insured RI</span>
           <span>BBB Accredited A+</span>
           <span>25+ Yrs Experience</span>
