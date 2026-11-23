@@ -9,7 +9,10 @@ export default defineConfig({
       // Ad-only landing pages are noindex, keep them out of the sitemap too, so we're
       // not sending search engines a mixed signal.
       filter: (page) =>
-        !page.includes('/free-estimate') && !page.includes('/welcome') && !page.includes('/black-friday'),
+        !page.includes('/free-estimate') &&
+        !page.includes('/welcome') &&
+        !page.includes('/black-friday') &&
+        !page.includes('/why-horizon'),
     }),
   ],
   vite: {
