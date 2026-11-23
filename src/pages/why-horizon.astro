@@ -1,0 +1,141 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { googleReviewsUrl } from "../data/business";
+
+// Sent the day after a quote goes out, as social proof while the customer is
+// deciding. The video is a real customer in his own backyard, talking about
+// working with Horizon after the job was done.
+//
+// NO FORM ON THIS PAGE, deliberately. The recipient has already had a quote,
+// so asking for their details again would be asking them to go backwards. The
+// only actions are watch the video, read other reviews, and call about the
+// quote they are holding.
+//
+// Video handling: the source was a 17MB 1080x1920 QuickTime file in H.264
+// High 10, which is 10-bit HDR (HLG, bt2020) straight off an iPhone. It was
+// re-encoded rather than remuxed, for four reasons:
+//   1. HDR to SDR. Tone-mapped to bt709 so it renders correctly on the SDR
+//      screens almost everyone is watching on, instead of looking washed out.
+//   2. 10-bit to 8-bit High profile. Desktop Chromium does decode High 10, so
+//      this is about breadth rather than a hard failure: 10-bit H.264 is not
+//      reliably hardware-decoded on older iOS and Android devices.
+//   3. QuickTime container to MP4, served as video/mp4. Chrome and Firefox are
+//      unreliable with video/quicktime even when the codecs inside are fine.
+//   4. 17MB to 7.5MB at 720x1280, which is ample for a talking-head clip, and
+//      written with +faststart so playback begins before the download finishes.
+// Keep those properties if the file is ever replaced.
+//
+// Claims stay on the video. No response-time promise and no availability
+// claim, consistent with the rest of the site.
+
+const PHONE_DISPLAY = "401-425-9879";
+const PHONE_HREF = "tel:14014259879";
+
+const reassurances = [
+  {
+    title: "Your quote is itemized and fixed",
+    body: "The price you were sent is the price. Equipment, labor and anything the job needs are spelled out, so there is nothing to discover later.",
+  },
+  {
+    title: "No pressure to decide today",
+    body: "The quote does not expire the moment you stop replying. Take the time you need, and ask us anything in the meantime.",
+  },
+  {
+    title: "Financing if you would rather spread it",
+    body: "Several terms are available, so a replacement does not have to come out of savings all at once.",
+  },
+  {
+    title: "Licensed and insured",
+    body: "Every job is done by our own team, and we can produce our insurance certificate on request.",
+  },
+];
+---
+
+<BaseLayout
+  title="Hear From a Customer"
+  fullTitle="Hear From a Horizon HVAC Customer | Horizon HVAC"
+  description="A Horizon HVAC customer talks about what it was like to work with us, filmed at his own home after the job was finished."
+  ogImage="/video/customer-testimonial-poster.jpg"
+  minimal={true}
+  noindex={true}
+>
+  <section class="relative isolate flex-1 overflow-hidden bg-brand-green text-white">
+    <div class="absolute inset-0 -z-20 bg-cover bg-center" style="background-image: url('/Untitled-design-8.png');"></div>
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-brand-green-dark/92 via-brand-green/88 to-brand-green-dark/95"></div>
+
+    <div class="mx-auto w-full max-w-3xl px-4 py-8 sm:py-12">
+      <div class="text-center">
+        <p class="text-xs sm:text-sm font-bold uppercase tracking-widest text-brand-gold">In a customer's own words</p>
+        <h1 class="mt-2 text-2xl sm:text-4xl font-extrabold uppercase leading-tight drop-shadow-lg">
+          Don't Take <span class="text-brand-gold">Our</span> Word For It
+        </h1>
+        <p class="mt-3 text-sm sm:text-lg font-semibold text-white/85">
+          Filmed at his own home, after the job was finished.
+        </p>
+      </div>
+
+      <!-- Portrait video, so the player is held to a phone-shaped column rather
+           than stretched across the page. -->
+      <div class="mx-auto mt-6 w-full max-w-sm overflow-hidden rounded-2xl border-4 border-white/20 shadow-2xl sm:mt-8">
+        <video
+          class="block h-auto w-full bg-black"
+          controls
+          playsinline
+          preload="metadata"
+          poster="/video/customer-testimonial-poster.jpg"
+          width="720"
+          height="1280"
+        >
+          <source src="/video/customer-testimonial.mp4" type="video/mp4" />
+          Your browser can't play this video. Call us at {PHONE_DISPLAY} and we'll happily put you in touch with
+          customers who have had the same work done.
+        </video>
+      </div>
+
+      <div class="mt-6 text-center">
+        <a
+          href={googleReviewsUrl}
+          target="_blank"
+          rel="noopener"
+          class="text-sm font-semibold text-brand-gold underline underline-offset-4 hover:opacity-80"
+        >
+          Read our Google reviews
+        </a>
+      </div>
+
+      <div class="mt-9 rounded-2xl bg-brand-green-dark/40 p-5 sm:p-7">
+        <h2 class="text-center text-lg sm:text-xl font-extrabold uppercase tracking-wide text-brand-gold">
+          While You're Deciding
+        </h2>
+        <div class="mt-5 grid gap-4 sm:grid-cols-2">
+          {reassurances.map((item) => (
+            <div class="rounded-xl bg-white/[0.06] p-4">
+              <h3 class="font-bold text-white">{item.title}</h3>
+              <p class="mt-1 text-sm leading-relaxed text-white/80">{item.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="mt-8 text-center">
+        <p class="text-sm font-semibold text-white/85">Questions about your quote? Talk to us directly.</p>
+        <a
+          href={PHONE_HREF}
+          class="mt-3 inline-block rounded-full bg-brand-gold px-10 py-4 text-lg font-extrabold text-brand-ink shadow-lg transition-opacity hover:opacity-90"
+        >
+          Call {PHONE_DISPLAY}
+        </a>
+        <p class="mt-4 text-sm text-white/75">
+          Thinking about payments? <a href="/financing" class="font-semibold text-brand-gold underline underline-offset-4 hover:opacity-80">See financing options</a>
+        </p>
+      </div>
+
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-1 text-xs sm:text-sm font-semibold text-white/80">
+        <span>★★★★★ 4.9 Rating</span>
+        <span>Licensed &amp; Insured</span>
+        <span>BBB Accredited A+</span>
+        <span>Rhode Island &amp; Massachusetts</span>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
