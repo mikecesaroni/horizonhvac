@@ -32,3 +32,8 @@ export const googleReviewsUrl =
 // Dropping the /review suffix (https://g.page/r/CS8ROiycFWN9EAE) gives the short
 // profile link for the same listing, if a tidier profile URL is ever wanted.
 export const googleWriteReviewUrl = "https://g.page/r/CS8ROiycFWN9EAE/review";
+
+// Five-star Google review count, as given by Horizon. Kept here rather than
+// hardcoded per page: the previous figure was written into the top bar, the
+// homepage and four landing pages separately, and went stale in all of them.
+export const fiveStarReviewCount = 260;

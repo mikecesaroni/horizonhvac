@@ -1,5 +1,5 @@
 ---
-import { googleReviewsUrl } from "../data/business";
+import { googleReviewsUrl, fiveStarReviewCount } from "../data/business";
 ---
 
 <div class="flex flex-wrap items-center justify-center gap-6">
@@ -18,7 +18,7 @@ import { googleReviewsUrl } from "../data/business";
           </svg>
         ))}
       </div>
-      <p class="text-white text-sm font-bold">4.9 Rating</p>
+      <p class="text-white text-sm font-bold">{fiveStarReviewCount} Five-Star Reviews</p>
     </div>
   </a>
 

@@ -11,7 +11,7 @@ import AreasWeServe from "../components/AreasWeServe.astro";
 import EmbeddedQuoteForm from "../components/EmbeddedQuoteForm.astro";
 import FaqSection from "../components/FaqSection.astro";
 import HorizonDivider from "../components/HorizonDivider.astro";
-import { googleReviewsUrl } from "../data/business";
+import { googleReviewsUrl, fiveStarReviewCount } from "../data/business";
 import { reviews } from "../data/reviews";
 
 const homeFaqs = [
@@ -110,7 +110,7 @@ const homeFaqs = [
   <section class="bg-brand-green py-16">
     <div class="mx-auto max-w-6xl px-4 text-center">
       <h2 class="text-3xl font-extrabold text-white">What Your Neighbors Are Saying</h2>
-      <p class="mt-2 text-white/80">4.9 Stars · 165 Reviews</p>
+      <p class="mt-2 text-white/80">{fiveStarReviewCount} Five-Star Reviews</p>
       <div class="mt-10 grid gap-6 sm:grid-cols-3 items-start">
         {reviews.map((review) => (
           <figure class="flex h-full flex-col rounded-xl bg-white p-6 shadow-sm text-left">
